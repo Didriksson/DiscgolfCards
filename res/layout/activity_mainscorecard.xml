@@ -1,0 +1,646 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:visibility="visible"
+    tools:context=".MainScorecard" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="right" >
+
+        <Button
+            android:id="@+id/button1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal|fill_horizontal"
+            android:text="Done" 
+            android:onClick="completeRound"/>
+        	
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/holeInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left" >
+
+        <TextView
+            android:id="@+id/textViewHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#1"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/holeInfoPar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="125dp"
+            android:text="Par: 3"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewPlayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/playerlayout1"
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible" >
+
+                <TextView
+                    android:id="@+id/textViewNameR1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonDecreaseR1"
+                    android:layout_alignBottom="@+id/buttonDecreaseR1"
+                    android:layout_alignParentLeft="true"
+                    android:duplicateParentState="true"
+                    android:minWidth="150dp"
+                    android:text="Player 1"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Button
+                    android:id="@+id/buttonIncreaseR1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR1"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewNameR1"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/skinsR1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR1"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewCoursePar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonDecreaseR1"
+                    android:layout_alignRight="@+id/buttonDecreaseR1"
+                    android:layout_below="@+id/buttonDecreaseR1"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/textviewCourseTotal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonIncreaseR1"
+                    android:layout_alignRight="@+id/buttonIncreaseR1"
+                    android:layout_below="@+id/buttonDecreaseR1"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayout2"
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/textViewNameP2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonDecrease2"
+                    android:layout_alignBottom="@+id/buttonDecrease2"
+                    android:layout_alignParentLeft="true"
+                    android:duplicateParentState="true"
+                    android:minWidth="150dp"
+                    android:text="Player 2"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Button
+                    android:id="@+id/buttonIncrease2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/throwsP2"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/throwsP2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecrease2"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <Button
+                    android:id="@+id/buttonDecrease2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewNameP2"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/textviewCoursePar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonDecrease2"
+                    android:layout_alignRight="@+id/buttonDecrease2"
+                    android:layout_below="@+id/buttonDecrease2"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/textviewCourseTotal2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonIncrease2"
+                    android:layout_alignRight="@+id/buttonIncrease2"
+                    android:layout_below="@+id/buttonDecrease2"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayout3"
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/textViewNameP3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonDecrease3"
+                    android:layout_alignBottom="@+id/buttonDecrease3"
+                    android:layout_alignParentLeft="true"
+                    android:duplicateParentState="true"
+                    android:minWidth="150dp"
+                    android:text="Player 3"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Button
+                    android:id="@+id/buttonIncrease3"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/throwsP3"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/throwsP3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecrease3"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <Button
+                    android:id="@+id/buttonDecrease3"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewNameP3"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/textviewCoursePar3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonDecrease3"
+                    android:layout_alignRight="@+id/buttonDecrease3"
+                    android:layout_below="@+id/buttonDecrease3"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/textviewCourseTotal3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonIncrease3"
+                    android:layout_alignRight="@+id/buttonIncrease3"
+                    android:layout_below="@+id/buttonDecrease3"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayout4"
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/textViewNameP4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonDecrease4"
+                    android:layout_alignBottom="@+id/buttonDecrease4"
+                    android:layout_alignParentLeft="true"
+                    android:duplicateParentState="true"
+                    android:minWidth="150dp"
+                    android:text="Player 4"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Button
+                    android:id="@+id/buttonIncrease4"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/throwsP4"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/throwsP4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecrease4"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <Button
+                    android:id="@+id/buttonDecrease4"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewNameP4"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/textviewCoursePar4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonDecrease4"
+                    android:layout_alignRight="@+id/buttonDecrease4"
+                    android:layout_below="@+id/buttonDecrease4"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/textviewCourseTotal4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonIncrease4"
+                    android:layout_alignRight="@+id/buttonIncrease4"
+                    android:layout_below="@+id/buttonDecrease4"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayout5"
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/textViewNameP5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonDecrease5"
+                    android:layout_alignBottom="@+id/buttonDecrease5"
+                    android:layout_alignParentLeft="true"
+                    android:duplicateParentState="true"
+                    android:minWidth="150dp"
+                    android:text="Player 5"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Button
+                    android:id="@+id/buttonIncrease5"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/throwsP5"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/throwsP5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecrease5"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <Button
+                    android:id="@+id/buttonDecrease5"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewNameP5"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/textviewCoursePar5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonDecrease5"
+                    android:layout_alignRight="@+id/buttonDecrease5"
+                    android:layout_below="@+id/buttonDecrease5"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/textviewCourseTotal5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonIncrease5"
+                    android:layout_alignRight="@+id/buttonIncrease5"
+                    android:layout_below="@+id/buttonDecrease5"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayout6"
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/textViewNameP6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonDecrease6"
+                    android:layout_alignBottom="@+id/buttonDecrease6"
+                    android:layout_alignParentLeft="true"
+                    android:duplicateParentState="true"
+                    android:minWidth="150dp"
+                    android:text="Player 6"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Button
+                    android:id="@+id/buttonIncrease6"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/throwsP6"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/throwsP6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecrease6"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <Button
+                    android:id="@+id/buttonDecrease6"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewNameP6"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/textviewCoursePar6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonDecrease6"
+                    android:layout_alignRight="@+id/buttonDecrease6"
+                    android:layout_below="@+id/buttonDecrease6"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/textviewCourseTotal6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonIncrease6"
+                    android:layout_alignRight="@+id/buttonIncrease6"
+                    android:layout_below="@+id/buttonDecrease6"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayout7"
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/textViewNameP7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonDecrease7"
+                    android:layout_alignBottom="@+id/buttonDecrease7"
+                    android:layout_alignParentLeft="true"
+                    android:duplicateParentState="true"
+                    android:minWidth="150dp"
+                    android:text="Player 7"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Button
+                    android:id="@+id/buttonIncrease7"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/throwsP7"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/throwsP7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecrease7"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <Button
+                    android:id="@+id/buttonDecrease7"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewNameP7"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/textviewCoursePar7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonDecrease7"
+                    android:layout_alignRight="@+id/buttonDecrease7"
+                    android:layout_below="@+id/buttonDecrease7"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/textviewCourseTotal7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonIncrease7"
+                    android:layout_alignRight="@+id/buttonIncrease7"
+                    android:layout_below="@+id/buttonDecrease7"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayout8"
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/textViewNameP8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonDecrease8"
+                    android:layout_alignBottom="@+id/buttonDecrease8"
+                    android:layout_alignParentLeft="true"
+                    android:duplicateParentState="true"
+                    android:minWidth="150dp"
+                    android:text="Player 8"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Button
+                    android:id="@+id/buttonIncrease8"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/throwsP8"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/throwsP8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecrease8"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <Button
+                    android:id="@+id/buttonDecrease8"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textViewNameP8"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/textviewCoursePar8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonDecrease8"
+                    android:layout_alignRight="@+id/buttonDecrease8"
+                    android:layout_below="@+id/buttonDecrease8"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/textviewCourseTotal8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonIncrease8"
+                    android:layout_alignRight="@+id/buttonIncrease8"
+                    android:layout_below="@+id/buttonDecrease8"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,731 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".RevengeGameActivity" >
+    
+<LinearLayout 
+    android:id="@+id/mainLayer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:visibility="visible">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/button1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical|center_horizontal|fill_horizontal"
+            android:onClick="completeRound"
+            android:text="Done" />
+
+        <Button
+            android:id="@+id/buttonDrawCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Draw Card" 
+            android:onClick="drawCard"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/holeInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left" >
+
+        <TextView
+            android:id="@+id/textViewHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#1"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/holeInfoPar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="125dp"
+            android:text="Par: 3"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewPlayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/playerlayoutR1"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="10dp"
+                android:visibility="visible" >
+
+                <LinearLayout
+                    android:id="@+id/linearLayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewNameR1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center_vertical"
+                        android:minWidth="150dp"
+                        android:text="Player 1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonIncreaseR1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR1"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/skinsR1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR1"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewTotalSkinsR1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/skinsR1"
+                    android:layout_alignRight="@+id/skinsR1"
+                    android:layout_below="@+id/buttonIncreaseR1"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textviewCourseTotal1"
+                    android:layout_toRightOf="@+id/linearLayout1"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/buttonDecreaseR1"
+                    android:text="Total skins:" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayoutR2"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewNameR2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center_vertical"
+                        android:minWidth="150dp"
+                        android:text="Player 1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonIncreaseR2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR2"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/skinsR2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR2"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewTotalSkinsR2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/skinsR2"
+                    android:layout_alignRight="@+id/skinsR2"
+                    android:layout_below="@+id/buttonIncreaseR2"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textviewCourseTotal1"
+                    android:layout_toRightOf="@+id/LinearLayout01"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/buttonDecreaseR2"
+                    android:text="Total skins:" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayoutR3"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewNameR3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center_vertical"
+                        android:minWidth="150dp"
+                        android:text="Player 1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonIncreaseR3"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR3"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/skinsR3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR3"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewTotalSkinsR3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/skinsR3"
+                    android:layout_alignRight="@+id/skinsR3"
+                    android:layout_below="@+id/buttonIncreaseR3"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR3"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textviewCourseTotal1"
+                    android:layout_toRightOf="@+id/LinearLayout02"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/TextView05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/buttonDecreaseR3"
+                    android:text="Total skins:" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayoutR4"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewNameR4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center_vertical"
+                        android:minWidth="150dp"
+                        android:text="Player 1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonIncreaseR4"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR4"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/skinsR4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR4"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewTotalSkinsR4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/skinsR4"
+                    android:layout_alignRight="@+id/skinsR4"
+                    android:layout_below="@+id/buttonDecreaseR4"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR4"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textviewCourseTotal1"
+                    android:layout_toRightOf="@+id/LinearLayout03"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/TextView06"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/buttonDecreaseR4"
+                    android:text="Total skins:" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayoutR5"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewNameR5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center_vertical"
+                        android:minWidth="150dp"
+                        android:text="Player 1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonIncreaseR5"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR5"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/skinsR5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR5"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewTotalSkinsR5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/skinsR5"
+                    android:layout_alignRight="@+id/skinsR5"
+                    android:layout_below="@+id/buttonDecreaseR5"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR5"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textviewCourseTotal1"
+                    android:layout_toRightOf="@+id/LinearLayout04"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/TextView08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/buttonDecreaseR5"
+                    android:text="Total skins:" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayoutR6"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewNameR6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center_vertical"
+                        android:minWidth="150dp"
+                        android:text="Player 1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonIncreaseR6"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR6"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/skinsR6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR6"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewTotalSkinsR6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/skinsR6"
+                    android:layout_alignRight="@+id/skinsR6"
+                    android:layout_below="@+id/buttonDecreaseR6"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR6"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textviewCourseTotal1"
+                    android:layout_toRightOf="@+id/LinearLayout05"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/TextView04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/buttonDecreaseR6"
+                    android:text="Total skins:" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayoutR7"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout06"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewNameR7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center_vertical"
+                        android:minWidth="150dp"
+                        android:text="Player 1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonIncreaseR7"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR7"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/skinsR7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR7"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewTotalSkinsR7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/skinsR7"
+                    android:layout_alignRight="@+id/skinsR7"
+                    android:layout_below="@+id/buttonDecreaseR7"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR7"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textviewCourseTotal1"
+                    android:layout_toRightOf="@+id/LinearLayout06"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/TextView07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/buttonDecreaseR7"
+                    android:text="Total skins:" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/playerlayoutR8"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewNameR8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:duplicateParentState="true"
+                        android:gravity="center_vertical"
+                        android:minWidth="150dp"
+                        android:text="Player 1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonIncreaseR8"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR8"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/skinsR8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/buttonDecreaseR8"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/textviewTotalSkinsR8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/skinsR8"
+                    android:layout_alignRight="@+id/skinsR8"
+                    android:layout_below="@+id/buttonDecreaseR8"
+                    android:gravity="center_horizontal"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonDecreaseR8"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/textviewCourseTotal1"
+                    android:layout_toRightOf="@+id/LinearLayout07"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/TextView09"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/buttonDecreaseR8"
+                    android:text="Total skins:" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+	</LinearLayout>
+
+<RelativeLayout
+    android:id="@+id/cardLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical|center_horizontal"
+    android:layout_marginBottom="50dp"
+    android:visibility="gone" >
+
+    <ImageView
+        android:id="@+id/cardImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="99dp"
+        android:src="@drawable/cardfrontside" />
+
+    <EditText
+        android:id="@+id/cardText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/cardImage"
+        android:layout_alignRight="@+id/cardImage"
+        android:layout_alignTop="@+id/cardImage"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#00000000"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/buttonCardDone"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cardImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:onClick="closeCardWindow"
+        android:text="Done" />
+
+</RelativeLayout>
+
+   </FrameLayout>
