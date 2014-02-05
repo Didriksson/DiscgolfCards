@@ -24,13 +24,17 @@ public final class R {
         public static final int cardfrontside=0x7f020000;
         public static final int doneactionbutton=0x7f020001;
         public static final int ic_launcher=0x7f020002;
-        public static final int quitbutton=0x7f020003;
-        public static final int roundcompletebackground=0x7f020004;
-        public static final int roundofcardsbutton=0x7f020005;
-        public static final int scorecardbutton=0x7f020006;
-        public static final int skinchallenge=0x7f020007;
-        public static final int startbutton=0x7f020008;
-        public static final int testbutton=0x7f020009;
+        public static final int menubackground_160dpi=0x7f020003;
+        public static final int menubackground_240dpi=0x7f020004;
+        public static final int menubackground_320dpi=0x7f020005;
+        public static final int menubackground_480dpi=0x7f020006;
+        public static final int quitbutton=0x7f020007;
+        public static final int roundcompletebackground=0x7f020008;
+        public static final int roundofcardsbutton=0x7f020009;
+        public static final int scorecardbutton=0x7f02000a;
+        public static final int skinchallenge=0x7f02000b;
+        public static final int startbutton=0x7f02000c;
+        public static final int testbutton=0x7f02000d;
     }
     public static final class id {
         public static final int LinearLayout01=0x7f080065;
