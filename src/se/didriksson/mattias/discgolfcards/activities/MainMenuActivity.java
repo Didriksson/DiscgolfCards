@@ -38,6 +38,10 @@ public class MainMenuActivity extends Activity {
 	}
 	
 	
+	public void quitApplication(View view){
+		finish();
+	}
+	
 	public void startRevengeGame(View view){
 		Intent intent = new Intent(this, ScorecardSubmenu.class);
 		Bundle b = new Bundle();

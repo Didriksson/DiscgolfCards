@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/skinchallengebutton"
         android:layout_below="@+id/skinchallengebutton"
-        android:src="@drawable/quitbutton" />
+        android:src="@drawable/quitbutton" 
+        android:onClick="quitApplication"/>
 
     <ImageButton
         android:id="@+id/scorecardbutton"
