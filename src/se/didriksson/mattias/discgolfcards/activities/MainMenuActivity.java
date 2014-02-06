@@ -3,8 +3,9 @@ package se.didriksson.mattias.discgolfcards.activities;
 import java.util.List;
 
 import se.didriksson.mattias.discgolfcards.R;
+import se.didriksson.mattias.discgolfcards.program.Course;
 import se.didriksson.mattias.discgolfcards.program.Player;
-import se.didriksson.mattias.discgolfcards.program.PlayerDatabaseHandler;
+import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,10 +21,16 @@ public class MainMenuActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
-		PlayerDatabaseHandler db = new PlayerDatabaseHandler(this);
+		DatabaseHandler db = new DatabaseHandler(this);
 		Log.d("Insert: ", "Inserting players...");
 		db.addPlayer(new Player("Mattias"));
 		db.addPlayer(new Player("Anders"));
+	
+		Log.d("Insert: ", "Inserting courses...");
+		db.addCourse(new Course("Stora Vall"));
+		db.addCourse(new Course("Järva"));
+		
+		
 		
 		Log.d("Reading: ", "Reading all players");
         
@@ -37,6 +44,18 @@ public class MainMenuActivity extends Activity {
 		
 	}
         
+        
+	Log.d("Reading: ", "Reading all Courses");
+        
+        List<Course> courses = db.getAllCourses();       
+        
+        for (Course cn : courses) {
+            String log = "Id: "+cn.getID()+" ,Name: " + cn.getName();
+                // Writing Contacts to log
+      
+            Log.d("Course name: ", log);
+		
+	}
 	}
 
 	@Override

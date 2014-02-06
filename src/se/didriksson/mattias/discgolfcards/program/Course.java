@@ -4,7 +4,16 @@ public class Course {
 	
 	int[] pars;
 	String name;
+	int _id;
 	
+	public Course(String name){
+		this(name, 18);
+	}
+	
+	public Course(int id, String name){
+		this(name, 18);
+		this._id = id;
+	}
 	public Course(String name, int numberOfHoles){
 		this.name = name;
 		pars = new int[numberOfHoles];
@@ -16,7 +25,11 @@ public class Course {
 			pars[i] = 3;
 		}
 	}
-
+	
+	public String getName(){
+		return name;
+	}
+	public int getID(){return _id;}
 	public int getParForHole(int hole){return pars[hole-1];}
 	public void setParForHole(int hole, int par){pars[hole-1] = par;}
 	public int getNumberOfHoles(){return pars.length;}
