@@ -131,9 +131,9 @@ public class Scorecard {
 	}
 
 	public int getFinalScore(int player) {
-		return players[player-1].getFinalResult();
+		return players[player-1].getFinalResult(course.getNumberOfHoles());
 	}
 	public int getFinalScorePar(int player) {
-		return course.getTotalThrowsUpToThisHole(18) - players[player-1].getFinalResult();
+		return course.getTotalThrowsUpToThisHole(18) - players[player-1].getFinalResult(course.getNumberOfHoles());
 	}
 }

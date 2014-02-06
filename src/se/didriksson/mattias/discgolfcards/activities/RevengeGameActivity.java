@@ -59,7 +59,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
 		for (int i = 0; i < noPlayers; i++) {
-			player[i] = new Player(b.getString("player" + i), 18);
+			player[i] = new Player(b.getString("player" + i));
 		}
 
 		return player;

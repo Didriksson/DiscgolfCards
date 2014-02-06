@@ -7,16 +7,28 @@ public class Player {
 
 	String name;
 	int[] results;
+	int _id;
 	List<Card> cards;
 
-	public Player(String name, int numberOfHoles) {
+	public Player(String name) {
 		this.name = name;
-		this.results = new int[numberOfHoles];
+		this.results = new int[36];
+		cards = new ArrayList<Card>();
+	}
+	
+	public Player(int id, String name) {
+		this.name = name;
+		this._id = id;
+		this.results = new int[36];
 		cards = new ArrayList<Card>();
 	}
 
 	public String getName() {
 		return name;
+	}
+	
+	public int getID(){
+		return _id;
 	}
 
 	public int getResult(int hole) {
@@ -59,9 +71,9 @@ public class Player {
 		cards.add(card);
 	}
 
-	public int getFinalResult() {
+	public int getFinalResult(int numberOfHoles) {
 		int tmp = 0;
-		for (int i = 0; i < results.length; i++) {
+		for (int i = 0; i < numberOfHoles; i++) {
 			tmp = tmp + results[i];
 		}
 		return tmp;
