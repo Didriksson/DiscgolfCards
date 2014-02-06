@@ -40,6 +40,7 @@ public class MainMenuActivity extends Activity {
 	
 	public void quitApplication(View view){
 		finish();
+		System.exit(0);
 	}
 	
 	public void startRevengeGame(View view){
