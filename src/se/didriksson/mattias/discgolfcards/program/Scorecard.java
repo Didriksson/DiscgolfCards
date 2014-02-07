@@ -124,6 +124,10 @@ public class Scorecard {
 		return currentHole == course.getNumberOfHoles();
 	}
 	
+	public Course getCourse(){
+		return course;
+	}
+	
 	public int getNumberOfHoles(){return course.getNumberOfHoles();}
 	
 	public String toString(){
