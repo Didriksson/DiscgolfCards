@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,7 +32,8 @@ public class CompleteRoundActivity extends Activity {
 			results[i] = bundle.getInt("playerresult" + (i + 1));
 			par[i] = bundle.getInt("playerresultPar" + (i + 1));
 		}
-
+		
+	
 		setPlayerNames();
 		setPlayerScore();
 		setPlayerLayoutVisible();
@@ -53,7 +55,10 @@ public class CompleteRoundActivity extends Activity {
 		for (int i = 0; i < playerNames.length && i < tmp.length; i++) {
 			tmp[i].setVisibility(View.VISIBLE);
 		}
+		
 
+		
+	
 	}
 
 	private void setPlayerScore() {

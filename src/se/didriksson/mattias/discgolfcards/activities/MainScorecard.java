@@ -17,6 +17,7 @@ public class MainScorecard extends SwipeActivity implements
 	Scorecard scorecard;
 	private float downX;
 	private final float minSwipeDistance = 50;
+	DatabaseHandler database = new DatabaseHandler(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class MainScorecard extends SwipeActivity implements
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
 		for (int i = 0; i < noPlayers; i++) {
-			player[i] = new Player(b.getString("player" + i));
+			player[i] = database.getPlayer(b.getInt("player"+i));
 		}
 
 		return player;

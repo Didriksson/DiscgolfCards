@@ -20,6 +20,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 	private final float minSwipeDistance = 50;
 	RelativeLayout cardWindow;
 	EditText cardText;
+	DatabaseHandler database = new DatabaseHandler(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
 		for (int i = 0; i < noPlayers; i++) {
-			player[i] = new Player(b.getString("player" + i));
+			player[i] = database.getPlayer(b.getInt("player"+i));
 		}
 
 		return player;
@@ -68,6 +69,9 @@ public class RevengeGameActivity extends SwipeActivity implements
 
 	private void setPlayerNames() {
 		TextView[] textView = new TextView[8];
+		
+		
+		
 		textView[0] = (TextView) findViewById(R.id.textViewNameR1);
 		textView[1] = (TextView) findViewById(R.id.textViewNameR2);
 		textView[2] = (TextView) findViewById(R.id.textViewNameR3);

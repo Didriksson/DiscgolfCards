@@ -24,9 +24,17 @@ public class MainMenuActivity extends Activity {
 		setContentView(R.layout.activity_main_menu);
 		DatabaseHandler db = new DatabaseHandler(this);
 //		Log.d("Insert: ", "Inserting players...");
-//		db.addPlayer(new Player("Mattias"));
-//		db.addPlayer(new Player("Anders"));
-//	
+		db.addPlayer(new Player("Agnes"));
+		db.addPlayer(new Player("Beate"));
+		db.addPlayer(new Player("Fredrik"));
+		db.addPlayer(new Player("Bertil"));
+		db.addPlayer(new Player("Åke"));
+		db.addPlayer(new Player("Rune"));
+		db.addPlayer(new Player("Lisa"));
+		
+		
+		
+		//	
 //		Log.d("Insert: ", "Inserting courses...");
 //		long storaVall = db.addCourse(new Course("Stora Vall"));
 //		Log.d("Long return: ", ""+storaVall);
@@ -60,7 +68,7 @@ public class MainMenuActivity extends Activity {
 	}
         
         
-	Log.d("Reading: ", "Reading all Courses");
+	Log.d("Reading: ", "Reading all Rounds");
         
         List<Round> rounds = db.getAllRounds();       
         
@@ -92,7 +100,7 @@ public class MainMenuActivity extends Activity {
 
 	public void quitApplication(View view) {
 		finish();
-		System.exit(0);
+
 	}
 
 	public void startRevengeGame(View view) {

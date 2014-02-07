@@ -84,16 +84,6 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <Button
-                    android:id="@+id/buttonIncreaseR1"
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/skinsR1"
-                    android:onClick="incrementAndDecrementThrow"
-                    android:text="+" />
-
-                <Button
                     android:id="@+id/buttonDecreaseR1"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
@@ -134,6 +124,16 @@
                     android:layout_below="@+id/buttonDecreaseR1"
                     android:gravity="center_horizontal"
                     android:text="0" />
+
+                <Button
+                    android:id="@+id/buttonIncreaseR1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/skinsR1"
+                    android:onClick="incrementAndDecrementThrow"
+                    android:text="+" />
 
             </RelativeLayout>
 

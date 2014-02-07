@@ -3,7 +3,7 @@ package se.didriksson.mattias.discgolfcards.program;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player implements Comparable<Player> {
 
 	String name;
 	int[] results;
@@ -77,6 +77,12 @@ public class Player {
 			tmp = tmp + results[i];
 		}
 		return tmp;
+	}
+
+
+	@Override
+	public int compareTo(Player another) {
+		return this.name.compareTo(another.getName());
 	}
 
 }
