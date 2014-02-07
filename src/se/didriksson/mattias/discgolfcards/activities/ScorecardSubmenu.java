@@ -68,6 +68,7 @@ public class ScorecardSubmenu extends Activity {
 		EditText nameButton = (EditText) findViewById(R.id.newPlayerEditTextBox);
 		String name = nameButton.getText().toString();
 		database.addPlayer(new Player(name));
+		addExcistingPlayers();
 
 	}
 
