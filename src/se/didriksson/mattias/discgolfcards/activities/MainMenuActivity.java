@@ -6,6 +6,7 @@ import se.didriksson.mattias.discgolfcards.R;
 import se.didriksson.mattias.discgolfcards.program.Course;
 import se.didriksson.mattias.discgolfcards.program.Player;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
+import se.didriksson.mattias.discgolfcards.program.Round;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,15 +23,16 @@ public class MainMenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
 		DatabaseHandler db = new DatabaseHandler(this);
-		Log.d("Insert: ", "Inserting players...");
-		db.addPlayer(new Player("Mattias"));
-		db.addPlayer(new Player("Anders"));
-	
-		Log.d("Insert: ", "Inserting courses...");
-		db.addCourse(new Course("Stora Vall"));
-		db.addCourse(new Course("Järva"));
-		
-		
+//		Log.d("Insert: ", "Inserting players...");
+//		db.addPlayer(new Player("Mattias"));
+//		db.addPlayer(new Player("Anders"));
+//	
+//		Log.d("Insert: ", "Inserting courses...");
+//		long storaVall = db.addCourse(new Course("Stora Vall"));
+//		Log.d("Long return: ", ""+storaVall);
+//		db.addCourse(new Course("Järva"));
+//		
+//		db.addRounds(1, 1, 55);
 		
 		Log.d("Reading: ", "Reading all players");
         
@@ -54,6 +56,19 @@ public class MainMenuActivity extends Activity {
                 // Writing Contacts to log
       
             Log.d("Course name: ", log);
+		
+	}
+        
+        
+	Log.d("Reading: ", "Reading all Courses");
+        
+        List<Round> rounds = db.getAllRounds();       
+        
+        for (Round cn : rounds) {
+            String log = "Id: "+cn.getID()+" ,Bana: " + cn.getCourse().getName() + " ,Spelare: " + cn.getPlayer().getName() + " ,Resultat: " + cn.getScore();
+                // Writing Contacts to log
+      
+            Log.d("Round name: ", log);
 		
 	}
 	}
