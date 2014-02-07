@@ -21,27 +21,14 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int buttonexit=0x7f020000;
-        public static final int cardfrontside=0x7f020001;
-        public static final int doneactionbutton=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int menubackground_120dpi_ldpi=0x7f020004;
-        public static final int menubackground_160dpi_mdpi=0x7f020005;
-        public static final int menubackground_240dpi_hdpi=0x7f020006;
-        public static final int menubackground_320dpi_xhdpi=0x7f020007;
-        public static final int menubackground_480dpi_xxhdpi=0x7f020008;
-        public static final int menubar_background=0x7f020009;
-        public static final int menubar_background1=0x7f02000a;
-        public static final int quitbutton=0x7f02000b;
-        public static final int quitbutton_test=0x7f02000c;
-        public static final int roundcompletebackground=0x7f02000d;
-        public static final int roundofcardsbutton=0x7f02000e;
-        public static final int scorecardbutton=0x7f02000f;
-        public static final int scorecardbutton_test=0x7f020010;
-        public static final int skinchallenge=0x7f020011;
-        public static final int skinchallenge_test=0x7f020012;
-        public static final int startbutton=0x7f020013;
-        public static final int testbutton=0x7f020014;
+        public static final int cardfrontside=0x7f020000;
+        public static final int doneactionbutton=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int menubackground=0x7f020003;
+        public static final int menubar_background1=0x7f020004;
+        public static final int quitbutton_test=0x7f020005;
+        public static final int scorecardbutton_test=0x7f020006;
+        public static final int skinchallenge_test=0x7f020007;
     }
     public static final class id {
         public static final int LinearLayout01=0x7f080067;
@@ -75,10 +62,10 @@ public final class R {
         public static final int TextViewStrokesP6=0x7f08001c;
         public static final int TextViewStrokesP7=0x7f080020;
         public static final int TextViewStrokesP8=0x7f080024;
-        public static final int action_search=0x7f0800a7;
-        public static final int action_settings=0x7f0800a6;
+        public static final int action_search=0x7f0800a9;
+        public static final int action_settings=0x7f0800a8;
         public static final int addPlayer=0x7f0800a2;
-        public static final int button1=0x7f080001;
+        public static final int addPlayerWindow=0x7f0800a6;
         public static final int buttonCardDone=0x7f0800a1;
         public static final int buttonDecrease2=0x7f080034;
         public static final int buttonDecrease3=0x7f08003b;
@@ -103,7 +90,7 @@ public final class R {
         public static final int buttonIncrease6=0x7f080051;
         public static final int buttonIncrease7=0x7f080058;
         public static final int buttonIncrease8=0x7f08005f;
-        public static final int buttonIncreaseR1=0x7f08002e;
+        public static final int buttonIncreaseR1=0x7f080031;
         public static final int buttonIncreaseR2=0x7f080069;
         public static final int buttonIncreaseR3=0x7f080071;
         public static final int buttonIncreaseR4=0x7f080079;
@@ -120,6 +107,8 @@ public final class R {
         public static final int holeInfoPar=0x7f08002b;
         public static final int linearLayout1=0x7f080027;
         public static final int mainLayer=0x7f080000;
+        public static final int newPlayerAddButton=0x7f080001;
+        public static final int newPlayerEditTextBox=0x7f0800a7;
         public static final int playerlayout1=0x7f08002c;
         public static final int playerlayout2=0x7f080032;
         public static final int playerlayout3=0x7f080039;
@@ -148,7 +137,7 @@ public final class R {
         public static final int scrollExistingPlayers=0x7f0800a4;
         public static final int scrollViewPlayer=0x7f080004;
         public static final int skinchallengebutton=0x7f080029;
-        public static final int skinsR1=0x7f08002f;
+        public static final int skinsR1=0x7f08002e;
         public static final int skinsR2=0x7f08006a;
         public static final int skinsR3=0x7f080072;
         public static final int skinsR4=0x7f08007a;
@@ -181,7 +170,7 @@ public final class R {
         public static final int textViewNameR6=0x7f080088;
         public static final int textViewNameR7=0x7f080090;
         public static final int textViewNameR8=0x7f080098;
-        public static final int textviewCoursePar1=0x7f080030;
+        public static final int textviewCoursePar1=0x7f08002f;
         public static final int textviewCoursePar2=0x7f080037;
         public static final int textviewCoursePar3=0x7f08003e;
         public static final int textviewCoursePar4=0x7f080045;
@@ -189,7 +178,7 @@ public final class R {
         public static final int textviewCoursePar6=0x7f080053;
         public static final int textviewCoursePar7=0x7f08005a;
         public static final int textviewCoursePar8=0x7f080061;
-        public static final int textviewCourseTotal1=0x7f080031;
+        public static final int textviewCourseTotal1=0x7f080030;
         public static final int textviewCourseTotal2=0x7f080038;
         public static final int textviewCourseTotal3=0x7f08003f;
         public static final int textviewCourseTotal4=0x7f080046;

@@ -24,13 +24,8 @@ public class MainMenuActivity extends Activity {
 		setContentView(R.layout.activity_main_menu);
 		DatabaseHandler db = new DatabaseHandler(this);
 //		Log.d("Insert: ", "Inserting players...");
-		db.addPlayer(new Player("Agnes"));
-		db.addPlayer(new Player("Beate"));
-		db.addPlayer(new Player("Fredrik"));
-		db.addPlayer(new Player("Bertil"));
-		db.addPlayer(new Player("Åke"));
-		db.addPlayer(new Player("Rune"));
-		db.addPlayer(new Player("Lisa"));
+//		db.addPlayer(new Player("Agnes"));
+
 		
 		
 		

@@ -12,7 +12,9 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class ScorecardSubmenu extends Activity {
 
@@ -53,9 +55,21 @@ public class ScorecardSubmenu extends Activity {
 		return true;
 	}
 	
-	public void addPlayer(View view){
+	public void newPlayer(View view){
+		 RelativeLayout layout = (RelativeLayout)findViewById(R.id.addPlayerWindow);
+		 layout.setVisibility(View.VISIBLE);
 		}
 		
+	public void newPlayerAddButton(View view){
+		 RelativeLayout layout = (RelativeLayout)findViewById(R.id.addPlayerWindow);
+		 layout.setVisibility(View.GONE);
+		 
+		 EditText nameButton = (EditText) findViewById(R.id.newPlayerEditTextBox);
+		 String name = nameButton.getText().toString();
+		 database.addPlayer(new Player(name));
+		 
+		 
+	}
 	
 	
 	

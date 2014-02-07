@@ -10,7 +10,9 @@
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="112dp"
         android:background="@drawable/menubar_background1"
         android:orientation="vertical" >
 
@@ -18,8 +20,8 @@
             android:id="@+id/scorecardbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
             android:onClick="startScorecard"
             android:src="@drawable/scorecardbutton_test" />
 
@@ -35,8 +37,8 @@
             android:id="@+id/quitbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
             android:onClick="quitApplication"
             android:src="@drawable/quitbutton_test" />
     </LinearLayout>

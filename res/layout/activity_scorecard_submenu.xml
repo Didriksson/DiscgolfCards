@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:visibility="visible"
     tools:context=".ScorecardSubmenu" >
 
     <Button
@@ -14,8 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Add a player" 
-        android:onClick="addPlayer"/>
+        android:text="New player" 
+        android:onClick="newPlayer"/>
 
     <Button
         android:id="@+id/startButton"
@@ -53,7 +54,49 @@
         </LinearLayout>
 
     </ScrollView>
-    
-    
+
+    <RelativeLayout
+        android:id="@+id/addPlayerWindow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/scrollExistingPlayers"
+        android:layout_alignLeft="@+id/scrollExistingPlayers"
+        android:layout_alignRight="@+id/scrollExistingPlayers"
+        android:layout_below="@+id/textviewCoursePar1"
+        android:background="@drawable/menubar_background1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <EditText
+            android:id="@+id/newPlayerEditTextBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:gravity="center_horizontal|bottom"
+            android:inputType="textPersonName"
+            android:text="Your name goes here"
+            android:textSize="25dp" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/newPlayerAddButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
+            android:padding="25dp"
+            android:text="Add" 
+            android:onClick="newPlayerAddButton"/>
+
+    </RelativeLayout>
     
 </RelativeLayout>
