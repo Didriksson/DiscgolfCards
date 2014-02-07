@@ -104,6 +104,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	}
 
+	
 	public Player getPlayer(int id) {
 		SQLiteDatabase database = this.getReadableDatabase();
 

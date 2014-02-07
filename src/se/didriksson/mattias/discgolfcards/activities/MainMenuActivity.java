@@ -29,7 +29,6 @@ public class MainMenuActivity extends Activity {
 		
 		
 		
-		//	
 //		Log.d("Insert: ", "Inserting courses...");
 //		long storaVall = db.addCourse(new Course("Stora Vall"));
 //		Log.d("Long return: ", ""+storaVall);
