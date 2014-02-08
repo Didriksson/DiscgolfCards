@@ -50,7 +50,7 @@ public class MainScorecard extends SwipeActivity implements
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
 		for (int i = 0; i < noPlayers; i++) {
-			player[i] = database.getPlayer(b.getInt("player"+i));
+			player[i] = database.getPlayer(b.getInt("player" + i));
 		}
 
 		return player;
@@ -68,7 +68,8 @@ public class MainScorecard extends SwipeActivity implements
 		textView[6] = (TextView) findViewById(R.id.textViewNameP7);
 		textView[7] = (TextView) findViewById(R.id.textViewNameP8);
 
-		for (int i = 0; i < scorecard.getNumberOfPlayers() && i < textView.length; i++) {
+		for (int i = 0; i < scorecard.getNumberOfPlayers()
+				&& i < textView.length; i++) {
 			textView[i].setText(scorecard.getPlayer(i).getName());
 		}
 
@@ -254,9 +255,8 @@ public class MainScorecard extends SwipeActivity implements
 	}
 
 	protected void nextHole() {
-		if (scorecard.isLastHole())
-		{}
-		else {
+		if (scorecard.isLastHole()) {
+		} else {
 			scorecard.nextHole();
 			updateHoleInfo();
 			updatePlayerThrowsInfo();
@@ -404,19 +404,21 @@ public class MainScorecard extends SwipeActivity implements
 
 	}
 
-	
-	public void completeRound(View view){
+	public void completeRound(View view) {
 		Intent intent = new Intent(this, CompleteRoundActivity.class);
 		Bundle b = new Bundle();
 		b.putInt("numberOfPlayers", scorecard.getNumberOfPlayers());
-		for(int i=0;i<scorecard.getNumberOfPlayers();i++){
-			b.putString("player"+(i+1), scorecard.getPlayer(i).getName());
-			b.putInt("playerresult"+(i+1), scorecard.getFinalScore(i+1));
-			b.putInt("playerresultPar"+(i+1), scorecard.getFinalScorePar(i+1));
-			database.addRounds(scorecard.getPlayer(i).getID(), scorecard.getCourse().getID(), scorecard.getPlayer(i).getFinalResult(scorecard.getNumberOfHoles()));
+		for (int i = 0; i < scorecard.getNumberOfPlayers(); i++) {
+			b.putString("player" + (i + 1), scorecard.getPlayer(i).getName());
+			b.putInt("playerresult" + (i + 1), scorecard.getFinalScore(i + 1));
+			b.putInt("playerresultPar" + (i + 1),
+					scorecard.getFinalScorePar(i + 1));
+			database.addRounds(scorecard.getPlayer(i).getID(), scorecard
+					.getCourse().getID(), scorecard.getPlayer(i)
+					.getFinalResult(scorecard.getNumberOfHoles()));
 
 		}
-		
+
 		System.out.println(b.getString("player1"));
 		intent.putExtras(b);
 		startActivity(intent);
