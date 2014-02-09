@@ -10,20 +10,18 @@
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="265dp"
-        android:background="@drawable/menubar_background1"
+        android:layout_centerInParent="true"
+        android:background="@drawable/menubar"
         android:orientation="vertical" >
 
         <ImageButton
             android:id="@+id/scorecardbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
             android:onClick="startScorecard"
-            android:src="@drawable/scorecardbutton_test" />
+            android:src="@drawable/menubarbutton_scorecard" />
 
         <ImageButton
             android:id="@+id/skinchallengebutton"
@@ -31,16 +29,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:onClick="startRevengeGame"
-            android:src="@drawable/skinchallenge_test" />
+            android:src="@drawable/menubarbutton_skinchallenge" />
 
         <ImageButton
             android:id="@+id/quitbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"
             android:onClick="quitApplication"
-            android:src="@drawable/quitbutton_test" />
+            android:src="@drawable/menubarbutton_quit" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -63,7 +63,7 @@
         android:layout_alignLeft="@+id/scrollExistingPlayers"
         android:layout_alignRight="@+id/scrollExistingPlayers"
         android:layout_below="@+id/textviewCoursePar1"
-        android:background="@drawable/menubar_background1"
+        android:background="@drawable/menubar"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:visibility="gone" >

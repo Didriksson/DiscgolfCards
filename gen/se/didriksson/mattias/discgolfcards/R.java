@@ -25,10 +25,10 @@ public final class R {
         public static final int doneactionbutton=0x7f020001;
         public static final int ic_launcher=0x7f020002;
         public static final int menubackground=0x7f020003;
-        public static final int menubar_background1=0x7f020004;
-        public static final int quitbutton_test=0x7f020005;
-        public static final int scorecardbutton_test=0x7f020006;
-        public static final int skinchallenge_test=0x7f020007;
+        public static final int menubar=0x7f020004;
+        public static final int menubarbutton_quit=0x7f020005;
+        public static final int menubarbutton_scorecard=0x7f020006;
+        public static final int menubarbutton_skinchallenge=0x7f020007;
     }
     public static final class id {
         public static final int LinearLayout01=0x7f080067;
