@@ -73,19 +73,22 @@ public class ScorecardSubmenu extends Activity {
 	}
 
 	public void startScorecard(View view) {
+		int selectedPlayers = putNamesInBundle();
+		if(selectedPlayers >= 1){
 		Intent intent;
 		if (revengeGame)
 			intent = new Intent(this, RevengeGameActivity.class);
 		else
 			intent = new Intent(this, MainScorecard.class);
-
-		putNamesInBundle();
 		intent.putExtras(b);
 		startActivity(intent);
 		finish();
+		}
+		else
+			b = new Bundle();
 	}
 
-	private void putNamesInBundle() {
+	private int putNamesInBundle() {
 		int numberOfPlayers = 0;
 		for (int i = 0; i < players.size(); i++) {
 			if (cb[i].isChecked()) {
@@ -95,6 +98,8 @@ public class ScorecardSubmenu extends Activity {
 
 		b.putInt("numberOfPlayers", numberOfPlayers);
 
+		return numberOfPlayers;
+		
 	}
 
 }
