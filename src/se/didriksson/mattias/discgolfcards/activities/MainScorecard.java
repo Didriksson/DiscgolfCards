@@ -32,7 +32,8 @@ public class MainScorecard extends SwipeActivity implements
 		int numberOfPlayers = b.getInt("numberOfPlayers");
 		Player[] players = setUpPlayers(numberOfPlayers);
 
-		Course course = database.getCourse(1);
+
+		Course course = database.getAllCourses().get(0);
 		scorecard = new Scorecard(players, course, 1);
 
 		TextView holeNo = (TextView) findViewById(R.id.textViewHeader);
@@ -50,7 +51,7 @@ public class MainScorecard extends SwipeActivity implements
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
 		for (int i = 0; i < noPlayers; i++) {
-			player[i] = database.getPlayer(b.getInt("player" + i));
+			player[i] = database.getPlayer(b.getString("player" + i));
 		}
 
 		return player;
@@ -413,8 +414,8 @@ public class MainScorecard extends SwipeActivity implements
 			b.putInt("playerresult" + (i + 1), scorecard.getFinalScore(i + 1));
 			b.putInt("playerresultPar" + (i + 1),
 					scorecard.getFinalScorePar(i + 1));
-			database.addRounds(scorecard.getPlayer(i).getID(), scorecard
-					.getCourse().getID(), scorecard.getPlayer(i)
+			database.addRounds(scorecard.getPlayer(i).getName(), scorecard
+					.getCourse().getName(), scorecard.getPlayer(i)
 					.getFinalResult(scorecard.getNumberOfHoles()));
 
 		}

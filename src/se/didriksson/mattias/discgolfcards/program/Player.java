@@ -7,7 +7,6 @@ public class Player implements Comparable<Player> {
 
 	String name;
 	int[] results;
-	int _id;
 	List<Card> cards;
 
 	public Player(String name) {
@@ -16,19 +15,9 @@ public class Player implements Comparable<Player> {
 		cards = new ArrayList<Card>();
 	}
 	
-	public Player(int id, String name) {
-		this.name = name;
-		this._id = id;
-		this.results = new int[36];
-		cards = new ArrayList<Card>();
-	}
 
 	public String getName() {
 		return name;
-	}
-	
-	public int getID(){
-		return _id;
 	}
 
 	public int getResult(int hole) {

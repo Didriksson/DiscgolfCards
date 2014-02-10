@@ -9,6 +9,7 @@ import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Round;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,16 +24,30 @@ public class MainMenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
 		DatabaseHandler db = new DatabaseHandler(this);
-//		Log.d("Insert: ", "Inserting players...");
-
+		Log.d("Insert: ", "Inserting players...");
+		try{
+			db.addCourse(new Course("Stora Vall"));	
+			db.addCourse(new Course("Järva"));
+			db.addCourse(new Course("Falun"));
+			db.addCourse(new Course("Hissingen"));
 		
+			db.addPlayer(new Player("Mattias"));
+			db.addPlayer(new Player("Anders"));
+			db.addPlayer(new Player("Sven"));
+			db.addPlayer(new Player("Ingvar"));
+			db.addPlayer(new Player("Tomten"));
+
+		}
+		catch(SQLiteConstraintException sq){
+			Log.d("Error inserting into table.", "");
+		}
 		
 		Log.d("Reading: ", "Reading all players");
         
         List<Player> players = db.getAllPlayers();       
         
         for (Player cn : players) {
-            String log = "Id: "+cn.getID()+" ,Name: " + cn.getName();
+            String log = "Name: " + cn.getName();
                 // Writing Contacts to log
       
             Log.d("Name: ", log);
@@ -45,7 +60,7 @@ public class MainMenuActivity extends Activity {
         List<Course> courses = db.getAllCourses();       
         
         for (Course cn : courses) {
-            String log = "Id: "+cn.getID()+" ,Name: " + cn.getName();
+            String log = "Name: " + cn.getName();
                 // Writing Contacts to log
       
             Log.d("Course name: ", log);

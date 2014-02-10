@@ -92,7 +92,7 @@ public class ScorecardSubmenu extends Activity {
 		int numberOfPlayers = 0;
 		for (int i = 0; i < players.size(); i++) {
 			if (cb[i].isChecked()) {
-				b.putInt("player" + numberOfPlayers++, players.get(i).getID());
+				b.putString("player" + numberOfPlayers++, players.get(i).getName());
 			}
 		}
 

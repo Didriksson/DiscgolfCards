@@ -35,7 +35,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 		int numberOfPlayers = b.getInt("numberOfPlayers");
 		Player[] players = setUpPlayers(numberOfPlayers);
 
-		Course course = database.getCourse(1);
+		Course course = database.getAllCourses().get(0);
 		scorecard = new RevengeGameSkins(players, course, 1,
 				getApplicationContext());
 
@@ -60,7 +60,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
 		for (int i = 0; i < noPlayers; i++) {
-			player[i] = database.getPlayer(b.getInt("player"+i));
+			player[i] = database.getPlayer(b.getString("player"+i));
 		}
 
 		return player;
@@ -411,7 +411,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 		for (int i = 0; i < scorecard.getNumberOfPlayers(); i++) {
 			b.putString("player" + (i + 1), scorecard.getPlayer(i).getName());
 			b.putInt("playerresult" + (i + 1), scorecard.getFinalScore(i + 1));
-			database.addRounds(scorecard.getPlayer(i).getID(), scorecard.getCourse().getID(), scorecard.getPlayer(i).getFinalResult(scorecard.getNumberOfHoles()));
+			database.addRounds(scorecard.getPlayer(i).getName(), scorecard.getCourse().getName(), scorecard.getPlayer(i).getFinalResult(scorecard.getNumberOfHoles()));
 		}
 		intent.putExtras(b);
 		startActivity(intent);
