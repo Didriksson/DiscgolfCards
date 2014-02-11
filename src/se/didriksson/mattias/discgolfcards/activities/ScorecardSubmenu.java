@@ -6,21 +6,18 @@ import java.util.List;
 import se.didriksson.mattias.discgolfcards.R;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 public class ScorecardSubmenu extends Activity {
 
 	boolean revengeGame;
-	DatabaseHandler database = new DatabaseHandler(this);
 	CheckBox[] cb;
 	Bundle b = new Bundle();
 	List<Player> players;
@@ -31,12 +28,17 @@ public class ScorecardSubmenu extends Activity {
 		setContentView(R.layout.activity_scorecard_submenu);
 		b = getIntent().getExtras();
 		revengeGame = b.getBoolean("revengeGame");
+		
 		addExcistingPlayers();
-
+		
 	}
 
+	
+	
 	private void addExcistingPlayers() {
+		DatabaseHandler database = new DatabaseHandler(this);
 		LinearLayout existingPlayers = (LinearLayout) findViewById(R.id.excistingPlayerLayout);
+		existingPlayers.removeAllViews();
 		players = database.getAllPlayers();
 		Collections.sort(players);
 
@@ -55,22 +57,17 @@ public class ScorecardSubmenu extends Activity {
 		getMenuInflater().inflate(R.menu.scorecard_submenu, menu);
 		return true;
 	}
+	
+	public void onResume(){
+		super.onResume();
+		addExcistingPlayers();
+	}
 
 	public void newPlayer(View view) {
-		RelativeLayout layout = (RelativeLayout) findViewById(R.id.addPlayerWindow);
-		layout.setVisibility(View.VISIBLE);
-	}
 
-	public void newPlayerAddButton(View view) {
-		RelativeLayout layout = (RelativeLayout) findViewById(R.id.addPlayerWindow);
-		layout.setVisibility(View.GONE);
-
-		EditText nameButton = (EditText) findViewById(R.id.newPlayerEditTextBox);
-		String name = nameButton.getText().toString();
-		database.addPlayer(new Player(name));
-		addExcistingPlayers();
-
-	}
+		Intent intent = new Intent(this, NewPlayerActivity.class);
+		startActivity(intent);
+		}
 
 	public void startScorecard(View view) {
 		int selectedPlayers = putNamesInBundle();

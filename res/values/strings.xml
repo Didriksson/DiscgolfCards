@@ -8,5 +8,6 @@
     <string name="title_activity_scorecard_submenu">ScorecardSubmenu</string>
     <string name="title_activity_complete_round">CompleteRoundActivity</string>
     <string name="title_activity_revenge_game">RevengeGameActivity</string>
+    <string name="title_activity_new_player">NewPlayerActivity</string>
 
 </resources>

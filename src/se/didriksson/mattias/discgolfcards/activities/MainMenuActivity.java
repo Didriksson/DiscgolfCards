@@ -24,23 +24,10 @@ public class MainMenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
 		DatabaseHandler db = new DatabaseHandler(this);
-		Log.d("Insert: ", "Inserting players...");
-		try{
-			db.addCourse(new Course("Stora Vall"));	
-			db.addCourse(new Course("Järva"));
-			db.addCourse(new Course("Falun"));
-			db.addCourse(new Course("Hissingen"));
-		
-			db.addPlayer(new Player("Mattias"));
-			db.addPlayer(new Player("Anders"));
-			db.addPlayer(new Player("Sven"));
-			db.addPlayer(new Player("Ingvar"));
-			db.addPlayer(new Player("Tomten"));
 
-		}
-		catch(SQLiteConstraintException sq){
-			Log.d("Error inserting into table.", "");
-		}
+		
+		db.addCourse(new Course("Stora Vall"));
+		Log.d("Insert: ", "Inserting players...");
 		
 		Log.d("Reading: ", "Reading all players");
         
@@ -95,7 +82,6 @@ public class MainMenuActivity extends Activity {
 		b.putBoolean("revengeGame", false);
 		intent.putExtras(b);
 		startActivity(intent);
-		finish();
 	}
 
 	public void quitApplication(View view) {
