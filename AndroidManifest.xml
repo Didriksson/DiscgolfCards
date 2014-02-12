@@ -42,6 +42,10 @@
             android:name="se.didriksson.mattias.discgolfcards.activities.NewPlayerActivity"
             android:label="@string/title_activity_new_player" >
         </activity>
+        <activity
+            android:name="se.didriksson.mattias.discgolfcards.activities.StatsActivity"
+            android:label="@string/title_activity_stats" >
+        </activity>
     </application>
 
 </manifest>

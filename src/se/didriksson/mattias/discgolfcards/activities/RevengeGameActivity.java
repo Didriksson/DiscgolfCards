@@ -60,7 +60,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
 		for (int i = 0; i < noPlayers; i++) {
-			player[i] = database.getPlayer(b.getString("player"+i));
+			player[i] = database.getPlayer(b.getString("player" + i));
 		}
 
 		return player;
@@ -69,9 +69,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 
 	private void setPlayerNames() {
 		TextView[] textView = new TextView[8];
-		
-		
-		
+
 		textView[0] = (TextView) findViewById(R.id.textViewNameR1);
 		textView[1] = (TextView) findViewById(R.id.textViewNameR2);
 		textView[2] = (TextView) findViewById(R.id.textViewNameR3);
@@ -411,7 +409,11 @@ public class RevengeGameActivity extends SwipeActivity implements
 		for (int i = 0; i < scorecard.getNumberOfPlayers(); i++) {
 			b.putString("player" + (i + 1), scorecard.getPlayer(i).getName());
 			b.putInt("playerresult" + (i + 1), scorecard.getFinalScore(i + 1));
-			database.addRounds(scorecard.getPlayer(i).getName(), scorecard.getCourse().getName(), scorecard.getPlayer(i).getFinalResult(scorecard.getNumberOfHoles()));
+//			database.addRounds(
+//					scorecard.getPlayer(i),
+//					scorecard.getCourse(),
+//					scorecard.getPlayer(i).getFinalResult(
+//							scorecard.getNumberOfHoles()));
 		}
 		intent.putExtras(b);
 		startActivity(intent);

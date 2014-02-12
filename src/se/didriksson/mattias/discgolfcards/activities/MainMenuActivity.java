@@ -9,7 +9,6 @@ import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Round;
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -60,7 +59,8 @@ public class MainMenuActivity extends Activity {
         List<Round> rounds = db.getAllRounds();       
         
         for (Round cn : rounds) {
-            String log = "Id: "+cn.getID()+" ,Bana: " + cn.getCourse().getName() + " ,Spelare: " + cn.getPlayer().getName() + " ,Resultat: " + cn.getScore();
+        	int[] tmp = cn.getResults();
+        	String log = "Id: "+cn.getID()+" ,Bana: " + cn.getCourse().getName() + " ,Spelare: " + cn.getPlayer().getName();
                 // Writing Contacts to log
       
             Log.d("Round name: ", log);
@@ -90,7 +90,7 @@ public class MainMenuActivity extends Activity {
 	}
 
 	public void startRevengeGame(View view) {
-		Intent intent = new Intent(this, ScorecardSubmenu.class);
+		Intent intent = new Intent(this, StatsActivity.class);
 		Bundle b = new Bundle();
 		b.putBoolean("revengeGame", true);
 		intent.putExtras(b);

@@ -24,6 +24,10 @@ public class Player implements Comparable<Player> {
 		return results[hole - 1];
 	}
 
+	public int[] getResults() {
+		return results;
+	}
+	
 	public void setResult(int hole, int noOfThrows) {
 		results[hole - 1] = noOfThrows;
 	}
@@ -73,5 +77,8 @@ public class Player implements Comparable<Player> {
 	public int compareTo(Player another) {
 		return this.name.compareTo(another.getName());
 	}
-
+	
+	public String toString(){
+		return name;
+	}
 }

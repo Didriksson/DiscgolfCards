@@ -4,6 +4,7 @@ import se.didriksson.mattias.discgolfcards.R;
 import se.didriksson.mattias.discgolfcards.program.*;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,7 +32,6 @@ public class MainScorecard extends SwipeActivity implements
 		Bundle b = getIntent().getExtras();
 		int numberOfPlayers = b.getInt("numberOfPlayers");
 		Player[] players = setUpPlayers(numberOfPlayers);
-
 
 		Course course = database.getAllCourses().get(0);
 		scorecard = new Scorecard(players, course, 1);
@@ -414,13 +414,16 @@ public class MainScorecard extends SwipeActivity implements
 			b.putInt("playerresult" + (i + 1), scorecard.getFinalScore(i + 1));
 			b.putInt("playerresultPar" + (i + 1),
 					scorecard.getFinalScorePar(i + 1));
-			database.addRounds(scorecard.getPlayer(i).getName(), scorecard
-					.getCourse().getName(), scorecard.getPlayer(i)
-					.getFinalResult(scorecard.getNumberOfHoles()));
+
+			database.addRounds(
+					scorecard.getPlayer(i),
+					scorecard.getCourse(),
+					scorecard.getPlayer(i).getFinalResult(
+							scorecard.getNumberOfHoles()));
+
 
 		}
 
-		System.out.println(b.getString("player1"));
 		intent.putExtras(b);
 		startActivity(intent);
 		finish();

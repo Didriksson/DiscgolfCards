@@ -62,8 +62,8 @@ public final class R {
         public static final int TextViewStrokesP6=0x7f08001c;
         public static final int TextViewStrokesP7=0x7f080020;
         public static final int TextViewStrokesP8=0x7f080024;
-        public static final int action_search=0x7f0800b3;
-        public static final int action_settings=0x7f0800b2;
+        public static final int action_search=0x7f0800b5;
+        public static final int action_settings=0x7f0800b4;
         public static final int addNewPlayerButton=0x7f08006f;
         public static final int addPlayer=0x7f080065;
         public static final int addPlayerWindow=0x7f080063;
@@ -115,6 +115,7 @@ public final class R {
         public static final int holeInfoLayout=0x7f080002;
         public static final int holeInfoPar=0x7f08002b;
         public static final int linearLayout1=0x7f080027;
+        public static final int listViewRounds=0x7f0800b3;
         public static final int mainLayer=0x7f080000;
         public static final int newPlayerAddButton=0x7f080001;
         public static final int playerLayout=0x7f080066;
@@ -155,6 +156,7 @@ public final class R {
         public static final int skinsR6=0x7f080097;
         public static final int skinsR7=0x7f08009f;
         public static final int skinsR8=0x7f0800a7;
+        public static final int spinnerPlayer=0x7f0800b2;
         public static final int startButton=0x7f0800af;
         public static final int textView1=0x7f080072;
         public static final int textViewHeader=0x7f080003;
@@ -219,6 +221,7 @@ public final class R {
         public static final int activity_new_player=0x7f030003;
         public static final int activity_revenge_game=0x7f030004;
         public static final int activity_scorecard_submenu=0x7f030005;
+        public static final int activity_stats=0x7f030006;
     }
     public static final class menu {
         public static final int complete_round=0x7f070000;
@@ -227,6 +230,7 @@ public final class R {
         public static final int new_player=0x7f070003;
         public static final int revenge_game=0x7f070004;
         public static final int scorecard_submenu=0x7f070005;
+        public static final int stats=0x7f070006;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -237,6 +241,7 @@ public final class R {
         public static final int title_activity_new_player=0x7f050007;
         public static final int title_activity_revenge_game=0x7f050006;
         public static final int title_activity_scorecard_submenu=0x7f050004;
+        public static final int title_activity_stats=0x7f050008;
     }
     public static final class style {
         /** 
