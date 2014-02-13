@@ -25,7 +25,6 @@ public class MainMenuActivity extends Activity {
 		DatabaseHandler db = new DatabaseHandler(this);
 
 		
-		db.addCourse(new Course("Stora Vall"));
 		Log.d("Insert: ", "Inserting players...");
 		
 		Log.d("Reading: ", "Reading all players");
@@ -41,17 +40,17 @@ public class MainMenuActivity extends Activity {
 	}
         
         
-	Log.d("Reading: ", "Reading all Courses");
-        
-        List<Course> courses = db.getAllCourses();       
-        
-        for (Course cn : courses) {
-            String log = "Name: " + cn.getName();
-                // Writing Contacts to log
-      
-            Log.d("Course name: ", log);
-		
-	}
+//	Log.d("Reading: ", "Reading all Courses");
+//        
+//        List<Course> courses = db.getAllCourses();       
+//        
+//        for (Course cn : courses) {
+//            String log = "Name: " + cn.getName() + "Par first hole: " + cn.getParForHole(1);
+//                // Writing Contacts to log
+//      
+//            Log.d("Course name: ", log);
+//		
+//	}
         
         
 	Log.d("Reading: ", "Reading all Rounds");
