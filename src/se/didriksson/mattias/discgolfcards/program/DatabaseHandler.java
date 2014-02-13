@@ -14,7 +14,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	// http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
 
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
-	private static final int DATABASE_VERSION = 12;
+	private static final int DATABASE_VERSION = 13;
 
 	// Table names
 	private final static String PLAYER_TABLE = "Players"; // name of table

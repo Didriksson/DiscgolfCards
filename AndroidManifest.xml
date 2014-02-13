@@ -19,7 +19,8 @@
         </activity>
         <activity
             android:name="se.didriksson.mattias.discgolfcards.activities.MainMenuActivity"
-            android:label="@string/title_activity_main_menu" >
+            android:label="@string/title_activity_main_menu" 
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,7 +41,9 @@
         </activity>
         <activity
             android:name="se.didriksson.mattias.discgolfcards.activities.NewPlayerActivity"
-            android:label="@string/title_activity_new_player" >
+            android:label="@string/title_activity_new_player" 
+            android:windowSoftInputMode="adjustPan"
+            >
         </activity>
     </application>
 
