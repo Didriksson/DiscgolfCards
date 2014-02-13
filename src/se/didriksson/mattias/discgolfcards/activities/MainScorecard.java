@@ -8,13 +8,10 @@ import se.didriksson.mattias.discgolfcards.program.Scorecard;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -481,35 +478,5 @@ public class MainScorecard extends SwipeActivity implements
 			return false;
 		}
 
-	}
-
-	class EditTextListener implements TextWatcher {
-
-		@Override
-		public void afterTextChanged(Editable s) {
-
-		}
-
-		@Override
-		public void beforeTextChanged(CharSequence s, int start, int count,
-				int after) {
-		}
-
-		@Override
-		public void onTextChanged(CharSequence s, int start, int before,
-				int count) {
-
-			boolean parseOK = true;
-			int tmp = scorecard.getParForCurrentHole();
-			try {
-				tmp = Integer.parseInt(s.toString());
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				parseOK = false;
-			}
-			if (parseOK)
-				scorecard.setParForHole(scorecard.getCurrentHole(), tmp);
-
-		}
 	}
 }

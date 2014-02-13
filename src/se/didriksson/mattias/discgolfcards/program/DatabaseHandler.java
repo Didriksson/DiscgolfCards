@@ -282,8 +282,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase database = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
 
+		int[] results = course.getPars();
+		
 		values.put(COURSE_NAME, course.getName());
-
+		values.put(COURSE_PARS, getStringFromResults(results));
 		return database.update(COURSE_TABLE, values, COURSE_NAME + " = ?",
 				new String[] { course.name });
 
