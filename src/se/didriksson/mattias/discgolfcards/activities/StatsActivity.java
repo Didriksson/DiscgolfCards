@@ -24,6 +24,7 @@ public class StatsActivity extends Activity {
 	ArrayAdapter<Player> playerAdapters;
 	ArrayAdapter<Round> listAdapters;
 
+	
 	List<Player> players;
 	List<Round> rounds;
 	ListView listView;

@@ -59,8 +59,7 @@ public class Course {
 	}
 
 	public String toString() {
-		return "Course: " + name + "\nNumber of holes: " + getNumberOfHoles()
-				+ "\nTotal score for par: " + getTotalThrowsUpToThisHole(18);
+		return name;
 
 	}
 }

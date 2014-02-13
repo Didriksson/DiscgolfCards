@@ -4,15 +4,22 @@ import java.util.Collections;
 import java.util.List;
 
 import se.didriksson.mattias.discgolfcards.R;
+import se.didriksson.mattias.discgolfcards.activities.StatsActivity.SpinnerListener;
+import se.didriksson.mattias.discgolfcards.program.Course;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class ScorecardSubmenu extends Activity {
 
@@ -20,6 +27,9 @@ public class ScorecardSubmenu extends Activity {
 	CheckBox[] cb;
 	Bundle b = new Bundle();
 	List<Player> players;
+	List<Course> courses;
+	Spinner courseSpinner;
+	ArrayAdapter<Course> courseAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +37,26 @@ public class ScorecardSubmenu extends Activity {
 		setContentView(R.layout.activity_scorecard_submenu);
 		b = getIntent().getExtras();
 		revengeGame = b.getBoolean("revengeGame");
-		
+
 		addExcistingPlayers();
-		
+		setCoursesInSpinner();
+
 	}
 
-	
-	
+	private void setCoursesInSpinner() {
+		DatabaseHandler database = new DatabaseHandler(this);
+		courses = database.getAllCourses();
+		courseSpinner = (Spinner) findViewById(R.id.courseSelectSpinner);
+		courseAdapter = new ArrayAdapter<Course>(this,
+				android.R.layout.simple_spinner_dropdown_item, courses);
+
+		courseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		courseSpinner.setAdapter(courseAdapter);
+
+		courseSpinner.setOnItemSelectedListener(new SpinnerListener());
+
+	}
+
 	private void addExcistingPlayers() {
 		DatabaseHandler database = new DatabaseHandler(this);
 		LinearLayout existingPlayers = (LinearLayout) findViewById(R.id.excistingPlayerLayout);
@@ -56,8 +79,8 @@ public class ScorecardSubmenu extends Activity {
 		getMenuInflater().inflate(R.menu.scorecard_submenu, menu);
 		return true;
 	}
-	
-	public void onResume(){
+
+	public void onResume() {
 		super.onResume();
 		addExcistingPlayers();
 	}
@@ -66,21 +89,20 @@ public class ScorecardSubmenu extends Activity {
 
 		Intent intent = new Intent(this, NewPlayerActivity.class);
 		startActivity(intent);
-		}
+	}
 
 	public void startScorecard(View view) {
 		int selectedPlayers = putNamesInBundle();
-		if(selectedPlayers >= 1){
-		Intent intent;
-		if (revengeGame)
-			intent = new Intent(this, RevengeGameActivity.class);
-		else
-			intent = new Intent(this, MainScorecard.class);
-		intent.putExtras(b);
-		startActivity(intent);
-		finish();
-		}
-		else
+		if (selectedPlayers >= 1) {
+			Intent intent;
+			if (revengeGame)
+				intent = new Intent(this, RevengeGameActivity.class);
+			else
+				intent = new Intent(this, MainScorecard.class);
+			intent.putExtras(b);
+			startActivity(intent);
+			finish();
+		} else
 			b = new Bundle();
 	}
 
@@ -88,14 +110,31 @@ public class ScorecardSubmenu extends Activity {
 		int numberOfPlayers = 0;
 		for (int i = 0; i < players.size(); i++) {
 			if (cb[i].isChecked()) {
-				b.putString("player" + numberOfPlayers++, players.get(i).getName());
+				b.putString("player" + numberOfPlayers++, players.get(i)
+						.getName());
 			}
 		}
 
 		b.putInt("numberOfPlayers", numberOfPlayers);
 
 		return numberOfPlayers;
-		
+
 	}
+	
+	class SpinnerListener implements OnItemSelectedListener {
+
+		@Override
+		public void onItemSelected(AdapterView<?> arg0, View arg1,
+				int position, long arg3) {
+		}
+
+		@Override
+		public void onNothingSelected(AdapterView<?> arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+	}
+
 
 }
