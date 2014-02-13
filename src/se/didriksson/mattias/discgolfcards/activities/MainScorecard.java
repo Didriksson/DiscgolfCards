@@ -1,15 +1,25 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
-import se.didriksson.mattias.discgolfcards.program.*;
+import se.didriksson.mattias.discgolfcards.program.Course;
+import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
+import se.didriksson.mattias.discgolfcards.program.Player;
+import se.didriksson.mattias.discgolfcards.program.Scorecard;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 public class MainScorecard extends SwipeActivity implements
 		View.OnTouchListener {
@@ -25,6 +35,9 @@ public class MainScorecard extends SwipeActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mainscorecard);
 
+		getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
 		LinearLayout layout = (LinearLayout) findViewById(R.id.mainLayer);
 		layout.setOnTouchListener(this);
 
@@ -32,15 +45,17 @@ public class MainScorecard extends SwipeActivity implements
 		int numberOfPlayers = b.getInt("numberOfPlayers");
 		Player[] players = setUpPlayers(numberOfPlayers);
 
-
 		Course course = database.getAllCourses().get(0);
 		scorecard = new Scorecard(players, course, 1);
 
 		TextView holeNo = (TextView) findViewById(R.id.textViewHeader);
 		holeNo.setText("#" + scorecard.getCurrentHole());
 
-		TextView holePar = (TextView) findViewById(R.id.holeInfoPar);
-		holePar.setText("Par: " + scorecard.getParForCurrentHole());
+		EditText holePar = (EditText) findViewById(R.id.holeInfoPar);
+
+		holePar.setText("" + scorecard.getParForCurrentHole());
+
+		holePar.setOnEditorActionListener(new OnEditTextListenerButtons());
 
 		setPlayerLayoutsVisible();
 		setPlayerNames();
@@ -269,8 +284,8 @@ public class MainScorecard extends SwipeActivity implements
 		TextView holeNo = (TextView) findViewById(R.id.textViewHeader);
 		holeNo.setText("#" + scorecard.getCurrentHole());
 
-		TextView holePar = (TextView) findViewById(R.id.holeInfoPar);
-		holePar.setText("Par: " + scorecard.getParForCurrentHole());
+		EditText holePar = (EditText) findViewById(R.id.holeInfoPar);
+		holePar.setText("" + scorecard.getParForCurrentHole());
 
 	}
 
@@ -414,15 +429,54 @@ public class MainScorecard extends SwipeActivity implements
 			b.putInt("playerresult" + (i + 1), scorecard.getFinalScore(i + 1));
 			b.putInt("playerresultPar" + (i + 1),
 					scorecard.getFinalScorePar(i + 1));
-			database.addRounds(scorecard.getPlayer(i).getName(), scorecard
-					.getCourse().getName(), scorecard.getPlayer(i)
-					.getFinalResult(scorecard.getNumberOfHoles()));
+
+			database.addRounds(
+					scorecard.getPlayer(i),
+					scorecard.getCourse(),
+					scorecard.getPlayer(i).getFinalResult(
+							scorecard.getNumberOfHoles()));
+
+			database.updateCourse(scorecard.getCourse());
 
 		}
 
-		System.out.println(b.getString("player1"));
 		intent.putExtras(b);
 		startActivity(intent);
 		finish();
+	}
+
+	class OnEditTextListenerButtons implements OnEditorActionListener {
+
+		@Override
+		public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+			if (actionId == EditorInfo.IME_ACTION_DONE
+					|| actionId == EditorInfo.IME_ACTION_SEARCH
+					&& event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+
+				boolean parseOK = true;
+				int tmp = scorecard.getParForCurrentHole();
+				try {
+					tmp = Integer.parseInt(v.getText().toString());
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+					parseOK = false;
+				}
+				if (parseOK)
+					scorecard.setParForHole(scorecard.getCurrentHole(), tmp);
+
+				LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayer);
+				mainLayout.requestFocus();
+				getApplicationContext();
+				InputMethodManager inputManager = (InputMethodManager) getApplicationContext()
+						.getSystemService(Context.INPUT_METHOD_SERVICE);
+				inputManager.toggleSoftInput(0, 0);
+
+				return true;
+			}
+
+			return false;
+		}
+
 	}
 }

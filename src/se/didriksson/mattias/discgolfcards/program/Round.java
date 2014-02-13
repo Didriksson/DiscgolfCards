@@ -5,15 +5,29 @@ public class Round {
 	Course course;
 	Player player;
 	int score;
+	int[] results;
 
 	public Round(){}
 	
-	public Round(int id, Course course,Player player, int score){
+//	public Round(int id, Course course,Player player, int score){
+//		this.id = id;
+//		this.course = course;
+//		this.player = player;
+//		this.score = score;
+//		this.results = new int[course.getNumberOfHoles()];
+//		
+//	}
+
+	public Round(int id, Course course,Player player, int score, int[] results){
 		this.id = id;
 		this.course = course;
 		this.player = player;
 		this.score = score;
+		this.results = results;
+			
 	}
+	
+	public int[] getResults(){return results;}
 	
 	public void setScore(int score){this.score = score;}
 
@@ -36,6 +50,10 @@ public class Round {
 	}
 	
 	public int getID(){return id;}
+	
+	public String toString(){
+		return course.getName() + "\t" + getScore();
+	}
 	
 		
 }

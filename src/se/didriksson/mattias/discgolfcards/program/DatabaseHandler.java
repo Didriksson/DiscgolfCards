@@ -14,7 +14,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	// http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
 
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
+<<<<<<< HEAD
 	private static final int DATABASE_VERSION = 13;
+=======
+	private static final int DATABASE_VERSION = 20;
+>>>>>>> f25451b0e4f4cb88439b9438fcb9e35ce47301b6
 
 	// Table names
 	private final static String PLAYER_TABLE = "Players"; // name of table
@@ -22,10 +26,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private final static String ROUNDS_TABLE = "Rounds"; // name of table
 
 	private final static String COURSE_NAME = "CourseName"; // name of course
+	private final static String COURSE_PARS = "CoursePars";
 
 	private final static String ROUNDS_ID = "_id";
 	private final static String ROUNDS_SCORE = "Score";
-
+	private final static String ROUNDS_RESULTS = "Results";
 	// name of course
 
 	private final static String PLAYER_NAME = "PlayerName"; // name of player
@@ -34,12 +39,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			+ "(" + PLAYER_NAME + " TEXT PRIMARY KEY" + ")";
 
 	private final String CREATE_COURSE_TABLE = "CREATE TABLE " + COURSE_TABLE
-			+ "(" + COURSE_NAME + " TEXT PRIMARY KEY" + ")";
+			+ "(" + COURSE_NAME + " TEXT PRIMARY KEY," + COURSE_PARS + " TEXT"
+			+ ")";
 
 	private static final String CREATE_ROUNDS_TABLE = "CREATE TABLE "
 			+ ROUNDS_TABLE + "(" + ROUNDS_ID + " INTEGER PRIMARY KEY,"
 			+ PLAYER_NAME + " TEXT," + COURSE_NAME + " TEXT," + ROUNDS_SCORE
-			+ " INTEGER" + ")";
+			+ " INTEGER," + ROUNDS_RESULTS + " TEXT" + ")";
 
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -76,7 +82,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public long addCourse(Course course) {
 		SQLiteDatabase database = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
+		int[] results = course.getPars();
+
 		values.put(COURSE_NAME, course.getName());
+		values.put(COURSE_PARS, getStringFromResults(results));
 
 		long course_id = database.insert(COURSE_TABLE, null, values);
 		database.close();
@@ -85,13 +94,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	}
 
-	public long addRounds(String player_name, String course_name, int score) {
+	public long addRounds(Player player, Course course, int score) {
 		SQLiteDatabase database = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
+		int[] results = player.getResults();
 
-		values.put(PLAYER_NAME, player_name);
-		values.put(COURSE_NAME, course_name);
+		values.put(PLAYER_NAME, player.getName());
+		values.put(COURSE_NAME, course.getName());
 		values.put(ROUNDS_SCORE, score);
+		values.put(ROUNDS_RESULTS, getStringFromResults(results));
 
 		long rounds_id = database.insert(ROUNDS_TABLE, null, values);
 		database.close();
@@ -100,10 +111,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	}
 
+	private String getStringFromResults(int[] results) {
+		String str = "";
+		for (int i = 0; i < results.length; i++) {
+			str = str + results[i] + ";";
+		}
+		return str;
+	}
+
+	private int[] getResultsFromString(String result) {
+		String[] results = result.split(";");
+		int[] intResults = new int[results.length];
+		for (int i = 0; i < results.length; i++) {
+			intResults[i] = Integer.parseInt(results[i]);
+		}
+
+		return intResults;
+	}
+
 	public Player getPlayer(String name) {
 		SQLiteDatabase database = this.getReadableDatabase();
 
-		Cursor cursor = database.query(PLAYER_TABLE, new String[] { PLAYER_NAME }, PLAYER_NAME + "=?",
+		Cursor cursor = database.query(PLAYER_TABLE,
+				new String[] { PLAYER_NAME }, PLAYER_NAME + "=?",
 				new String[] { name }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
@@ -114,11 +144,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase database = this.getReadableDatabase();
 
 		Cursor cursor = database.query(COURSE_TABLE,
-				new String[] { COURSE_NAME }, COURSE_NAME + "=?",
+				new String[] { COURSE_NAME, COURSE_PARS }, COURSE_NAME + "=?",
 				new String[] { name }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
-		return new Course(cursor.getString(0));
+		return new Course(cursor.getString(0),
+				getResultsFromString(cursor.getString(1)));
 	}
 
 	public List<Player> getAllPlayers() {
@@ -152,7 +183,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		if (cursor.moveToFirst()) {
 			do {
 				String name = cursor.getString(0);
-				course.add(new Course(name));
+				course.add(new Course(name, getResultsFromString(cursor
+						.getString(1))));
 
 			} while (cursor.moveToNext());
 		}
@@ -177,8 +209,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				int round_score = Integer.parseInt(cursor.getString(3));
 				Player player = getPlayer(player_name);
 				Course course = getCourse(course_name);
-				rounds.add(new Round(rounds_id, course, player, round_score));
+				int[] results = getResultsFromString(cursor.getString(4));
+				rounds.add(new Round(rounds_id, course, player, round_score,
+						results));
 
+			} while (cursor.moveToNext());
+		}
+
+		return rounds;
+
+	}
+
+	public List<Round> getAllRoundsSpecificPlayer(Player playerSent) {
+
+		SQLiteDatabase database = this.getReadableDatabase();
+		List<Round> rounds = new ArrayList<Round>();
+
+		String selectQuery = "SELECT * FROM " + ROUNDS_TABLE;
+		Cursor cursor = database.rawQuery(selectQuery, null);
+
+		if (cursor.moveToFirst()) {
+			do {
+				int rounds_id = Integer.parseInt(cursor.getString(0));
+				String player_name = cursor.getString(1);
+
+				if (player_name.equals(playerSent.getName())) {
+					String course_name = cursor.getString(2);
+					int round_score = Integer.parseInt(cursor.getString(3));
+					Player player = getPlayer(player_name);
+					Course course = getCourse(course_name);
+					int[] results = getResultsFromString(cursor.getString(4));
+					rounds.add(new Round(rounds_id, course, player,
+							round_score, results));
+				}
 			} while (cursor.moveToNext());
 		}
 
@@ -223,8 +286,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase database = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
 
+		int[] results = course.getPars();
+		
 		values.put(COURSE_NAME, course.getName());
-
+		values.put(COURSE_PARS, getStringFromResults(results));
 		return database.update(COURSE_TABLE, values, COURSE_NAME + " = ?",
 				new String[] { course.name });
 
