@@ -64,10 +64,10 @@ public final class R {
         public static final int TextViewStrokesP6=0x7f08001c;
         public static final int TextViewStrokesP7=0x7f080020;
         public static final int TextViewStrokesP8=0x7f080024;
-        public static final int action_search=0x7f0800be;
-        public static final int action_settings=0x7f0800bd;
+        public static final int action_search=0x7f0800bf;
+        public static final int action_settings=0x7f0800be;
         public static final int addNewPlayerButton=0x7f080066;
-        public static final int addPlayer=0x7f0800b2;
+        public static final int addPlayer=0x7f0800b3;
         public static final int addPlayerWindow=0x7f080064;
         public static final int buttonCardDone=0x7f0800b1;
         public static final int buttonDecrease2=0x7f080035;
@@ -105,8 +105,8 @@ public final class R {
         public static final int cardLayout=0x7f0800ae;
         public static final int cardText=0x7f0800b0;
         public static final int completeRoundMenuLayout=0x7f080005;
-        public static final int courseSelectLayout=0x7f0800b4;
-        public static final int courseSelectSpinner=0x7f0800b5;
+        public static final int courseSelectLayout=0x7f0800b5;
+        public static final int courseSelectSpinner=0x7f0800b6;
         public static final int editTextP1=0x7f08006a;
         public static final int editTextP2=0x7f08006b;
         public static final int editTextP3=0x7f08006c;
@@ -115,11 +115,11 @@ public final class R {
         public static final int editTextP6=0x7f08006f;
         public static final int editTextP7=0x7f080070;
         public static final int editTextP8=0x7f080071;
-        public static final int excistingPlayerLayout=0x7f0800b7;
+        public static final int excistingPlayerLayout=0x7f0800b8;
         public static final int holeInfoLayout=0x7f080002;
         public static final int holeInfoPar=0x7f08002c;
         public static final int linearLayout1=0x7f080027;
-        public static final int listViewRoundsOnCourse=0x7f0800bc;
+        public static final int listViewRoundsOnCourse=0x7f0800bd;
         public static final int mainLayer=0x7f080000;
         public static final int newPlayerAddButton=0x7f080001;
         public static final int playerLayout=0x7f080069;
@@ -147,11 +147,12 @@ public final class R {
         public static final int playerlayoutR7=0x7f08009e;
         public static final int playerlayoutR8=0x7f0800a6;
         public static final int quitbutton=0x7f08002a;
+        public static final int resultList=0x7f0800b2;
         public static final int row1=0x7f080065;
         public static final int row2=0x7f080067;
         public static final int row3=0x7f080072;
         public static final int scorecardbutton=0x7f080028;
-        public static final int scrollExistingPlayers=0x7f0800b6;
+        public static final int scrollExistingPlayers=0x7f0800b7;
         public static final int scrollView1=0x7f080068;
         public static final int scrollViewPlayer=0x7f080004;
         public static final int skinchallengebutton=0x7f080029;
@@ -163,12 +164,12 @@ public final class R {
         public static final int skinsR6=0x7f08009a;
         public static final int skinsR7=0x7f0800a2;
         public static final int skinsR8=0x7f0800aa;
-        public static final int spinnerCourses=0x7f0800ba;
-        public static final int spinnerPlayer=0x7f0800b8;
-        public static final int startButton=0x7f0800b3;
+        public static final int spinnerCourses=0x7f0800bb;
+        public static final int spinnerPlayer=0x7f0800b9;
+        public static final int startButton=0x7f0800b4;
         public static final int textView1=0x7f080075;
-        public static final int textView2=0x7f0800b9;
-        public static final int textView3=0x7f0800bb;
+        public static final int textView2=0x7f0800ba;
+        public static final int textView3=0x7f0800bc;
         public static final int textViewHeader=0x7f080003;
         public static final int textViewNameCP2=0x7f08000b;
         public static final int textViewNameCP3=0x7f08000f;
@@ -230,8 +231,9 @@ public final class R {
         public static final int activity_mainscorecard=0x7f030002;
         public static final int activity_new_player=0x7f030003;
         public static final int activity_revenge_game=0x7f030004;
-        public static final int activity_scorecard_submenu=0x7f030005;
-        public static final int activity_stats=0x7f030006;
+        public static final int activity_round_stats=0x7f030005;
+        public static final int activity_scorecard_submenu=0x7f030006;
+        public static final int activity_stats=0x7f030007;
     }
     public static final class menu {
         public static final int complete_round=0x7f070000;
@@ -239,8 +241,9 @@ public final class R {
         public static final int main_menu=0x7f070002;
         public static final int new_player=0x7f070003;
         public static final int revenge_game=0x7f070004;
-        public static final int scorecard_submenu=0x7f070005;
-        public static final int stats=0x7f070006;
+        public static final int round_stats=0x7f070005;
+        public static final int scorecard_submenu=0x7f070006;
+        public static final int stats=0x7f070007;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -250,6 +253,7 @@ public final class R {
         public static final int title_activity_main_menu=0x7f050003;
         public static final int title_activity_new_player=0x7f050007;
         public static final int title_activity_revenge_game=0x7f050006;
+        public static final int title_activity_round_stats=0x7f050009;
         public static final int title_activity_scorecard_submenu=0x7f050004;
         public static final int title_activity_stats=0x7f050008;
     }

@@ -11,10 +11,12 @@ import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
 import se.didriksson.mattias.discgolfcards.program.Round;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -44,18 +46,37 @@ public class StatsActivity extends Activity {
 			setCoursesInSpinner(players.get(0));
 			setListViewElements(players.get(0));
 		}
+
 	}
 
 	private void setListViewElements(Player player) {
 		DatabaseHandler database = new DatabaseHandler(this);
 		rounds = database.getAllRoundsSpecificPlayer(player);
-
 		listView = (ListView) findViewById(R.id.listViewRoundsOnCourse);
+
 		listAdapters = new ArrayAdapter<Round>(this,
 				android.R.layout.simple_spinner_dropdown_item, rounds);
 
 		listView.setAdapter(listAdapters);
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1,
+					int position, long arg3) {
+				Round round = (Round) listView.getItemAtPosition(position);
+				startSpecificRoundStats(round.getID());
+
+			}
+
+		});
+	}
+
+	private void startSpecificRoundStats(int roundID) {
+		Intent intent = new Intent(this, RoundStatsActivity.class);
+		Bundle b = new Bundle();
+		b.putInt("round", roundID);
+		intent.putExtras(b);
+		startActivity(intent);
 	}
 
 	private void setPlayersInSpinner() {
@@ -76,13 +97,14 @@ public class StatsActivity extends Activity {
 	private void setCoursesInSpinner(Player player) {
 		DatabaseHandler database = new DatabaseHandler(this);
 		List<Course> courses = new ArrayList<Course>();
-				
+
 		rounds = database.getAllRoundsSpecificPlayer(player);
 		for (int i = 0; i < rounds.size(); i++) {
 			Course tmp = rounds.get(i).getCourse();
-			if(!courses.contains(tmp)){
+			if (!courses.contains(tmp)) {
 				courses.add(tmp);
-			};
+			}
+			;
 		}
 
 		courseSpinner = (Spinner) findViewById(R.id.spinnerCourses);
