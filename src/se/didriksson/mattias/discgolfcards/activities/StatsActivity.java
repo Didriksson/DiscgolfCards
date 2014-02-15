@@ -1,9 +1,7 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import se.didriksson.mattias.discgolfcards.R;
 import se.didriksson.mattias.discgolfcards.program.Course;
@@ -16,7 +14,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -43,19 +40,34 @@ public class StatsActivity extends Activity {
 
 		setPlayersInSpinner();
 		if (players.size() >= 1) {
-			setCoursesInSpinner(players.get(0));
-			setListViewElements(players.get(0));
+			setCoursesInSpinner();
+			setListViewElements();
 		}
 
 	}
 
-	private void setListViewElements(Player player) {
+	private void setListViewElements() {
 		DatabaseHandler database = new DatabaseHandler(this);
+		Player player = (Player) playerSpinner.getSelectedItem();
+		Course course = (Course) courseSpinner.getSelectedItem();
+
 		rounds = database.getAllRoundsSpecificPlayer(player);
+
+		List<Round> courseSpecificRounds = new ArrayList<Round>();
+
+		for (int i = 0; i < rounds.size(); i++) {
+			if (course.getName().equals(rounds.get(i).getCourse().getName())) {
+				courseSpecificRounds.add(rounds.get(i));
+
+			}
+
+		}
+
 		listView = (ListView) findViewById(R.id.listViewRoundsOnCourse);
 
 		listAdapters = new ArrayAdapter<Round>(this,
-				android.R.layout.simple_spinner_dropdown_item, rounds);
+				android.R.layout.simple_spinner_dropdown_item,
+				courseSpecificRounds);
 
 		listView.setAdapter(listAdapters);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -94,9 +106,10 @@ public class StatsActivity extends Activity {
 
 	}
 
-	private void setCoursesInSpinner(Player player) {
+	private void setCoursesInSpinner() {
 		DatabaseHandler database = new DatabaseHandler(this);
 		List<Course> courses = new ArrayList<Course>();
+		Player player = (Player) playerSpinner.getSelectedItem();
 
 		rounds = database.getAllRoundsSpecificPlayer(player);
 		for (int i = 0; i < rounds.size(); i++) {
@@ -131,9 +144,18 @@ public class StatsActivity extends Activity {
 		@Override
 		public void onItemSelected(AdapterView<?> arg0, View arg1,
 				int position, long arg3) {
-			if (arg1.getId() == R.id.spinnerPlayer) {
-				Log.d("Player selected: ", players.get(position).getName());
-				setListViewElements(players.get(position));
+			Log.d("But im not here!", "wait?");
+			
+			switch(arg0.getId()){
+			case R.id.spinnerPlayer:
+				setListViewElements();
+				Log.d("I'm in", "player!");
+				break;
+			case R.id.spinnerCourses:
+				setListViewElements();
+				Log.d("I'm in", "course!!");
+				break;
+			
 			}
 		}
 
