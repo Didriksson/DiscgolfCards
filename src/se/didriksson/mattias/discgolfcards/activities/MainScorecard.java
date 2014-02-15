@@ -46,7 +46,8 @@ public class MainScorecard extends SwipeActivity implements
 		int numberOfPlayers = b.getInt("numberOfPlayers");
 		Player[] players = setUpPlayers(numberOfPlayers);
 
-		Course course = database.getAllCourses().get(0);
+		
+		Course course = database.getCourse(b.getString("course"));
 		scorecard = new Scorecard(players, course, 1);
 
 		TextView holeNo = (TextView) findViewById(R.id.textViewHeader);

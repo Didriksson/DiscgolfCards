@@ -35,7 +35,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 		int numberOfPlayers = b.getInt("numberOfPlayers");
 		Player[] players = setUpPlayers(numberOfPlayers);
 
-		Course course = database.getAllCourses().get(0);
+		Course course = database.getCourse(b.getString("course"));
 		scorecard = new RevengeGameSkins(players, course, 1,
 				getApplicationContext());
 

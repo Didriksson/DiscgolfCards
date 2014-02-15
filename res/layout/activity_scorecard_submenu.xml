@@ -40,7 +40,6 @@
         android:id="@+id/courseSelectLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
         android:layout_marginTop="25dp"
         android:orientation="horizontal" >
 
@@ -48,15 +47,26 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_vertical|left"
             android:gravity="center_vertical"
             android:text="Course " />
 
         <Spinner
             android:id="@+id/courseSelectSpinner"
-            android:layout_width="fill_parent"
+            android:layout_width="216dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
             android:gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/newCourseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="+" 
+            android:onClick="newCourse"/>
+
     </LinearLayout>
 
     <ScrollView

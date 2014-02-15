@@ -31,6 +31,8 @@ public class ScorecardSubmenu extends Activity {
 	Spinner courseSpinner;
 	ArrayAdapter<Course> courseAdapter;
 
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -83,11 +85,17 @@ public class ScorecardSubmenu extends Activity {
 	public void onResume() {
 		super.onResume();
 		addExcistingPlayers();
+		setCoursesInSpinner();
 	}
 
 	public void newPlayer(View view) {
 
 		Intent intent = new Intent(this, NewPlayerActivity.class);
+		startActivity(intent);
+	}
+	
+	public void newCourse(View view){
+		Intent intent = new Intent(this, NewCourseActivity.class);
 		startActivity(intent);
 	}
 
@@ -99,6 +107,10 @@ public class ScorecardSubmenu extends Activity {
 				intent = new Intent(this, RevengeGameActivity.class);
 			else
 				intent = new Intent(this, MainScorecard.class);
+			
+			
+			Course course = (Course) courseSpinner.getSelectedItem();
+			b.putString("course", course.getName());
 			intent.putExtras(b);
 			startActivity(intent);
 			finish();
@@ -130,7 +142,6 @@ public class ScorecardSubmenu extends Activity {
 
 		@Override
 		public void onNothingSelected(AdapterView<?> arg0) {
-			// TODO Auto-generated method stub
 
 		}
 
