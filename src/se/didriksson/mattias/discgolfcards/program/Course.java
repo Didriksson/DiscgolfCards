@@ -60,6 +60,13 @@ public class Course {
 
 	public String toString() {
 		return name;
-
 	}
+
+	public boolean equals(Object otherObject){
+		if(!(otherObject instanceof Course)){return false;}
+		else
+			{
+				Course othercourse = (Course)otherObject;
+				return name.equals(othercourse.name);
+			}}
 }

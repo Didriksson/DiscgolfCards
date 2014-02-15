@@ -1,12 +1,14 @@
 package se.didriksson.mattias.discgolfcards.program;
 
+import android.text.format.Time;
+
 public class Round {
 	int id;
 	Course course;
 	Player player;
 	int score;
 	int[] results;
-
+	String date;
 	public Round(){}
 	
 //	public Round(int id, Course course,Player player, int score){
@@ -18,12 +20,13 @@ public class Round {
 //		
 //	}
 
-	public Round(int id, Course course,Player player, int score, int[] results){
+	public Round(int id, Course course,Player player, int score, int[] results, String time){
 		this.id = id;
 		this.course = course;
 		this.player = player;
 		this.score = score;
 		this.results = results;
+		this.date = time;
 			
 	}
 	
@@ -52,7 +55,7 @@ public class Round {
 	public int getID(){return id;}
 	
 	public String toString(){
-		return course.getName() + "\t" + getScore();
+		return date + "\t" + course.getName() + "\t" + getScore();
 	}
 	
 		

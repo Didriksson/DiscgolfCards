@@ -138,7 +138,7 @@ public class Scorecard {
 		return players[player-1].getFinalResult(course.getNumberOfHoles());
 	}
 	public int getFinalScorePar(int player) {
-		return course.getTotalThrowsUpToThisHole(18) - players[player-1].getFinalResult(course.getNumberOfHoles());
+		return players[player-1].getFinalResult(course.getNumberOfHoles()) - course.getTotalThrowsUpToThisHole(18);
 	}
 	
 	public void setParForHole(int hole, int par){

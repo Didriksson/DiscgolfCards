@@ -8,6 +8,7 @@ import se.didriksson.mattias.discgolfcards.program.Scorecard;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -423,18 +424,21 @@ public class MainScorecard extends SwipeActivity implements
 	public void completeRound(View view) {
 		Intent intent = new Intent(this, CompleteRoundActivity.class);
 		Bundle b = new Bundle();
+		Time time = new Time();
+		time.setToNow();
 		b.putInt("numberOfPlayers", scorecard.getNumberOfPlayers());
 		for (int i = 0; i < scorecard.getNumberOfPlayers(); i++) {
 			b.putString("player" + (i + 1), scorecard.getPlayer(i).getName());
 			b.putInt("playerresult" + (i + 1), scorecard.getFinalScore(i + 1));
 			b.putInt("playerresultPar" + (i + 1),
 					scorecard.getFinalScorePar(i + 1));
-
+			
+			
 			database.addRounds(
 					scorecard.getPlayer(i),
 					scorecard.getCourse(),
 					scorecard.getPlayer(i).getFinalResult(
-							scorecard.getNumberOfHoles()));
+							scorecard.getNumberOfHoles()), time.format3339(false));
 
 			database.updateCourse(scorecard.getCourse());
 

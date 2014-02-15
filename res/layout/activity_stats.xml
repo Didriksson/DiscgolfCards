@@ -9,16 +9,64 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".StatsActivity" >
 
-    <Spinner
-        android:id="@+id/spinnerPlayer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" />
-
-    <ListView
-        android:id="@+id/listViewRounds"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </ListView>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="Player:" />
+
+        <Spinner
+            android:id="@+id/spinnerPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="Course:" />
+
+        <Spinner
+            android:id="@+id/spinnerCourses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All rounds for course and player selected:" />
+
+        <ListView
+            android:id="@+id/listViewRoundsOnCourse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ListView>
+    </LinearLayout>
 
 </LinearLayout>

@@ -39,6 +39,7 @@ public class MainMenuActivity extends Activity {
 		
 	}
         
+        db.addCourse(new Course("Stora Vall"));
         
 //	Log.d("Reading: ", "Reading all Courses");
 //        
@@ -94,6 +95,5 @@ public class MainMenuActivity extends Activity {
 		b.putBoolean("revengeGame", true);
 		intent.putExtras(b);
 		startActivity(intent);
-		finish();
 	}
 }
