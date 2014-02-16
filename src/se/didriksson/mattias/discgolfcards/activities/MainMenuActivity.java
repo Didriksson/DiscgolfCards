@@ -39,7 +39,6 @@ public class MainMenuActivity extends Activity {
 		
 	}
         
-        db.addCourse(new Course("Stora Vall"));
         
 //	Log.d("Reading: ", "Reading all Courses");
 //        

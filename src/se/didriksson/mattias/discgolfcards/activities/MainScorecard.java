@@ -460,15 +460,15 @@ public class MainScorecard extends SwipeActivity implements
 					&& event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
 
 				boolean parseOK = true;
-				int tmp = scorecard.getParForCurrentHole();
+				int newPar = 0;
 				try {
-					tmp = Integer.parseInt(v.getText().toString());
+					newPar = Integer.parseInt(v.getText().toString());
 				} catch (NumberFormatException e) {
 					e.printStackTrace();
 					parseOK = false;
 				}
-				if (parseOK)
-					scorecard.setParForHole(scorecard.getCurrentHole(), tmp);
+				if (parseOK && newPar >= 1)
+					scorecard.setParForHole(scorecard.getCurrentHole(),newPar);
 
 				LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayer);
 				mainLayout.requestFocus();

@@ -37,7 +37,9 @@ public class Player implements Comparable<Player> {
 	}
 
 	public int decreaseAndReturnResult(int hole) {
-		return --results[hole - 1];
+		if(results[hole-1] >1)
+			results[hole-1]--;
+		return results[hole - 1];
 	}
 
 	public int getTotalThrowsToCurrentHole(int currentHole) {

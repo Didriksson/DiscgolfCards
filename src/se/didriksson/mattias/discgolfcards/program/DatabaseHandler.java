@@ -86,7 +86,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(COURSE_NAME, course.getName());
 		values.put(COURSE_PARS, getStringFromResults(results));
 
-		long course_id = database.insert(COURSE_TABLE, null, values);
+		long course_id = database.insertOrThrow(COURSE_TABLE, null, values);
 		database.close();
 
 		return course_id;
