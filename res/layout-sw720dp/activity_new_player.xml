@@ -36,10 +36,12 @@
 
                 <Button
                     android:id="@+id/addNewPlayerButton"
+                    style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
+                    android:background="@drawable/button"
                     android:onClick="addPlayer"
                     android:padding="5dp"
                     android:text="New player" />
@@ -57,6 +59,7 @@
                     android:id="@+id/scrollView1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    
                     >
 
                     <LinearLayout
@@ -166,8 +169,10 @@
 
                 <Button
                     android:id="@+id/newPlayerAddButton"
+                    style="@style/button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/button"
                     android:onClick="savePlayersAndCloseWindow"
                     android:text="Done" />
 

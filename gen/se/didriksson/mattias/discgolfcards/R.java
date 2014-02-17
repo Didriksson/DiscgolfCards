@@ -21,15 +21,18 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int cardfrontside=0x7f020000;
-        public static final int doneactionbutton=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int menubackground=0x7f020003;
-        public static final int menubar=0x7f020004;
-        public static final int menubarbutton_quit=0x7f020005;
-        public static final int menubarbutton_scorecard=0x7f020006;
-        public static final int menubarbutton_skinchallenge=0x7f020007;
-        public static final int newplayerbackground=0x7f020008;
+        public static final int button=0x7f020000;
+        public static final int button_enabled=0x7f020001;
+        public static final int button_pressed=0x7f020002;
+        public static final int cardfrontside=0x7f020003;
+        public static final int doneactionbutton=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int menubackground=0x7f020006;
+        public static final int menubar=0x7f020007;
+        public static final int menubarbutton_quit=0x7f020008;
+        public static final int menubarbutton_scorecard=0x7f020009;
+        public static final int menubarbutton_skinchallenge=0x7f02000a;
+        public static final int newplayerbackground=0x7f02000b;
     }
     public static final class id {
         public static final int LinearLayout01=0x7f080079;
@@ -290,5 +293,7 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int YourApplicationTheme=0x7f060003;
+        public static final int button=0x7f060002;
     }
 }
