@@ -42,7 +42,7 @@ public class CompleteRoundActivity extends Activity {
 	private void setPlayerLayoutVisible() {
 
 		LinearLayout[] tmp = new LinearLayout[8];
-		tmp[0] = (LinearLayout) findViewById(R.id.playerlayoutR1);
+		tmp[0] = (LinearLayout) findViewById(R.id.playerlayoutC1);
 		tmp[1] = (LinearLayout) findViewById(R.id.playerlayoutC2);
 		tmp[2] = (LinearLayout) findViewById(R.id.playerlayoutC3);
 		tmp[3] = (LinearLayout) findViewById(R.id.playerlayoutC4);
@@ -97,7 +97,7 @@ public class CompleteRoundActivity extends Activity {
 
 	private void setPlayerNames() {
 		TextView[] textView = new TextView[8];
-		textView[0] = (TextView) findViewById(R.id.textViewNameR1);
+		textView[0] = (TextView) findViewById(R.id.textViewNameCP1);
 		textView[1] = (TextView) findViewById(R.id.textViewNameCP2);
 		textView[2] = (TextView) findViewById(R.id.textViewNameCP3);
 		textView[3] = (TextView) findViewById(R.id.textViewNameCP4);

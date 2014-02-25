@@ -77,7 +77,7 @@ public class MainScorecard extends SwipeActivity implements
 
 	private void setPlayerNames() {
 		TextView[] textView = new TextView[8];
-		textView[0] = (TextView) findViewById(R.id.textViewNameR1);
+		textView[0] = (TextView) findViewById(R.id.textViewNameP1);
 		textView[1] = (TextView) findViewById(R.id.textViewNameP2);
 		textView[2] = (TextView) findViewById(R.id.textViewNameP3);
 		textView[3] = (TextView) findViewById(R.id.textViewNameP4);
@@ -121,15 +121,15 @@ public class MainScorecard extends SwipeActivity implements
 	public void incrementAndDecrementThrow(View view) {
 		TextView tv;
 		switch (view.getId()) {
-		case R.id.buttonIncreaseR1:
-			tv = (TextView) findViewById(R.id.skinsR1);
+		case R.id.buttonIncrease1:
+			tv = (TextView) findViewById(R.id.throwsP1);
 			tv.setText(""
 					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(1));
 			updatePlayer1Info();
 			break;
 
-		case R.id.buttonDecreaseR1:
-			tv = (TextView) findViewById(R.id.skinsR1);
+		case R.id.buttonDecrease1:
+			tv = (TextView) findViewById(R.id.throwsP1);
 			tv.setText(""
 					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(1));
 			updatePlayer1Info();
@@ -293,7 +293,7 @@ public class MainScorecard extends SwipeActivity implements
 
 	private void updatePlayer1Info() {
 		TextView tv;
-		tv = (TextView) findViewById(R.id.skinsR1);
+		tv = (TextView) findViewById(R.id.throwsP1);
 		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(1));
 
 		tv = (TextView) findViewById(R.id.textviewCoursePar1);

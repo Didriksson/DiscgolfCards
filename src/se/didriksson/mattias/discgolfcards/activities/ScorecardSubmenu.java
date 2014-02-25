@@ -31,8 +31,6 @@ public class ScorecardSubmenu extends Activity {
 	Spinner courseSpinner;
 	ArrayAdapter<Course> courseAdapter;
 
-	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,9 +48,10 @@ public class ScorecardSubmenu extends Activity {
 		courses = database.getAllCourses();
 		courseSpinner = (Spinner) findViewById(R.id.courseSelectSpinner);
 		courseAdapter = new ArrayAdapter<Course>(this,
-				android.R.layout.simple_spinner_dropdown_item, courses);
+				R.layout.dropdownspinneritem, courses);
 
-		courseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		courseAdapter
+				.setDropDownViewResource(R.layout.dropdownspinneritem);
 		courseSpinner.setAdapter(courseAdapter);
 
 		courseSpinner.setOnItemSelectedListener(new SpinnerListener());
@@ -93,8 +92,8 @@ public class ScorecardSubmenu extends Activity {
 		Intent intent = new Intent(this, NewPlayerActivity.class);
 		startActivity(intent);
 	}
-	
-	public void newCourse(View view){
+
+	public void newCourse(View view) {
 		Intent intent = new Intent(this, NewCourseActivity.class);
 		startActivity(intent);
 	}
@@ -107,8 +106,7 @@ public class ScorecardSubmenu extends Activity {
 				intent = new Intent(this, RevengeGameActivity.class);
 			else
 				intent = new Intent(this, MainScorecard.class);
-			
-			
+
 			Course course = (Course) courseSpinner.getSelectedItem();
 			b.putString("course", course.getName());
 			intent.putExtras(b);
@@ -132,7 +130,7 @@ public class ScorecardSubmenu extends Activity {
 		return numberOfPlayers;
 
 	}
-	
+
 	class SpinnerListener implements OnItemSelectedListener {
 
 		@Override
@@ -146,6 +144,5 @@ public class ScorecardSubmenu extends Activity {
 		}
 
 	}
-
 
 }

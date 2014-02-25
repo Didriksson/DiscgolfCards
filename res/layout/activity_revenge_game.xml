@@ -127,8 +127,8 @@
                     android:id="@+id/textviewTotalSkinsR1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/skinsR1"
-                    android:layout_alignRight="@+id/skinsR1"
+                    android:layout_alignLeft="@+id/throwsP1"
+                    android:layout_alignRight="@+id/throwsP1"
                     android:layout_below="@+id/buttonIncreaseR1"
                     android:gravity="center_horizontal"
                     android:text="0" />

@@ -1,17 +1,19 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
-
 import se.didriksson.mattias.discgolfcards.R;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
 public class NewPlayerActivity extends Activity {
-
 
 	DatabaseHandler database = new DatabaseHandler(this);
 	int numberOfPlayers = 1;
@@ -31,11 +33,10 @@ public class NewPlayerActivity extends Activity {
 		getMenuInflater().inflate(R.menu.new_player, menu);
 		return true;
 	}
-	
-	public void addPlayer(View view){
+
+	public void addPlayer(View view) {
 		EditText tv;
-		switch(numberOfPlayers)
-		{
+		switch (numberOfPlayers) {
 		case 1:
 			tv = (EditText) findViewById(R.id.editTextP2);
 			tv.setVisibility(View.VISIBLE);
@@ -84,10 +85,12 @@ public class NewPlayerActivity extends Activity {
 		default:
 			break;
 		}
-		
+
 	}
-	
+
 	public void savePlayersAndCloseWindow(View view) {
+		boolean saveOK = true;
+		long saveReturn = -1;
 		EditText[] et = new EditText[8];
 		et[0] = (EditText) findViewById(R.id.editTextP1);
 		et[1] = (EditText) findViewById(R.id.editTextP2);
@@ -97,12 +100,32 @@ public class NewPlayerActivity extends Activity {
 		et[5] = (EditText) findViewById(R.id.editTextP6);
 		et[6] = (EditText) findViewById(R.id.editTextP7);
 		et[7] = (EditText) findViewById(R.id.editTextP8);
-		
-		for(int i=0;i<numberOfPlayers;i++){
-			database.addPlayer(new Player(et[i].getText().toString()));
-		}
-		
-		finish();
-	}
 
+			for (int i = 0; i < numberOfPlayers; i++) {
+					saveReturn = database.addPlayer(new Player(et[i].getText().toString()));
+		}
+			
+			saveOK = saveReturn > -1;
+		
+		if (saveOK)
+			finish();
+		else {
+
+			AlertDialog nameExistsWarning = new AlertDialog.Builder(this)
+					.create();
+			nameExistsWarning.setTitle("Warning!");
+			nameExistsWarning.setMessage("Player already exists!");
+			nameExistsWarning.setButton("OK",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					});
+			nameExistsWarning.show();
+
+		}
+
+	}
 }

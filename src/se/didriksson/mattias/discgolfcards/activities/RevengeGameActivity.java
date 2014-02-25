@@ -114,8 +114,8 @@ public class RevengeGameActivity extends SwipeActivity implements
 	public void incrementAndDecrementThrow(View view) {
 		TextView tv;
 		switch (view.getId()) {
-		case R.id.buttonIncreaseR1:
-			tv = (TextView) findViewById(R.id.skinsR1);
+		case R.id.buttonIncrease1:
+			tv = (TextView) findViewById(R.id.throwsP1);
 			tv.setText(""
 					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(1));
 			updatePlayer1Info();
@@ -287,7 +287,7 @@ public class RevengeGameActivity extends SwipeActivity implements
 
 	private void updatePlayer1Info() {
 		TextView tv;
-		tv = (TextView) findViewById(R.id.skinsR1);
+		tv = (TextView) findViewById(R.id.throwsP1);
 		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(1));
 
 		tv = (TextView) findViewById(R.id.textviewTotalSkinsR1);

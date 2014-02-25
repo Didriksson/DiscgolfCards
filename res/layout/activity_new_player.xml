@@ -1,20 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".NewPlayerActivity" >
 
     <RelativeLayout
         android:id="@+id/addPlayerWindow"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/newplayerbackground"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/defaultbackground"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:visibility="visible" >
@@ -26,32 +20,43 @@
             android:weightSum="1"
              >
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/row1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.1"
                 android:orientation="horizontal"
-                android:weightSum="1" >
+                >
 
                 <Button
                     android:id="@+id/addNewPlayerButton"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentLeft="true"
                     android:background="@drawable/button"
                     android:onClick="addPlayer"
                     android:text="New player" />
+
+                <Button
+                    android:id="@+id/newPlayerAddButton"
+                    style="@style/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/button"
+                    android:onClick="savePlayersAndCloseWindow"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:text="Done" />
                 
-            </LinearLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/row2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.80"
+                android:layout_weight="0.90"
                 android:orientation="vertical" >
 
                 <ScrollView
@@ -155,26 +160,6 @@
                             android:visibility="gone" />
                     </LinearLayout>
                 </ScrollView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/row3"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.10"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:orientation="vertical" >
-
-                <Button
-                    android:id="@+id/newPlayerAddButton"
-                    style="@style/button"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/button"
-                    android:onClick="savePlayersAndCloseWindow"
-                    android:text="Done" />
-
             </LinearLayout>
         </LinearLayout>
 

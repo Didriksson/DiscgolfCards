@@ -144,16 +144,13 @@ public class StatsActivity extends Activity {
 		@Override
 		public void onItemSelected(AdapterView<?> arg0, View arg1,
 				int position, long arg3) {
-			Log.d("But im not here!", "wait?");
 			
 			switch(arg0.getId()){
 			case R.id.spinnerPlayer:
 				setListViewElements();
-				Log.d("I'm in", "player!");
 				break;
 			case R.id.spinnerCourses:
 				setListViewElements();
-				Log.d("I'm in", "course!!");
 				break;
 			
 			}
