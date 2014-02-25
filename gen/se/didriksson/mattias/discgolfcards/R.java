@@ -175,7 +175,7 @@ public final class R {
         public static final int spinnerCourses=0x7f0800c3;
         public static final int spinnerPlayer=0x7f0800c1;
         public static final int startButton=0x7f0800bb;
-        public static final int textView1=0x7f08007c;
+        public static final int textView1=0x7f08007b;
         public static final int textView2=0x7f0800c2;
         public static final int textView3=0x7f0800c4;
         public static final int textViewHeader=0x7f080003;
@@ -219,7 +219,7 @@ public final class R {
         public static final int textviewCourseTotal6=0x7f080056;
         public static final int textviewCourseTotal7=0x7f08005d;
         public static final int textviewCourseTotal8=0x7f080064;
-        public static final int textviewTotalSkinsR1=0x7f08007b;
+        public static final int textviewTotalSkinsR1=0x7f08007c;
         public static final int textviewTotalSkinsR2=0x7f080083;
         public static final int textviewTotalSkinsR3=0x7f08008b;
         public static final int textviewTotalSkinsR4=0x7f080093;
