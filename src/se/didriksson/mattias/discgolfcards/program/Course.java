@@ -1,6 +1,8 @@
 package se.didriksson.mattias.discgolfcards.program;
 
-public class Course {
+import java.util.Locale;
+
+public class Course implements Comparable<Course> {
 
 	int[] pars;
 	String name;
@@ -62,11 +64,18 @@ public class Course {
 		return name;
 	}
 
-	public boolean equals(Object otherObject){
-		if(!(otherObject instanceof Course)){return false;}
-		else
-			{
-				Course othercourse = (Course)otherObject;
-				return name.equals(othercourse.name);
-			}}
+	public boolean equals(Object otherObject) {
+		if (!(otherObject instanceof Course)) {
+			return false;
+		} else {
+			Course othercourse = (Course) otherObject;
+			return name.equals(othercourse.name);
+		}
+	}
+
+	@Override
+	public int compareTo(Course another) {
+		return this.name.toUpperCase().compareTo(
+				another.getName().toUpperCase());
+	}
 }

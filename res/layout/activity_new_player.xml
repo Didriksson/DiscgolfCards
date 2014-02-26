@@ -1,168 +1,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context=".NewPlayerActivity" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/defaultbackground"
+    tools:context=".NewCourseActivity"
+    >
 
-    <RelativeLayout
-        android:id="@+id/addPlayerWindow"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@drawable/defaultbackground"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:visibility="visible" >
+    <EditText
+        android:id="@+id/newPlayerEditText"
+        style="@style/editTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:ems="10" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:weightSum="1"
-             >
+    <Button
+        android:id="@+id/newPlayerDoneButton"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="saveAndExit"
+        android:text="Done" />
 
-            <RelativeLayout
-                android:id="@+id/row1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.1"
-                android:orientation="horizontal"
-                >
-
-                <Button
-                    android:id="@+id/addNewPlayerButton"
-                    style="@style/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/button"
-                    android:onClick="addPlayer"
-                    android:text="New player" />
-
-                <Button
-                    android:id="@+id/newPlayerAddButton"
-                    style="@style/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/button"
-                    android:onClick="savePlayersAndCloseWindow"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp"
-                    android:text="Done" />
-                
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/row2"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.90"
-                android:orientation="vertical" >
-
-                <ScrollView
-                    android:id="@+id/scrollView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    
-                    >
-
-                    <LinearLayout
-                        android:id="@+id/playerLayout"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:orientation="vertical" >
-
-                        <EditText
-                            android:id="@+id/editTextP1"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:paddingTop="20dp"
-                            android:selectAllOnFocus="true"
-                            android:textColor="#CE6A11"
-                            android:text="Player 1" />
-
-                        <EditText
-                            android:id="@+id/editTextP2"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:paddingTop="20dp"
-                            android:selectAllOnFocus="true"
-                            android:textColor="#CE6A11"
-                            android:text="Player 2"
-                            android:visibility="gone" />
-
-                        <EditText
-                            android:id="@+id/editTextP3"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:paddingTop="20dp"
-                            android:selectAllOnFocus="true"
-                            android:textColor="#CE6A11"
-                            android:text="Player 3"
-                            android:visibility="gone" />
-
-                        <EditText
-                            android:id="@+id/editTextP4"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:paddingTop="20dp"
-                            android:selectAllOnFocus="true"
-                            android:textColor="#CE6A11"
-                            android:text="Player 4"
-                            android:visibility="gone" />
-
-                        <EditText
-                            android:id="@+id/editTextP5"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:paddingTop="20dp"
-                            android:selectAllOnFocus="true"
-                            android:textColor="#CE6A11"
-                            android:text="Player 5"
-                            android:visibility="gone" />
-
-                        <EditText
-                            android:id="@+id/editTextP6"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:paddingTop="20dp"
-                            android:selectAllOnFocus="true"
-                            android:textColor="#CE6A11"
-                            android:text="Player 6"
-                            android:visibility="gone" />
-
-                        <EditText
-                            android:id="@+id/editTextP7"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:paddingTop="20dp"
-                            android:selectAllOnFocus="true"
-                            android:textColor="#CE6A11"
-                            android:text="Player 7"
-                            android:visibility="gone" />
-
-                        <EditText
-                            android:id="@+id/editTextP8"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:paddingTop="20dp"
-                            android:selectAllOnFocus="true"
-                            android:textColor="#CE6A11"
-                            android:text="Player 8"
-                            android:visibility="gone" />
-                    </LinearLayout>
-                </ScrollView>
-            </LinearLayout>
-        </LinearLayout>
-
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/textViewCourseName"
+        style="@style/textviewlarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Enter player name:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

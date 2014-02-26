@@ -1,12 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/defaultbackground"
-    tools:context=".NewCourseActivity" >
+    tools:context=".NewCourseActivity"
+    >
 
     <EditText
         android:id="@+id/newCourseEditText"
+        style="@style/editTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -23,5 +25,16 @@
         android:layout_alignParentRight="true"
         android:onClick="saveAndExit"
         android:text="Done" />
+
+    <TextView
+        android:id="@+id/textViewCourseName"
+        style="@style/textviewlarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Enter course name:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

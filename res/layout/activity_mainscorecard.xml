@@ -3,6 +3,7 @@
     android:id="@+id/mainLayer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/defaultbackground"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
     android:gravity="left"
@@ -15,13 +16,24 @@
         android:layout_height="wrap_content"
         android:gravity="right" >
 
+        <TextView
+            android:id="@+id/textViewCourseName"
+            style="@style/textviewlarge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
         <Button
             android:id="@+id/newPlayerAddButton"
             style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:onClick="completeRound"
             android:text="Done" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -39,6 +51,7 @@
 
             <TextView
                 android:id="@+id/textViewHeader"
+                style="@style/textviewlarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#1"
@@ -51,6 +64,7 @@
 
                 <TextView
                     android:id="@+id/TextView01"
+                    style="@style/textviewlarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Par: "
@@ -58,6 +72,7 @@
 
                 <EditText
                     android:id="@+id/holeInfoPar"
+                    style="@style/textviewlarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/TextView01"
@@ -94,6 +109,7 @@
 
                     <TextView
                         android:id="@+id/textViewNameP1"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/buttonDecrease1"
@@ -117,6 +133,7 @@
 
                     <TextView
                         android:id="@+id/textviewCoursePar1"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonDecrease1"
@@ -127,6 +144,7 @@
 
                     <TextView
                         android:id="@+id/textviewCourseTotal1"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonIncrease1"
@@ -148,6 +166,7 @@
 
                     <TextView
                         android:id="@+id/throwsP1"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -170,6 +189,7 @@
 
                     <TextView
                         android:id="@+id/textViewNameP2"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/buttonDecrease2"
@@ -193,6 +213,7 @@
 
                     <TextView
                         android:id="@+id/throwsP2"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -217,6 +238,7 @@
 
                     <TextView
                         android:id="@+id/textviewCoursePar2"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonDecrease2"
@@ -227,6 +249,7 @@
 
                     <TextView
                         android:id="@+id/textviewCourseTotal2"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonIncrease2"
@@ -234,6 +257,7 @@
                         android:layout_below="@+id/buttonDecrease2"
                         android:gravity="center_horizontal"
                         android:text="0" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -245,6 +269,7 @@
 
                     <TextView
                         android:id="@+id/textViewNameP3"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/buttonDecrease3"
@@ -268,6 +293,7 @@
 
                     <TextView
                         android:id="@+id/throwsP3"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -292,6 +318,7 @@
 
                     <TextView
                         android:id="@+id/textviewCoursePar3"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonDecrease3"
@@ -302,6 +329,7 @@
 
                     <TextView
                         android:id="@+id/textviewCourseTotal3"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonIncrease3"
@@ -309,6 +337,7 @@
                         android:layout_below="@+id/buttonDecrease3"
                         android:gravity="center_horizontal"
                         android:text="0" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -320,6 +349,7 @@
 
                     <TextView
                         android:id="@+id/textViewNameP4"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/buttonDecrease4"
@@ -343,6 +373,7 @@
 
                     <TextView
                         android:id="@+id/throwsP4"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -367,6 +398,7 @@
 
                     <TextView
                         android:id="@+id/textviewCoursePar4"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonDecrease4"
@@ -377,6 +409,7 @@
 
                     <TextView
                         android:id="@+id/textviewCourseTotal4"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonIncrease4"
@@ -384,6 +417,7 @@
                         android:layout_below="@+id/buttonDecrease4"
                         android:gravity="center_horizontal"
                         android:text="0" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -395,6 +429,7 @@
 
                     <TextView
                         android:id="@+id/textViewNameP5"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/buttonDecrease5"
@@ -418,6 +453,7 @@
 
                     <TextView
                         android:id="@+id/throwsP5"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -442,6 +478,7 @@
 
                     <TextView
                         android:id="@+id/textviewCoursePar5"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonDecrease5"
@@ -452,6 +489,7 @@
 
                     <TextView
                         android:id="@+id/textviewCourseTotal5"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonIncrease5"
@@ -459,6 +497,7 @@
                         android:layout_below="@+id/buttonDecrease5"
                         android:gravity="center_horizontal"
                         android:text="0" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -470,6 +509,7 @@
 
                     <TextView
                         android:id="@+id/textViewNameP6"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/buttonDecrease6"
@@ -493,6 +533,7 @@
 
                     <TextView
                         android:id="@+id/throwsP6"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -517,6 +558,7 @@
 
                     <TextView
                         android:id="@+id/textviewCoursePar6"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonDecrease6"
@@ -527,6 +569,7 @@
 
                     <TextView
                         android:id="@+id/textviewCourseTotal6"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonIncrease6"
@@ -534,6 +577,7 @@
                         android:layout_below="@+id/buttonDecrease6"
                         android:gravity="center_horizontal"
                         android:text="0" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -545,6 +589,7 @@
 
                     <TextView
                         android:id="@+id/textViewNameP7"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/buttonDecrease7"
@@ -568,6 +613,7 @@
 
                     <TextView
                         android:id="@+id/throwsP7"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -592,6 +638,7 @@
 
                     <TextView
                         android:id="@+id/textviewCoursePar7"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonDecrease7"
@@ -602,6 +649,7 @@
 
                     <TextView
                         android:id="@+id/textviewCourseTotal7"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonIncrease7"
@@ -609,6 +657,7 @@
                         android:layout_below="@+id/buttonDecrease7"
                         android:gravity="center_horizontal"
                         android:text="0" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -620,6 +669,7 @@
 
                     <TextView
                         android:id="@+id/textViewNameP8"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/buttonDecrease8"
@@ -643,6 +693,7 @@
 
                     <TextView
                         android:id="@+id/throwsP8"
+                        style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -667,6 +718,7 @@
 
                     <TextView
                         android:id="@+id/textviewCoursePar8"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonDecrease8"
@@ -677,6 +729,7 @@
 
                     <TextView
                         android:id="@+id/textviewCourseTotal8"
+                        style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/buttonIncrease8"
@@ -684,6 +737,7 @@
                         android:layout_below="@+id/buttonDecrease8"
                         android:gravity="center_horizontal"
                         android:text="0" />
+
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>

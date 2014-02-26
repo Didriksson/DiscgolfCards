@@ -19,8 +19,7 @@ public class NewCourseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_course);
-
-		
+        setTitle("Add Course");
 	}
 
 	@Override

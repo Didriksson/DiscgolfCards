@@ -62,6 +62,9 @@ public class MainScorecard extends SwipeActivity implements
 		setPlayerLayoutsVisible();
 		setPlayerNames();
 
+		TextView courseName = (TextView)findViewById(R.id.textViewCourseName);
+		courseName.setText(course.getName());
+		
 	}
 
 	private Player[] setUpPlayers(int noPlayers) {
