@@ -153,6 +153,7 @@ public final class R {
         public static final int scrollExistingPlayers=0x7f0800b3;
         public static final int scrollViewPlayer=0x7f080004;
         public static final int skinchallengebutton=0x7f080029;
+<<<<<<< HEAD
         public static final int skinsR1=0x7f08006e;
         public static final int skinsR2=0x7f080075;
         public static final int skinsR3=0x7f08007d;
@@ -167,6 +168,22 @@ public final class R {
         public static final int textView2=0x7f0800b6;
         public static final int textView3=0x7f0800b8;
         public static final int textViewCourseName=0x7f08002b;
+=======
+        public static final int skinsR1=0x7f080079;
+        public static final int skinsR2=0x7f080081;
+        public static final int skinsR3=0x7f080089;
+        public static final int skinsR4=0x7f080091;
+        public static final int skinsR5=0x7f080099;
+        public static final int skinsR6=0x7f0800a1;
+        public static final int skinsR7=0x7f0800a9;
+        public static final int skinsR8=0x7f0800b1;
+        public static final int spinnerCourses=0x7f0800c3;
+        public static final int spinnerPlayer=0x7f0800c1;
+        public static final int startButton=0x7f0800bb;
+        public static final int textView1=0x7f08007b;
+        public static final int textView2=0x7f0800c2;
+        public static final int textView3=0x7f0800c4;
+>>>>>>> 0b4dd30b58301855ffaf76f85d56e5ba7c04c77c
         public static final int textViewHeader=0x7f080003;
         public static final int textViewNameCP1=0x7f080007;
         public static final int textViewNameCP2=0x7f08000b;
@@ -176,6 +193,7 @@ public final class R {
         public static final int textViewNameCP6=0x7f08001b;
         public static final int textViewNameCP7=0x7f08001f;
         public static final int textViewNameCP8=0x7f080023;
+<<<<<<< HEAD
         public static final int textViewNameP1=0x7f08002f;
         public static final int textViewNameP2=0x7f080036;
         public static final int textViewNameP3=0x7f08003d;
@@ -224,6 +242,56 @@ public final class R {
         public static final int throwsP6=0x7f080055;
         public static final int throwsP7=0x7f08005c;
         public static final int throwsP8=0x7f080063;
+=======
+        public static final int textViewNameP1=0x7f08002e;
+        public static final int textViewNameP2=0x7f080035;
+        public static final int textViewNameP3=0x7f08003c;
+        public static final int textViewNameP4=0x7f080043;
+        public static final int textViewNameP5=0x7f08004a;
+        public static final int textViewNameP6=0x7f080051;
+        public static final int textViewNameP7=0x7f080058;
+        public static final int textViewNameP8=0x7f08005f;
+        public static final int textViewNameR1=0x7f080077;
+        public static final int textViewNameR2=0x7f08007f;
+        public static final int textViewNameR3=0x7f080087;
+        public static final int textViewNameR4=0x7f08008f;
+        public static final int textViewNameR5=0x7f080097;
+        public static final int textViewNameR6=0x7f08009f;
+        public static final int textViewNameR7=0x7f0800a7;
+        public static final int textViewNameR8=0x7f0800af;
+        public static final int textviewCoursePar1=0x7f080030;
+        public static final int textviewCoursePar2=0x7f080039;
+        public static final int textviewCoursePar3=0x7f080040;
+        public static final int textviewCoursePar4=0x7f080047;
+        public static final int textviewCoursePar5=0x7f08004e;
+        public static final int textviewCoursePar6=0x7f080055;
+        public static final int textviewCoursePar7=0x7f08005c;
+        public static final int textviewCoursePar8=0x7f080063;
+        public static final int textviewCourseTotal1=0x7f080031;
+        public static final int textviewCourseTotal2=0x7f08003a;
+        public static final int textviewCourseTotal3=0x7f080041;
+        public static final int textviewCourseTotal4=0x7f080048;
+        public static final int textviewCourseTotal5=0x7f08004f;
+        public static final int textviewCourseTotal6=0x7f080056;
+        public static final int textviewCourseTotal7=0x7f08005d;
+        public static final int textviewCourseTotal8=0x7f080064;
+        public static final int textviewTotalSkinsR1=0x7f08007c;
+        public static final int textviewTotalSkinsR2=0x7f080083;
+        public static final int textviewTotalSkinsR3=0x7f08008b;
+        public static final int textviewTotalSkinsR4=0x7f080093;
+        public static final int textviewTotalSkinsR5=0x7f08009b;
+        public static final int textviewTotalSkinsR6=0x7f0800a3;
+        public static final int textviewTotalSkinsR7=0x7f0800ab;
+        public static final int textviewTotalSkinsR8=0x7f0800b3;
+        public static final int throwsP1=0x7f080033;
+        public static final int throwsP2=0x7f080038;
+        public static final int throwsP3=0x7f08003f;
+        public static final int throwsP4=0x7f080046;
+        public static final int throwsP5=0x7f08004d;
+        public static final int throwsP6=0x7f080054;
+        public static final int throwsP7=0x7f08005b;
+        public static final int throwsP8=0x7f080062;
+>>>>>>> 0b4dd30b58301855ffaf76f85d56e5ba7c04c77c
     }
     public static final class layout {
         public static final int activity_complete_round=0x7f030000;
