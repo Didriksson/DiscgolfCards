@@ -29,12 +29,6 @@ public class MainScorecard extends SwipeActivity implements
 	private float downX;
 	private final float minSwipeDistance = 50;
 	DatabaseHandler database = new DatabaseHandler(this);
-	TextView[] playerThrowsTextView;
-	TextView[] playerCoursePar;
-	TextView[] playerCourseTotal;
-
-	final int MAX_NUMBER_OF_PLAYERS = 8;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +46,7 @@ public class MainScorecard extends SwipeActivity implements
 		int numberOfPlayers = b.getInt("numberOfPlayers");
 		Player[] players = setUpPlayers(numberOfPlayers);
 
+		
 		Course course = database.getCourse(b.getString("course"));
 		scorecard = new Scorecard(players, course, 1);
 
@@ -64,52 +59,12 @@ public class MainScorecard extends SwipeActivity implements
 
 		holePar.setOnEditorActionListener(new OnEditTextListenerButtons());
 
-		setUpPlayerThrowsArray();
-		setUpPlayerParArray();
-		setUpPlayerTotalArray();
 		setPlayerLayoutsVisible();
 		setPlayerNames();
 
-		TextView courseName = (TextView) findViewById(R.id.textViewCourseName);
+		TextView courseName = (TextView)findViewById(R.id.textViewCourseName);
 		courseName.setText(course.getName());
-
-	}
-
-	private void setUpPlayerTotalArray() {
-		playerCourseTotal = new TextView[MAX_NUMBER_OF_PLAYERS];
-		playerCourseTotal[0] = (TextView) findViewById(R.id.textviewCourseTotal1);
-		playerCourseTotal[1] = (TextView) findViewById(R.id.textviewCourseTotal2);
-		playerCourseTotal[2] = (TextView) findViewById(R.id.textviewCourseTotal3);
-		playerCourseTotal[3] = (TextView) findViewById(R.id.textviewCourseTotal4);
-		playerCourseTotal[4] = (TextView) findViewById(R.id.textviewCourseTotal5);
-		playerCourseTotal[5] = (TextView) findViewById(R.id.textviewCourseTotal6);
-		playerCourseTotal[6] = (TextView) findViewById(R.id.textviewCourseTotal7);
-		playerCourseTotal[7] = (TextView) findViewById(R.id.textviewCourseTotal8);
-	}
-
-	private void setUpPlayerParArray() {
-		playerCoursePar = new TextView[MAX_NUMBER_OF_PLAYERS];
-		playerCoursePar[0] = (TextView) findViewById(R.id.textviewCoursePar1);
-		playerCoursePar[1] = (TextView) findViewById(R.id.textviewCoursePar2);
-		playerCoursePar[2] = (TextView) findViewById(R.id.textviewCoursePar3);
-		playerCoursePar[3] = (TextView) findViewById(R.id.textviewCoursePar4);
-		playerCoursePar[4] = (TextView) findViewById(R.id.textviewCoursePar5);
-		playerCoursePar[5] = (TextView) findViewById(R.id.textviewCoursePar6);
-		playerCoursePar[6] = (TextView) findViewById(R.id.textviewCoursePar7);
-		playerCoursePar[7] = (TextView) findViewById(R.id.textviewCoursePar8);
-	}
-
-	private void setUpPlayerThrowsArray() {
-		playerThrowsTextView = new TextView[MAX_NUMBER_OF_PLAYERS];
-		playerThrowsTextView[0] = (TextView) findViewById(R.id.throwsP1);
-		playerThrowsTextView[1] = (TextView) findViewById(R.id.throwsP2);
-		playerThrowsTextView[2] = (TextView) findViewById(R.id.throwsP3);
-		playerThrowsTextView[3] = (TextView) findViewById(R.id.throwsP4);
-		playerThrowsTextView[4] = (TextView) findViewById(R.id.throwsP5);
-		playerThrowsTextView[5] = (TextView) findViewById(R.id.throwsP6);
-		playerThrowsTextView[6] = (TextView) findViewById(R.id.throwsP7);
-		playerThrowsTextView[7] = (TextView) findViewById(R.id.throwsP8);
-
+		
 	}
 
 	private Player[] setUpPlayers(int noPlayers) {
@@ -118,7 +73,9 @@ public class MainScorecard extends SwipeActivity implements
 		for (int i = 0; i < noPlayers; i++) {
 			player[i] = database.getPlayer(b.getString("player" + i));
 		}
+
 		return player;
+
 	}
 
 	private void setPlayerNames() {
@@ -159,89 +116,135 @@ public class MainScorecard extends SwipeActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
 	public void incrementAndDecrementThrow(View view) {
+		TextView tv;
 		switch (view.getId()) {
 		case R.id.buttonIncrease1:
-			increamentScore(1);
-			updatePlayerInfo(1);
+			tv = (TextView) findViewById(R.id.throwsP1);
+			tv.setText(""
+					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(1));
+			updatePlayer1Info();
 			break;
+
 		case R.id.buttonDecrease1:
-			decreamentScore(1);
-			updatePlayerInfo(1);
+			tv = (TextView) findViewById(R.id.throwsP1);
+			tv.setText(""
+					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(1));
+			updatePlayer1Info();
 			break;
 		case R.id.buttonIncrease2:
-			increamentScore(2);
-			updatePlayerInfo(2);
+			tv = (TextView) findViewById(R.id.throwsP2);
+			tv.setText(""
+					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(2));
+			updatePlayer2Info();
 			break;
+
 		case R.id.buttonDecrease2:
-			decreamentScore(2);
-			updatePlayerInfo(2);
+			tv = (TextView) findViewById(R.id.throwsP2);
+			tv.setText(""
+					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(2));
+			updatePlayer2Info();
 			break;
 		case R.id.buttonIncrease3:
-			increamentScore(3);
-			updatePlayerInfo(3);
+			tv = (TextView) findViewById(R.id.throwsP3);
+			tv.setText(""
+					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(3));
+			updatePlayer3Info();
+
 			break;
+
 		case R.id.buttonDecrease3:
-			decreamentScore(3);
-			updatePlayerInfo(3);
+			tv = (TextView) findViewById(R.id.throwsP3);
+			tv.setText(""
+					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(3));
+			updatePlayer3Info();
+
 			break;
 		case R.id.buttonIncrease4:
-			increamentScore(4);
-			updatePlayerInfo(4);
+			tv = (TextView) findViewById(R.id.throwsP4);
+			tv.setText(""
+					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(4));
+			updatePlayer4Info();
+
 			break;
+
 		case R.id.buttonDecrease4:
-			decreamentScore(4);
-			updatePlayerInfo(4);
+			tv = (TextView) findViewById(R.id.throwsP4);
+			tv.setText(""
+					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(4));
+			updatePlayer4Info();
+
 			break;
+
 		case R.id.buttonIncrease5:
-			increamentScore(5);
-			updatePlayerInfo(5);
+			tv = (TextView) findViewById(R.id.throwsP5);
+			tv.setText(""
+					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(5));
+			updatePlayer5Info();
+
 			break;
 		case R.id.buttonDecrease5:
-			decreamentScore(5);
-			updatePlayerInfo(5);
+			tv = (TextView) findViewById(R.id.throwsP5);
+			tv.setText(""
+					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(5));
+			updatePlayer5Info();
+
 			break;
+
 		case R.id.buttonIncrease6:
-			increamentScore(6);
-			updatePlayerInfo(6);
+			tv = (TextView) findViewById(R.id.throwsP6);
+			tv.setText(""
+					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(6));
+			updatePlayer6Info();
+
 			break;
+
 		case R.id.buttonDecrease6:
-			decreamentScore(6);
-			updatePlayerInfo(6);
+			tv = (TextView) findViewById(R.id.throwsP6);
+			tv.setText(""
+					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(6));
+			updatePlayer6Info();
+
 			break;
 		case R.id.buttonIncrease7:
-			increamentScore(7);
-			updatePlayerInfo(7);
+			tv = (TextView) findViewById(R.id.throwsP7);
+			tv.setText(""
+					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(7));
+			updatePlayer7Info();
+
 			break;
+
 		case R.id.buttonDecrease7:
-			decreamentScore(7);
-			updatePlayerInfo(7);
+			tv = (TextView) findViewById(R.id.throwsP7);
+			tv.setText(""
+					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(7));
+			updatePlayer7Info();
+
 			break;
 		case R.id.buttonIncrease8:
-			increamentScore(8);
-			updatePlayerInfo(8);
+			tv = (TextView) findViewById(R.id.throwsP8);
+			tv.setText(""
+					+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(8));
+			updatePlayer8Info();
+
 			break;
+
 		case R.id.buttonDecrease8:
-			decreamentScore(8);
-			updatePlayerInfo(8);
+			tv = (TextView) findViewById(R.id.throwsP8);
+			tv.setText(""
+					+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(8));
+			updatePlayer8Info();
+
 			break;
 		default:
 			break;
+
 		}
-	}
-
-	private void increamentScore(int player) {
-		playerThrowsTextView[player - 1].setText(""
-				+ scorecard.increaseAndReturnPlayerScoreForCurrentHole(player));
-	}
-
-	private void decreamentScore(int player) {
-		playerThrowsTextView[player - 1].setText(""
-				+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(player));
 	}
 
 	@Override
@@ -291,18 +294,135 @@ public class MainScorecard extends SwipeActivity implements
 
 	}
 
-	private void updatePlayerInfo(int player) {
-		playerThrowsTextView[player - 1].setText(""+scorecard.getPlayerScoreForCurrentHole(player));
-		playerCoursePar[player - 1].setText(""+scorecard.getPlusMinusComparedToPar(player));
-		playerCourseTotal[player-1].setText(""+scorecard.getTotalThrowsToCurrentHole(player));
+	private void updatePlayer1Info() {
+		TextView tv;
+		tv = (TextView) findViewById(R.id.throwsP1);
+		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(1));
+
+		tv = (TextView) findViewById(R.id.textviewCoursePar1);
+		tv.setText("" + scorecard.getPlusMinusComparedToPar(1));
+
+		tv = (TextView) findViewById(R.id.textviewCourseTotal1);
+		tv.setText("" + scorecard.getTotalThrowsToCurrentHole(1));
+	}
+
+	private void updatePlayer2Info() {
+		TextView tv;
+		tv = (TextView) findViewById(R.id.throwsP2);
+		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(2));
+
+		tv = (TextView) findViewById(R.id.textviewCoursePar2);
+		tv.setText("" + scorecard.getPlusMinusComparedToPar(2));
+
+		tv = (TextView) findViewById(R.id.textviewCourseTotal2);
+		tv.setText("" + scorecard.getTotalThrowsToCurrentHole(2));
+	}
+
+	private void updatePlayer3Info() {
+		TextView tv;
+		tv = (TextView) findViewById(R.id.throwsP3);
+		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(3));
+
+		tv = (TextView) findViewById(R.id.textviewCoursePar3);
+		tv.setText("" + scorecard.getPlusMinusComparedToPar(3));
+
+		tv = (TextView) findViewById(R.id.textviewCourseTotal3);
+		tv.setText("" + scorecard.getTotalThrowsToCurrentHole(3));
+
+	}
+
+	private void updatePlayer4Info() {
+		TextView tv;
+		tv = (TextView) findViewById(R.id.throwsP4);
+		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(4));
+
+		tv = (TextView) findViewById(R.id.textviewCoursePar4);
+		tv.setText("" + scorecard.getPlusMinusComparedToPar(4));
+
+		tv = (TextView) findViewById(R.id.textviewCourseTotal4);
+		tv.setText("" + scorecard.getTotalThrowsToCurrentHole(4));
+
+	}
+
+	private void updatePlayer5Info() {
+		TextView tv;
+		tv = (TextView) findViewById(R.id.throwsP5);
+		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(5));
+
+		tv = (TextView) findViewById(R.id.textviewCoursePar5);
+		tv.setText("" + scorecard.getPlusMinusComparedToPar(5));
+
+		tv = (TextView) findViewById(R.id.textviewCourseTotal5);
+		tv.setText("" + scorecard.getTotalThrowsToCurrentHole(5));
+
+	}
+
+	private void updatePlayer6Info() {
+		TextView tv;
+		tv = (TextView) findViewById(R.id.throwsP6);
+		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(6));
+
+		tv = (TextView) findViewById(R.id.textviewCoursePar6);
+		tv.setText("" + scorecard.getPlusMinusComparedToPar(6));
+
+		tv = (TextView) findViewById(R.id.textviewCourseTotal6);
+		tv.setText("" + scorecard.getTotalThrowsToCurrentHole(6));
+
+	}
+
+	private void updatePlayer7Info() {
+		TextView tv;
+		tv = (TextView) findViewById(R.id.throwsP7);
+		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(7));
+
+		tv = (TextView) findViewById(R.id.textviewCoursePar7);
+		tv.setText("" + scorecard.getPlusMinusComparedToPar(7));
+
+		tv = (TextView) findViewById(R.id.textviewCourseTotal7);
+		tv.setText("" + scorecard.getTotalThrowsToCurrentHole(7));
+
+	}
+
+	private void updatePlayer8Info() {
+		TextView tv;
+		tv = (TextView) findViewById(R.id.throwsP8);
+		tv.setText("" + scorecard.getPlayerScoreForCurrentHole(8));
+
+		tv = (TextView) findViewById(R.id.textviewCoursePar8);
+		tv.setText("" + scorecard.getPlusMinusComparedToPar(8));
+
+		tv = (TextView) findViewById(R.id.textviewCourseTotal8);
+		tv.setText("" + scorecard.getTotalThrowsToCurrentHole(8));
+
 	}
 
 	private void updatePlayerThrowsInfo() {
-		for(int player = 1;player<=MAX_NUMBER_OF_PLAYERS;player++){
-			if(scorecard.getNumberOfPlayers() >= player){
-				updatePlayerInfo(player);
+		updatePlayer1Info();
+		if (scorecard.getNumberOfPlayers() > 1) {
+			updatePlayer2Info();
+			if (scorecard.getNumberOfPlayers() > 2) {
+				updatePlayer3Info();
+				if (scorecard.getNumberOfPlayers() > 3) {
+					updatePlayer4Info();
+					if (scorecard.getNumberOfPlayers() > 4) {
+						updatePlayer5Info();
+						if (scorecard.getNumberOfPlayers() > 5) {
+							updatePlayer6Info();
+							if (scorecard.getNumberOfPlayers() > 6) {
+								updatePlayer7Info();
+								if (scorecard.getNumberOfPlayers() > 7) {
+									updatePlayer8Info();
+
+								}
+							}
+						}
+					}
+
+				}
 			}
+
 		}
+
 	}
 
 	public void completeRound(View view) {
@@ -316,13 +436,13 @@ public class MainScorecard extends SwipeActivity implements
 			b.putInt("playerresult" + (i + 1), scorecard.getFinalScore(i + 1));
 			b.putInt("playerresultPar" + (i + 1),
 					scorecard.getFinalScorePar(i + 1));
-
+			
+			
 			database.addRounds(
 					scorecard.getPlayer(i),
 					scorecard.getCourse(),
 					scorecard.getPlayer(i).getFinalResult(
-							scorecard.getNumberOfHoles()),
-					time.format3339(false));
+							scorecard.getNumberOfHoles()), time.format3339(false));
 
 			database.updateCourse(scorecard.getCourse());
 
@@ -351,7 +471,7 @@ public class MainScorecard extends SwipeActivity implements
 					parseOK = false;
 				}
 				if (parseOK && newPar >= 1)
-					scorecard.setParForHole(scorecard.getCurrentHole(), newPar);
+					scorecard.setParForHole(scorecard.getCurrentHole(),newPar);
 
 				LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayer);
 				mainLayout.requestFocus();
@@ -362,7 +482,9 @@ public class MainScorecard extends SwipeActivity implements
 
 				return true;
 			}
+
 			return false;
 		}
+
 	}
 }

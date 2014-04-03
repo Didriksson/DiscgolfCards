@@ -113,6 +113,8 @@ public class CompleteRoundActivity extends Activity {
 	}
 	
 	public void menuButtonClick(View view){
+			Intent intent = new Intent(this, MainMenuActivity.class);
+			startActivity(intent);
 			finish();
 	}
 
