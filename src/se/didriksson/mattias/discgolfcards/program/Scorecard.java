@@ -19,7 +19,7 @@ public class Scorecard {
 		setAllResultsToPar();
 
 	}
-
+	
 	protected void setAllResultsToPar() {
 		for (int i = 0; i < players.length; i++) {
 			for (int o = 0; o < course.getNumberOfHoles(); o++) {
@@ -67,6 +67,15 @@ public class Scorecard {
 		return getPlayerScoreForHole(player, currentHole);
 	}
 
+	public int getPlayerSkinForHole(int player, int hole) {
+		return players[player-1].getSkinForHole(hole);
+	}
+
+	public int getPlayerSkinForCurrentHole(int player) {
+		return getPlayerSkinForHole(player, currentHole);
+	}
+
+	
 	public int getNumberOfPlayers() {
 		return players.length;
 	}
@@ -101,7 +110,12 @@ public class Scorecard {
 	public int getTotalThrowsToCurrentHole(int player){
 		return players[player-1].getTotalThrowsToCurrentHole(currentHole);
 	}
-
+	
+	
+	public int getTotalSkinsToCurrentHole(int player){
+		return players[player-1].getTotalSkinsToCurrentHole(currentHole);
+	}
+	
 	public int getPlusMinusComparedToPar(int player){
 		int totalThrows = course.getTotalThrowsUpToThisHole(currentHole);
 		return (getTotalThrowsToCurrentHole(player) - totalThrows);
@@ -126,6 +140,24 @@ public class Scorecard {
 	public int decreaseAndReturnPlayerScoreForHole(int player, int hole){
 		return 	players[player-1].decreaseAndReturnResult(hole);
 	}
+	
+	public int increaseAndReturnPlayerSkinForCurrentHole(int player){
+		return increaseAndReturnPlayerSkinForHole(player, currentHole);
+	}
+
+	public int increaseAndReturnPlayerSkinForHole(int player, int hole){
+		return 	players[player-1].increaseAndReturnSkin(hole);
+	}
+	
+	public int decreaseAndReturnPlayerSkinForCurrentHole(int player){
+		return decreaseAndReturnPlayerSkinForHole(player, currentHole);
+	}
+
+	public int decreaseAndReturnPlayerSkinForHole(int player, int hole){
+		return 	players[player-1].decreaseAndReturnSkin(hole);
+	}
+
+	
 	
 	public boolean isLastHole(){
 		return currentHole == course.getNumberOfHoles();

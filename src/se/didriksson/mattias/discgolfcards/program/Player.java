@@ -7,11 +7,13 @@ public class Player implements Comparable<Player> {
 
 	String name;
 	int[] results;
+	int[] skins;
 	List<Card> cards;
 
 	public Player(String name) {
 		this.name = name;
 		this.results = new int[36];
+		this.skins= new int[36];
 		cards = new ArrayList<Card>();
 	}
 	
@@ -31,6 +33,23 @@ public class Player implements Comparable<Player> {
 	public void setResult(int hole, int noOfThrows) {
 		results[hole - 1] = noOfThrows;
 	}
+	
+	public void setSkinForHole(int hole, int skin) {
+		skins[hole - 1] = skin;
+	}
+	
+	public int getSkinForHole(int hole) {
+		return skins[hole - 1];
+	}
+
+	public int increaseAndReturnSkin(int hole) {
+		return ++skins[hole - 1];
+	}
+
+	public int decreaseAndReturnSkin(int hole) {
+		return --skins[hole - 1];
+	}
+	
 
 	public int increaseAndReturnResult(int hole) {
 		return ++results[hole - 1];
@@ -49,6 +68,15 @@ public class Player implements Comparable<Player> {
 		}
 		return tmp;
 	}
+	
+	public int getTotalSkinsToCurrentHole(int currentHole) {
+		int tmp = 0;
+		for (int i = 0; i < currentHole; i++) {
+			tmp = tmp + skins[i];
+		}
+		return tmp;
+	}
+	
 
 	public List<Card> getCards() {
 		return cards;

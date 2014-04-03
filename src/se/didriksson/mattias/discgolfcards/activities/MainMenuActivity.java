@@ -3,9 +3,10 @@ package se.didriksson.mattias.discgolfcards.activities;
 import java.util.List;
 
 import se.didriksson.mattias.discgolfcards.R;
-import se.didriksson.mattias.discgolfcards.program.Course;
-import se.didriksson.mattias.discgolfcards.program.Player;
+import se.didriksson.mattias.discgolfcards.program.Card;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
+import se.didriksson.mattias.discgolfcards.program.Deck;
+import se.didriksson.mattias.discgolfcards.program.Player;
 import se.didriksson.mattias.discgolfcards.program.Round;
 import android.app.Activity;
 import android.content.Intent;
@@ -22,49 +23,65 @@ public class MainMenuActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
-		DatabaseHandler db = new DatabaseHandler(this);
+//		DatabaseHandler db = new DatabaseHandler(this);
 
-		
 		Log.d("Insert: ", "Inserting players...");
-		
+
 		Log.d("Reading: ", "Reading all players");
-        
-        List<Player> players = db.getAllPlayers();       
-        
-        for (Player cn : players) {
-            String log = "Name: " + cn.getName();
-                // Writing Contacts to log
-      
-            Log.d("Name: ", log);
-		
-	}
-        
-        
-//	Log.d("Reading: ", "Reading all Courses");
-//        
-//        List<Course> courses = db.getAllCourses();       
-//        
-//        for (Course cn : courses) {
-//            String log = "Name: " + cn.getName() + "Par first hole: " + cn.getParForHole(1);
-//                // Writing Contacts to log
-//      
-//            Log.d("Course name: ", log);
+
+//		List<Player> players = db.getAllPlayers();
+
+//		for (Player cn : players) {
+//			String log = "Name: " + cn.getName();
+//			// Writing Contacts to log
+//
+//			Log.d("Name: ", log);
+//
+//		}
+
+//		Deck deck = new Deck(getApplicationContext());
+//		Log.d("Inserting: ", "Inserting deck");
+//		deck.addCardsFromFileToDatabase();
 //		
-//	}
-        
-        
-	Log.d("Reading: ", "Reading all Rounds");
-        
-        List<Round> rounds = db.getAllRounds();       
-        
-        for (Round cn : rounds) {
-        	int[] tmp = cn.getResults();
-        	String log = "Id: "+cn.getID()+" ,Bana: " + cn.getCourse().getName() + " ,Spelare: " + cn.getPlayer().getName();
-                // Writing Contacts to log
-      
-            Log.d("Round name: ", log);
-		
-	}
+//		
+//		Log.d("Reading: ", "Reading all Cards");
+//
+//		List<Card> cards = db.getAllCards();
+//
+//		for (Card cn : cards) {
+//			String log = "Name: " + cn.getName() + " ,Desciption: "
+//					+ cn.getDescription();
+//			Log.d("Card: ", log);
+//
+//		}
+
+		// Log.d("Reading: ", "Reading all Courses");
+		//
+		// List<Course> courses = db.getAllCourses();
+		//
+		// for (Course cn : courses) {
+		// String log = "Name: " + cn.getName() + "Par first hole: " +
+		// cn.getParForHole(1);
+		// // Writing Contacts to log
+		//
+		// Log.d("Course name: ", log);
+		//
+		// }
+
+		Log.d("Reading: ", "Reading all Rounds");
+
+//		List<Round> rounds = db.getAllRounds();
+//
+//		for (Round cn : rounds) {
+//			int[] tmp = cn.getResults();
+//			String log = "Id: " + cn.getID() + " ,Bana: "
+//					+ cn.getCourse().getName() + " ,Spelare: "
+//					+ cn.getPlayer().getName();
+//			// Writing Contacts to log
+//
+//			Log.d("Round name: ", log);
+//
+//		}
 	}
 
 	@Override
@@ -89,7 +106,7 @@ public class MainMenuActivity extends Activity {
 	}
 
 	public void startRevengeGame(View view) {
-		Intent intent = new Intent(this, StatsActivity.class);
+		Intent intent = new Intent(this, ScorecardSubmenu.class);
 		Bundle b = new Bundle();
 		b.putBoolean("revengeGame", true);
 		intent.putExtras(b);

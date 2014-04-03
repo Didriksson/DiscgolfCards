@@ -7,18 +7,22 @@ import java.util.List;
 import java.util.Stack;
 
 import android.content.Context;
+import android.util.Log;
 
 public class Deck {
 	
 	Stack<Card> deckOfCards = new Stack<Card>();
 	Context context;
-	
+	DatabaseHandler database;
 	
 	public Deck(Context context){
 		this.context = context;
+		database = new DatabaseHandler(context);
 	}
 
-	public void populateDeck() {
+	public void addCardsFromFileToDatabase(){
+		
+		int temp = 1;
 		List<String> cardStrings = null;
 		try {
 			 cardStrings = (ArrayList<String>) FileHandler.readCardStrings(context);
@@ -28,12 +32,35 @@ public class Deck {
 		while(!(cardStrings == null) && (!cardStrings.isEmpty()))
 		{
 			String cardDescription = cardStrings.remove(0);
-			deckOfCards.push(new Card(cardDescription));
+			deckOfCards.push(new Card("Kort"+temp++,cardDescription));
 		}
-		
+
+		while(deckOfCards.size()>0){
+			database = new DatabaseHandler(context);
+			database.addCard(deckOfCards.pop());
+		}
+	}
+	
+	public void populateDeck(){
+		deckOfCards.addAll(database.getAllCards());
+	}
+	
+	public void populateDeckFromFile() {
+		int temp = 1;
+		List<String> cardStrings = null;
+		try {
+			 cardStrings = (ArrayList<String>) FileHandler.readCardStrings(context);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		while(!(cardStrings == null) && (!cardStrings.isEmpty()))
+		{
+			String cardDescription = cardStrings.remove(0);
+			deckOfCards.push(new Card("Kort"+temp++,cardDescription));
+		}
+
 		shuffleDeck();
 
-		
 	}
 	
 	public void putCard(Card card){

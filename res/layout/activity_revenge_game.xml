@@ -108,7 +108,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonIncreaseR1"
+                    android:id="@+id/buttonIncrease1"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,16 +125,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/buttonDecreaseR1"
+                    android:layout_toRightOf="@+id/buttonDecrease1"
                     android:gravity="center_vertical|center_horizontal"
                     android:maxWidth="50dp"
                     android:minWidth="50dp"
-                    android:text="3"
+                    android:text="2"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="35dp" />
 
                 <Button
-                    android:id="@+id/buttonDecreaseR1"
+                    android:id="@+id/buttonDecrease1"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -150,7 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/buttonDecreaseR1"
+                    android:layout_below="@+id/buttonDecrease1"
                     android:text="Total skins:" />
 
                 <TextView
@@ -194,7 +194,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonIncreaseR2"
+                    android:id="@+id/buttonIncrease2"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/buttonDecreaseR2"
+                    android:layout_toRightOf="@+id/buttonDecrease2"
                     android:gravity="center_vertical|center_horizontal"
                     android:maxWidth="50dp"
                     android:minWidth="50dp"
@@ -228,12 +228,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/skinsR2"
                     android:layout_alignRight="@+id/skinsR2"
-                    android:layout_below="@+id/buttonIncreaseR2"
+                    android:layout_below="@+id/buttonIncrease2"
                     android:gravity="center_horizontal"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/buttonDecreaseR2"
+                    android:id="@+id/buttonDecrease2"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -250,7 +250,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/buttonDecreaseR2"
+                    android:layout_below="@+id/buttonDecrease2"
                     android:text="Total skins:" />
 
             </RelativeLayout>
@@ -282,7 +282,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonIncreaseR3"
+                    android:id="@+id/buttonIncrease3"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -299,7 +299,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/buttonDecreaseR3"
+                    android:layout_toRightOf="@+id/buttonDecrease3"
                     android:gravity="center_vertical|center_horizontal"
                     android:maxWidth="50dp"
                     android:minWidth="50dp"
@@ -316,12 +316,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/skinsR3"
                     android:layout_alignRight="@+id/skinsR3"
-                    android:layout_below="@+id/buttonIncreaseR3"
+                    android:layout_below="@+id/buttonIncrease3"
                     android:gravity="center_horizontal"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/buttonDecreaseR3"
+                    android:id="@+id/buttonDecrease3"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -338,7 +338,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/buttonDecreaseR3"
+                    android:layout_below="@+id/buttonDecrease3"
                     android:text="Total skins:" />
 
             </RelativeLayout>
@@ -370,7 +370,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonIncreaseR4"
+                    android:id="@+id/buttonIncrease4"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -385,7 +385,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/buttonDecreaseR4"
+                    android:layout_toRightOf="@+id/buttonDecrease4"
                     android:gravity="center_vertical|center_horizontal"
                     android:maxWidth="50dp"
                     android:minWidth="50dp"
@@ -400,12 +400,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/skinsR4"
                     android:layout_alignRight="@+id/skinsR4"
-                    android:layout_below="@+id/buttonDecreaseR4"
+                    android:layout_below="@+id/buttonDecrease4"
                     android:gravity="center_horizontal"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/buttonDecreaseR4"
+                    android:id="@+id/buttonDecrease4"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -422,7 +422,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/buttonDecreaseR4"
+                    android:layout_below="@+id/buttonDecrease4"
                     android:text="Total skins:" />
 
             </RelativeLayout>
@@ -454,7 +454,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonIncreaseR5"
+                    android:id="@+id/buttonIncrease5"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -471,7 +471,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/buttonDecreaseR5"
+                    android:layout_toRightOf="@+id/buttonDecrease5"
                     android:gravity="center_vertical|center_horizontal"
                     android:maxWidth="50dp"
                     android:minWidth="50dp"
@@ -486,12 +486,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/skinsR5"
                     android:layout_alignRight="@+id/skinsR5"
-                    android:layout_below="@+id/buttonDecreaseR5"
+                    android:layout_below="@+id/buttonDecrease5"
                     android:gravity="center_horizontal"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/buttonDecreaseR5"
+                    android:id="@+id/buttonDecrease5"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -508,7 +508,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/buttonDecreaseR5"
+                    android:layout_below="@+id/buttonDecrease5"
                     android:text="Total skins:" />
 
             </RelativeLayout>
@@ -540,7 +540,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonIncreaseR6"
+                    android:id="@+id/buttonIncrease6"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -557,7 +557,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/buttonDecreaseR6"
+                    android:layout_toRightOf="@+id/buttonDecrease6"
                     android:gravity="center_horizontal|center_vertical"
                     android:maxWidth="50dp"
                     android:minWidth="50dp"
@@ -572,12 +572,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/skinsR6"
                     android:layout_alignRight="@+id/skinsR6"
-                    android:layout_below="@+id/buttonDecreaseR6"
+                    android:layout_below="@+id/buttonDecrease6"
                     android:gravity="center_horizontal"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/buttonDecreaseR6"
+                    android:id="@+id/buttonDecrease6"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -594,7 +594,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/buttonDecreaseR6"
+                    android:layout_below="@+id/buttonDecrease6"
                     android:text="Total skins:" />
 
             </RelativeLayout>
@@ -626,7 +626,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonIncreaseR7"
+                    android:id="@+id/buttonIncrease7"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -644,7 +644,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/buttonDecreaseR7"
+                    android:layout_toRightOf="@+id/buttonDecrease7"
                     android:gravity="center_vertical|center_horizontal"
                     android:maxWidth="50dp"
                     android:minWidth="50dp"
@@ -659,12 +659,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/skinsR7"
                     android:layout_alignRight="@+id/skinsR7"
-                    android:layout_below="@+id/buttonDecreaseR7"
+                    android:layout_below="@+id/buttonDecrease7"
                     android:gravity="center_horizontal"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/buttonDecreaseR7"
+                    android:id="@+id/buttonDecrease7"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -681,7 +681,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/buttonDecreaseR7"
+                    android:layout_below="@+id/buttonDecrease7"
                     android:text="Total skins:" />
 
             </RelativeLayout>
@@ -713,7 +713,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonIncreaseR8"
+                    android:id="@+id/buttonIncrease8"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -730,7 +730,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/buttonDecreaseR8"
+                    android:layout_toRightOf="@+id/buttonDecrease8"
                     android:gravity="center_vertical|center_horizontal"
                     android:maxWidth="50dp"
                     android:minWidth="50dp"
@@ -745,12 +745,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/skinsR8"
                     android:layout_alignRight="@+id/skinsR8"
-                    android:layout_below="@+id/buttonDecreaseR8"
+                    android:layout_below="@+id/buttonDecrease8"
                     android:gravity="center_horizontal"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/buttonDecreaseR8"
+                    android:id="@+id/buttonDecrease8"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -767,7 +767,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/buttonDecreaseR8"
+                    android:layout_below="@+id/buttonDecrease8"
                     android:text="Total skins:" />
 
             </RelativeLayout>
