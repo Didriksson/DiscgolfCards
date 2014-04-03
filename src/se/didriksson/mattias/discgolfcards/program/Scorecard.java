@@ -1,5 +1,7 @@
 package se.didriksson.mattias.discgolfcards.program;
 
+import android.util.Log;
+
 
 public class Scorecard {
 
@@ -75,10 +77,15 @@ public class Scorecard {
 
 	public void nextHole() {
 		int tmp  = currentHole++;
-		currentHole = currentHole % course.getNumberOfHoles();
+
+		currentHole = currentHole % (course.getNumberOfHoles()+1);
+		
+		if(currentHole == 0)
+			currentHole++;
 		
 		if(currentHole == startHole)
 			currentHole = tmp;
+
 	}
 
 	public void previousHole() {

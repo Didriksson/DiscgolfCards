@@ -146,12 +146,7 @@
                     android:text="-" />
 
                 <TextView
-<<<<<<< HEAD
-                    android:id="@+id/textViewCourseName"
-=======
-                    android:id="@+id/textView1"
-                    style="@style/textviewmedium"
->>>>>>> 0b4dd30b58301855ffaf76f85d56e5ba7c04c77c
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"

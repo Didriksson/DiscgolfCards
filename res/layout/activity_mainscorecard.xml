@@ -9,28 +9,82 @@
     android:gravity="left"
     android:orientation="vertical"
     android:visibility="visible"
+    android:weightSum="100"
     tools:context=".MainScorecard" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right" >
+        android:layout_weight="5"
+        android:weightSum="100" >
 
-        <TextView
-            android:id="@+id/textViewCourseName"
-            style="@style/textviewlarge"
+        <LinearLayout
+            android:id="@+id/holeInfoLayout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center_vertical|center_horizontal"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_weight="80"
+            android:gravity="center|left"
+            android:weightSum="100" >
+
+            <TextView
+                android:id="@+id/textViewCourseName"
+                style="@style/textviewlarge"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Stora Vall"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/textViewHeader"
+                style="@style/textviewlarge"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="left|center_vertical"
+                android:text="#1"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="30" >
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    style="@style/textviewlarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:text="Par: "
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/holeInfoPar"
+                    style="@style/textviewlarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/TextView01"
+                    android:background="#00000000"
+                    android:gravity="left|center_vertical"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:selectAllOnFocus="true"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/newPlayerAddButton"
             style="@style/button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
             android:onClick="completeRound"
             android:text="Done" />
 
@@ -41,53 +95,8 @@
         android:layout_height="fill_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_weight="94"
         android:orientation="vertical" >
-
-        <LinearLayout
-            android:id="@+id/holeInfoLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center|left" >
-
-            <TextView
-                android:id="@+id/textViewHeader"
-                style="@style/textviewlarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="#1"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical|center_horizontal" >
-
-                <TextView
-                    android:id="@+id/TextView01"
-                    style="@style/textviewlarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Par: "
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <EditText
-                    android:id="@+id/holeInfoPar"
-                    style="@style/textviewlarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/TextView01"
-                    android:background="#00000000"
-                    android:inputType="phone"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:selectAllOnFocus="true"
-                    android:text="3"
-                    android:textAppearance="?android:attr/textAppearanceLarge" >
-
-                    <requestFocus />
-                </EditText>
-            </RelativeLayout>
-        </LinearLayout>
 
         <ScrollView
             android:id="@+id/scrollViewPlayer"
@@ -741,6 +750,38 @@
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:weightSum="100" >
+
+        <Button
+            android:id="@+id/prevButton"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:onClick="prevHoleListener"
+            android:text="Prev" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="90" >
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:onClick="nextHoleListener"
+            android:text="Next" />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -282,6 +282,14 @@ public class MainScorecard extends SwipeActivity implements
 
 	}
 
+	public void nextHoleListener(View view){
+		nextHole();
+	}
+
+	public void prevHoleListener(View view){
+		previousHole();
+	}
+	
 	private void updateHoleInfo() {
 		TextView holeNo = (TextView) findViewById(R.id.textViewHeader);
 		holeNo.setText("#" + scorecard.getCurrentHole());
