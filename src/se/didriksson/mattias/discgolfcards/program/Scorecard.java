@@ -1,6 +1,7 @@
 package se.didriksson.mattias.discgolfcards.program;
 
-import android.util.Log;
+import android.content.Context;
+
 
 
 public class Scorecard {
@@ -9,14 +10,26 @@ public class Scorecard {
 	Player[] players;
 	int currentHole;
 	int startHole;
+	Deck deck;
+	Deck usedDeck;
+	Context context;
 
-	public Scorecard(Player[] players, Course course, int startHole) {
+
+	public Scorecard(Player[] players, Course course, int startHole, Context context) {
 
 		this.players = players;
 		this.course = course;
 		this.currentHole = startHole;
 		this.startHole = startHole;
 		setAllResultsToPar();
+		this.context = context;
+		
+		this.deck = new Deck(context);
+		this.usedDeck = new Deck(context);
+		
+		this.deck.populateDeck();
+		this.deck.shuffleDeck();
+		
 
 	}
 	
@@ -182,5 +195,14 @@ public class Scorecard {
 	
 	public void setParForHole(int hole, int par){
 		course.setParForHole(hole, par);
+	}
+	
+	public Card drawCard(){
+		usedDeck.putCard(deck.peek());
+		return deck.getCard();
+	}
+	
+	public Card getLastDrawnCard(){
+		return usedDeck.peek();
 	}
 }

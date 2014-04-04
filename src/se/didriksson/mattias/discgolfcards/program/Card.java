@@ -5,6 +5,7 @@ public class Card {
 
 	public final String name;
 	public final String description;
+	private int id;
 	boolean picked;
 
 	/**
@@ -16,8 +17,22 @@ public class Card {
 		this.picked = false;
 		this.name = nameOfCard;
 	
+	}	
+	
+	public Card(String nameOfCard, String desc, int id){
+		this.description = desc;
+		this.picked = false;
+		this.name = nameOfCard;
+		this.id = id;
 	}
 
+	public int getID(){
+		return this.id;
+	}
+	
+	public void setID(int id){
+		this.id = id;
+	}
 	public String getDescription() {
 		return description;
 	}

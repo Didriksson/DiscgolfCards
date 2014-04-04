@@ -1,12 +1,15 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
+import se.didriksson.mattias.discgolfcards.activities.GameAbstractClass.OnEditTextListenerButtons;
 import se.didriksson.mattias.discgolfcards.program.Card;
 import se.didriksson.mattias.discgolfcards.program.Deck;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,18 +17,22 @@ public class RevengeGameActivity extends GameAbstractClass implements
 		View.OnTouchListener {
 	TextView[] playerSkins;
 	TextView[] playerTotalSkins;
-	Deck deck;
+	public static int assignedCardToPlayer = -1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_revenge_game);
 		super.onCreate(savedInstanceState);
+
+		EditText holePar = (EditText) findViewById(R.id.holeInfoPar);
+		holePar.setOnEditorActionListener(new OnEditTextListenerButtons());
+		
 		setupPlayerSkinsArray();
 		setupPlayerTotalSkinsArray();
 		updateAllPlayersInfo();
-		deck = new Deck(getApplicationContext());
-		deck.populateDeck();
-		deck.shuffleDeck();
+
+
+
 	}
 
 	private void setupPlayerTotalSkinsArray() {
@@ -124,21 +131,16 @@ public class RevengeGameActivity extends GameAbstractClass implements
 		tmp[7] = (RelativeLayout) findViewById(R.id.playerlayoutR8);
 
 		for (int i = 0; i < scorecard.getNumberOfPlayers() && i < tmp.length; i++) {
-			Log.d("Revenge set visible", "" + i);
 			tmp[i].setVisibility(View.VISIBLE);
 		}
 
 	}
 
 	public void drawCard(View view) {
-		if (deck.isEmpty())
-			Log.d("Kortlek:", "Kortleken är tom!");
-		else {
-			Card card = deck.getCard();
-			Log.d("Draget kort: ", card.getDescription());
-
+			Intent intent = new Intent(this, AssignCardToPlayerActivity.class);
+			startActivity(intent);
 		}
-	}
+	
 
 	@Override
 	protected void updateHoleInfo() {
@@ -147,4 +149,6 @@ public class RevengeGameActivity extends GameAbstractClass implements
 		holeNo.setText("#" + scorecard.getCurrentHole());
 
 	}
+	
+
 }

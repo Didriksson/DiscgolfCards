@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 import se.didriksson.mattias.discgolfcards.R;
-import se.didriksson.mattias.discgolfcards.activities.StatsActivity.SpinnerListener;
 import se.didriksson.mattias.discgolfcards.program.Course;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
@@ -15,19 +14,16 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
 
 public class ScorecardSubmenu extends Activity {
@@ -141,7 +137,7 @@ public class ScorecardSubmenu extends Activity {
 	public void saveAndExit(View view) {
 		boolean saveOK = true;
 		DatabaseHandler database = new DatabaseHandler(this);
-		EditText editTextCourse = (EditText) findViewById(R.id.newCourseEditText);
+		EditText editTextCourse = (EditText) findViewById(R.id.popupInput);
 		String name = editTextCourse.getText().toString();
 		try {
 			database.addCourse(new Course(name));
@@ -162,7 +158,7 @@ public class ScorecardSubmenu extends Activity {
 		nameExistsWarning.setTitle("Warning!");
 		nameExistsWarning
 				.setMessage(msg);
-		nameExistsWarning.setButton("OK",
+		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"OK",
 				new DialogInterface.OnClickListener() {
 
 					@Override

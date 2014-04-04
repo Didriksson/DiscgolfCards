@@ -1,7 +1,9 @@
 package se.didriksson.mattias.discgolfcards.program;
 
-import java.util.Locale;
+import android.annotation.SuppressLint;
 
+
+@SuppressLint("DefaultLocale")
 public class Course implements Comparable<Course> {
 
 	int[] pars;
@@ -73,6 +75,7 @@ public class Course implements Comparable<Course> {
 		}
 	}
 
+	@SuppressLint("DefaultLocale")
 	@Override
 	public int compareTo(Course another) {
 		return this.name.toUpperCase().compareTo(

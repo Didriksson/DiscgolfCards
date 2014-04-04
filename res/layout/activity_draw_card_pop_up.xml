@@ -3,38 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/defaultbackground"
-    tools:context=".NewCourseActivity"
-    >
-
-    <EditText
-        android:id="@+id/newPlayerEditText"
-        style="@style/editTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
-        android:ems="10" />
+    tools:context=".DrawCardPopUpActivity">
 
     <Button
-        android:id="@+id/newPlayerDoneButton"
+        android:id="@+id/popupDoneButton"
         style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:onClick="saveAndExit"
+        android:onClick="closeWindow"
         android:text="Done" />
 
     <TextView
-        android:id="@+id/textViewCourseName"
+        android:id="@+id/cardDescriptionTextView"
         style="@style/textviewlarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/popupDoneButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="Enter player name:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:ems="10"
+        android:gravity="left|center_vertical"
+        android:padding="20dp" />
 
 </RelativeLayout>

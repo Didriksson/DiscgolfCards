@@ -40,9 +40,9 @@
         </activity>
         <activity
             android:name="se.didriksson.mattias.discgolfcards.activities.NewPlayerActivity"
-            android:theme="@android:style/Theme.Dialog"
             android:label="@string/title_activity_new_player"
-            android:windowSoftInputMode="adjustResize|stateAlwaysVisible">
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" >
         </activity>
         <activity
             android:name="se.didriksson.mattias.discgolfcards.activities.StatsActivity"
@@ -54,11 +54,19 @@
         </activity>
         <activity
             android:name="se.didriksson.mattias.discgolfcards.activities.NewCourseActivity"
-            android:theme="@android:style/Theme.Dialog"
             android:label="@string/title_activity_new_course"
-            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
-            >
-  	    </activity>
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" >
+        </activity>
+        <activity
+            android:name="se.didriksson.mattias.discgolfcards.activities.DrawCardPopUpActivity"
+            android:label="@string/title_activity_draw_card_pop_up"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="se.didriksson.mattias.discgolfcards.activities.AssignCardToPlayerActivity"
+            android:label="@string/title_activity_assign_card_to_player" >
+        </activity>
     </application>
 
 </manifest>

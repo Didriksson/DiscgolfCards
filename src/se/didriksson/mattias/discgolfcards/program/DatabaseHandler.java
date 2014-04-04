@@ -13,6 +13,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	// http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
 
+	Context myOwnContext;
+	
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
 
 	private static final int DATABASE_VERSION = 24;
@@ -28,6 +30,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	private final static String CARD_NAME = "CardName"; // name of course
 	private final static String CARD_DESC = "CardDescription";
+	private final static String CARD_ID = "CardID";
 	
 	private final static String ROUNDS_ID = "_id";
 	private final static String ROUNDS_SCORE = "Score";
@@ -41,7 +44,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			+ "(" + PLAYER_NAME + " TEXT PRIMARY KEY" + ")";
 	
 	private final String CREATE_CARD_TABLE = "CREATE TABLE " + CARD_TABLE
-			+ "(" + CARD_NAME + " TEXT PRIMARY KEY," + CARD_DESC+ " TEXT"
+			+ "(" + CARD_NAME + " TEXT," + CARD_DESC+ " TEXT"
 			+ ")";
 
 	private final String CREATE_COURSE_TABLE = "CREATE TABLE " + COURSE_TABLE
@@ -56,6 +59,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		myOwnContext = context;
 	}
 
 	@Override
@@ -64,6 +68,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL(CREATE_COURSE_TABLE);
 		db.execSQL(CREATE_ROUNDS_TABLE);
 		db.execSQL(CREATE_CARD_TABLE);
+		FileHandler.addCardsFromFileToDatabase(myOwnContext);
 	}
 
 	@Override

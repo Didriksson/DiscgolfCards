@@ -1,6 +1,5 @@
 package se.didriksson.mattias.discgolfcards.program;
 
-import android.text.format.Time;
 
 public class Round {
 	int id;

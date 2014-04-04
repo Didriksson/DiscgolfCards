@@ -5,6 +5,7 @@ import se.didriksson.mattias.discgolfcards.program.Course;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
 import se.didriksson.mattias.discgolfcards.program.Scorecard;
+import se.didriksson.mattias.discgolfcards.program.ScorecardFactory;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -13,9 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
@@ -43,7 +42,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		Player[] players = setUpPlayers(numberOfPlayers);
 
 		Course course = database.getCourse(b.getString("course"));
-		scorecard = new Scorecard(players, course, 1);
+		scorecard = ScorecardFactory.createInstance(players, course, 1, getApplicationContext());
 		
 		setPlayerLayoutsVisible();
 		setPlayerNames();

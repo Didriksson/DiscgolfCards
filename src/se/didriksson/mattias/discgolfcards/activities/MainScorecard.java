@@ -1,7 +1,6 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
-import se.didriksson.mattias.discgolfcards.activities.GameAbstractClass.OnEditTextListenerButtons;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.Time;
@@ -108,7 +107,7 @@ public class MainScorecard extends GameAbstractClass{
 	
 	protected void updateHoleInfo() {
 		
-		TextView courseName = (TextView) findViewById(R.id.textViewCourseName);
+		TextView courseName = (TextView) findViewById(R.id.popupEditName);
 		courseName.setText(scorecard.getCourseName());
 		
 		TextView holeNo = (TextView) findViewById(R.id.textViewHeader);

@@ -1,9 +1,8 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -31,8 +30,7 @@ public class CompleteRoundActivity extends Activity {
 			results[i] = bundle.getInt("playerresult" + (i + 1));
 			par[i] = bundle.getInt("playerresultPar" + (i + 1));
 		}
-		
-	
+
 		setPlayerNames();
 		setPlayerScore();
 		setPlayerLayoutVisible();
@@ -54,10 +52,7 @@ public class CompleteRoundActivity extends Activity {
 		for (int i = 0; i < playerNames.length && i < tmp.length; i++) {
 			tmp[i].setVisibility(View.VISIBLE);
 		}
-		
 
-		
-	
 	}
 
 	private void setPlayerScore() {
@@ -111,9 +106,9 @@ public class CompleteRoundActivity extends Activity {
 		}
 
 	}
-	
-	public void menuButtonClick(View view){
-			finish();
+
+	public void menuButtonClick(View view) {
+		finish();
 	}
 
 }

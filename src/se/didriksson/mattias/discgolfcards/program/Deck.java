@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Stack;
 
 import android.content.Context;
-import android.util.Log;
 
 public class Deck {
 	
@@ -18,27 +17,6 @@ public class Deck {
 	public Deck(Context context){
 		this.context = context;
 		database = new DatabaseHandler(context);
-	}
-
-	public void addCardsFromFileToDatabase(){
-		
-		int temp = 1;
-		List<String> cardStrings = null;
-		try {
-			 cardStrings = (ArrayList<String>) FileHandler.readCardStrings(context);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		while(!(cardStrings == null) && (!cardStrings.isEmpty()))
-		{
-			String cardDescription = cardStrings.remove(0);
-			deckOfCards.push(new Card("Kort"+temp++,cardDescription));
-		}
-
-		while(deckOfCards.size()>0){
-			database = new DatabaseHandler(context);
-			database.addCard(deckOfCards.pop());
-		}
 	}
 	
 	public void populateDeck(){

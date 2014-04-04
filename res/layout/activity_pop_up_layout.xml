@@ -7,7 +7,7 @@
     >
 
     <EditText
-        android:id="@+id/newCourseEditText"
+        android:id="@+id/popupInput"
         style="@style/editTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         android:ems="10" />
 
     <Button
-        android:id="@+id/newCourseDoneButton"
+        android:id="@+id/popupDoneButton"
         style="@style/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,14 +27,13 @@
         android:text="Done" />
 
     <TextView
-        android:id="@+id/textViewCourseName"
+        android:id="@+id/popupEditName"
         style="@style/textviewlarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="Enter course name:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
