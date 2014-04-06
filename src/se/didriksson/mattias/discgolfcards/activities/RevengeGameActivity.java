@@ -1,14 +1,11 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
-import se.didriksson.mattias.discgolfcards.activities.GameAbstractClass.OnEditTextListenerButtons;
-import se.didriksson.mattias.discgolfcards.program.Card;
-import se.didriksson.mattias.discgolfcards.program.Deck;
+import se.didriksson.mattias.discgolfcards.program.FileHandler;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,8 +27,6 @@ public class RevengeGameActivity extends GameAbstractClass implements
 		setupPlayerSkinsArray();
 		setupPlayerTotalSkinsArray();
 		updateAllPlayersInfo();
-
-
 
 	}
 
@@ -148,6 +143,11 @@ public class RevengeGameActivity extends GameAbstractClass implements
 		TextView holeNo = (TextView) findViewById(R.id.textViewHeader);
 		holeNo.setText("#" + scorecard.getCurrentHole());
 
+	}
+
+	@Override
+	protected void setUpDeck() {
+		scorecard.setUpDeck();
 	}
 	
 

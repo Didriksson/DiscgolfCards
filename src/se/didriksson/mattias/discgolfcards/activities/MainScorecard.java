@@ -30,6 +30,7 @@ public class MainScorecard extends GameAbstractClass{
 		setUpPlayerThrowsArray();
 		setUpPlayerParArray();
 		setUpPlayerTotalArray();
+
 	}
 
 	private void setUpPlayerTotalArray() {
@@ -169,5 +170,10 @@ public class MainScorecard extends GameAbstractClass{
 		intent.putExtras(b);
 		startActivity(intent);
 		finish();
+	}
+
+	//Not used by the plain scorecard.
+	@Override
+	protected void setUpDeck() {
 	}
 }

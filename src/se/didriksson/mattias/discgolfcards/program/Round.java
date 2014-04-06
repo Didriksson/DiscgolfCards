@@ -9,15 +9,7 @@ public class Round {
 	int[] results;
 	String date;
 	public Round(){}
-	
-//	public Round(int id, Course course,Player player, int score){
-//		this.id = id;
-//		this.course = course;
-//		this.player = player;
-//		this.score = score;
-//		this.results = new int[course.getNumberOfHoles()];
-//		
-//	}
+
 
 	public Round(int id, Course course,Player player, int score, int[] results, String time){
 		this.id = id;

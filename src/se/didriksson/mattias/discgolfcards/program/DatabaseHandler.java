@@ -17,7 +17,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
 
-	private static final int DATABASE_VERSION = 24;
+	private static final int DATABASE_VERSION = 30;
 
 	// Table names
 	private final static String PLAYER_TABLE = "Players"; // name of table
@@ -44,7 +44,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			+ "(" + PLAYER_NAME + " TEXT PRIMARY KEY" + ")";
 	
 	private final String CREATE_CARD_TABLE = "CREATE TABLE " + CARD_TABLE
-			+ "(" + CARD_NAME + " TEXT," + CARD_DESC+ " TEXT"
+			+ "(" + CARD_ID + " INTEGER PRIMARY KEY," + CARD_NAME + " TEXT," + CARD_DESC+ " TEXT"
 			+ ")";
 
 	private final String CREATE_COURSE_TABLE = "CREATE TABLE " + COURSE_TABLE
@@ -68,7 +68,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL(CREATE_COURSE_TABLE);
 		db.execSQL(CREATE_ROUNDS_TABLE);
 		db.execSQL(CREATE_CARD_TABLE);
-		FileHandler.addCardsFromFileToDatabase(myOwnContext);
+
 	}
 
 	@Override
@@ -80,18 +80,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL("DROP TABLE IF EXISTS " + CARD_TABLE);
 		// Create tables again
 		onCreate(db);
-	}
-
-	public long addCard(Card card) {
-		SQLiteDatabase database = this.getWritableDatabase();
-		ContentValues values = new ContentValues();
-		values.put(CARD_NAME, card.getName());
-		values.put(CARD_DESC, card.getDescription());
-
-		long card_id = database.insert(CARD_TABLE, null, values);
-		database.close();
-		return card_id;
-
 	}
 	
 	public long addPlayer(Player player) {
@@ -137,6 +125,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return rounds_id;
 
 	}
+	
+	public long addCard(Card card) {
+		SQLiteDatabase database = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(CARD_NAME, card.getName());
+		values.put(CARD_DESC, card.getDescription());
+
+		long card_id = database.insert(CARD_TABLE, null, values);
+		database.close();
+		return card_id;
+
+	}
+	
+	public Card getCard(int id) {
+		SQLiteDatabase database = this.getReadableDatabase();
+
+		Cursor cursor = database.query(CARD_TABLE, new String[] {
+				CARD_ID, CARD_NAME, CARD_DESC }, CARD_ID + "=?",
+				new String[] { String.valueOf(id) }, null, null, null, null);
+		if (cursor != null)
+			cursor.moveToFirst();
+		int cardID = Integer.parseInt(cursor.getString(0));
+		String cardName = cursor.getString(1);
+		String cardDesc = cursor.getString(2);
+		return new Card(cardID, cardName, cardDesc);
+	}
 
 	private String getStringFromResults(int[] results) {
 		String str = "";
@@ -144,6 +158,30 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			str = str + results[i] + ";";
 		}
 		return str;
+	}
+	
+	public List<Card> getAllCards() {
+
+		SQLiteDatabase database = this.getReadableDatabase();
+		List<Card> card = new ArrayList<Card>();
+
+		String selectQuery = "SELECT * FROM " + CARD_TABLE;
+		Cursor cursor = database.rawQuery(selectQuery, null);
+
+		if (cursor.moveToFirst()) {
+			do {
+				int cardId = Integer.parseInt(cursor.getString(0));
+				String name = cursor.getString(1);
+				String desc = cursor.getString(2);
+				card.add(new Card(cardId, name, desc));
+
+			} while (cursor.moveToNext());
+		}
+		
+		cursor.close();
+		database.close();
+		return card;
+
 	}
 
 	private int[] getResultsFromString(String result) {
@@ -167,17 +205,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return new Player(cursor.getString(0));
 	}
 	
-	public Card getCard(String name) {
-		SQLiteDatabase database = this.getReadableDatabase();
 
-		Cursor cursor = database.query(CARD_TABLE, new String[] {
-				CARD_NAME, CARD_DESC }, CARD_NAME + "=?",
-				new String[] { name }, null, null, null, null);
-		if (cursor != null)
-			cursor.moveToFirst();
-		return new Card(cursor.getString(0),cursor.getString(1));
-	}
-	
 	public Course getCourse(String name) {
 		SQLiteDatabase database = this.getReadableDatabase();
 
@@ -206,6 +234,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			} while (cursor.moveToNext());
 		}
 
+		
+		cursor.close();
+		database.close();
 		return players;
 
 	}
@@ -231,28 +262,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	}
 	
-	public List<Card> getAllCards() {
 
-		SQLiteDatabase database = this.getReadableDatabase();
-		List<Card> card = new ArrayList<Card>();
-
-		String selectQuery = "SELECT * FROM " + CARD_TABLE;
-		Cursor cursor = database.rawQuery(selectQuery, null);
-
-		if (cursor.moveToFirst()) {
-			do {
-				String name = cursor.getString(0);
-				String desc = cursor.getString(1);
-				card.add(new Card(name, desc));
-
-			} while (cursor.moveToNext());
-		}
-		
-		cursor.close();
-		database.close();
-		return card;
-
-	}
 
 
 	public List<Round> getAllRounds() {
@@ -282,6 +292,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return rounds;
 
 	}
+	
 
 	public Round getRound(int id) {
 		SQLiteDatabase database = this.getReadableDatabase();
@@ -386,10 +397,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase database = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
 
+		values.put(CARD_ID, card.getID());
 		values.put(CARD_NAME, card.getName());
 		values.put(CARD_DESC, card.getDescription());
-		return database.update(CARD_TABLE, values, CARD_NAME + " = ?",
-				new String[] { card.getName()});
+		return database.update(CARD_TABLE, values, CARD_ID + " = ?",
+				new String[] { String.valueOf(card.getID())});
 
 	}
 
@@ -411,8 +423,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	public void deleteCard(Card card) {
 		SQLiteDatabase database = this.getWritableDatabase();
-		database.delete(CARD_TABLE, CARD_NAME + " = ?",
-				new String[] { card.getName()});
+		database.delete(CARD_TABLE, CARD_ID + " = ?",
+				new String[] { String.valueOf(card.getID())});
 		database.close();
 
 	}

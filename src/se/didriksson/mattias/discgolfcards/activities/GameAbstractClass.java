@@ -47,11 +47,11 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		setPlayerLayoutsVisible();
 		setPlayerNames();
 		updateHoleInfo();
-
-
+		setUpDeck();
 
 	}
 
+	protected abstract void setUpDeck();
 	public abstract void completeRound(View view);
 	protected abstract void updatePlayerInfo(int player);
 	protected abstract void decreamentScore(int i);
@@ -92,6 +92,9 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 
 	}
+	
+	
+	
 
 	public void nextHoleListener(View view) {
 		nextHole();

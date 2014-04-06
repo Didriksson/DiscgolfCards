@@ -16,10 +16,11 @@ public class Card {
 		this.description = desc;
 		this.picked = false;
 		this.name = nameOfCard;
+		this.id = -1;
 	
 	}	
 	
-	public Card(String nameOfCard, String desc, int id){
+	public Card(int id, String nameOfCard, String desc){
 		this.description = desc;
 		this.picked = false;
 		this.name = nameOfCard;
