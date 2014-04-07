@@ -17,7 +17,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
 
-	private static final int DATABASE_VERSION = 30;
+	private static final int DATABASE_VERSION = 31;
 
 	// Table names
 	private final static String PLAYER_TABLE = "Players"; // name of table

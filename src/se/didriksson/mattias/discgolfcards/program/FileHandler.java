@@ -36,7 +36,6 @@ public class FileHandler {
 		
 		Stack<Card> deckOfCards = new Stack<Card>();
 		DatabaseHandler database = new DatabaseHandler(context);
-		int temp = 1;
 		
 		List<String> cardStrings = null;
 		try {
@@ -46,8 +45,8 @@ public class FileHandler {
 		}
 		while(!(cardStrings == null) && (!cardStrings.isEmpty()))
 		{
-			String cardDescription = cardStrings.remove(0);
-			deckOfCards.push(new Card("Kort"+temp++,cardDescription));
+			String[] card = cardStrings.remove(0).split(";");
+			deckOfCards.push(new Card(card[0],card[1]));
 		}
 
 		while(deckOfCards.size()>0){
