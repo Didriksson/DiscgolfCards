@@ -67,6 +67,14 @@
             android:name="se.didriksson.mattias.discgolfcards.activities.AssignCardToPlayerActivity"
             android:label="@string/title_activity_assign_card_to_player" >
         </activity>
+        <activity
+            android:name="se.didriksson.mattias.discgolfcards.activities.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="se.didriksson.mattias.discgolfcards.activities.StartGameActivity"
+            android:label="@string/title_activity_start_game" >
+        </activity>
     </application>
 
 </manifest>

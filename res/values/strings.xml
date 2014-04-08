@@ -15,5 +15,7 @@
     <string name="title_activity_draw_card_popup">A new card!</string>
     <string name="title_activity_draw_card_pop_up">Drawn Card</string>
     <string name="title_activity_assign_card_to_player">AssignCardToPlayerActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_start_game">StartGameActivity</string>
 
 </resources>

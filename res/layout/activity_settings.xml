@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/menubackground"
-    tools:context=".MainMenuActivity" >
+    tools:context=".SettingsActivity" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -14,6 +14,8 @@
         android:background="@drawable/menu9patch"
         android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:weightSum="100" >
 
         <LinearLayout
@@ -21,8 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:weightSum="100" >
 
             <TextView
@@ -32,49 +32,37 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Menu" />
+                android:text="Settings" />
 
             <Button
                 android:id="@+id/scorecardbutton"
                 style="@style/button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="2dp"
+                android:layout_margin="5dp"
                 android:layout_weight="25"
-                android:onClick="startRound"
-                android:text="New Round" />
-
-            <Button
-                android:id="@+id/Button01"
-                style="@style/button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_weight="25"
-                android:onClick="startStats"
-                android:text="Statistics" />
+                android:onClick="startScorecard"
+                android:text="Edit Players" />
 
             <Button
                 android:id="@+id/skinchallengebutton"
                 style="@style/button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp"
+                android:layout_margin="5dp"
                 android:layout_weight="25"
-                android:onClick="startSettings"
-                android:text="Settings" />
+                android:onClick="startRevengeGame"
+                android:text="Edit Cards" />
 
             <Button
                 android:id="@+id/quitbutton"
                 style="@style/button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
+                android:layout_margin="5dp"
                 android:layout_weight="25"
-                android:onClick="quitApplication"
-                android:text="Quit" />
+                android:onClick="back"
+                android:text="Back" />
 
         </LinearLayout>
 

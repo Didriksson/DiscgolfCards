@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
 
 public class MainMenuActivity extends Activity {
 	// Sets the number of players
@@ -26,12 +27,18 @@ public class MainMenuActivity extends Activity {
 		return true;
 	}
 
-	// Called when user clicks the scorecard button
-	public void startScorecard(View view) {
-		Intent intent = new Intent(this, ScorecardSubmenu.class);
-		Bundle b = new Bundle();
-		b.putBoolean("revengeGame", false);
-		intent.putExtras(b);
+	public void startRound(View view) {
+		Intent intent = new Intent(this, StartGameActivity.class);
+		startActivity(intent);
+	}
+
+	public void startStats(View view) {
+		Intent intent = new Intent(this, StatsActivity.class);
+		startActivity(intent);
+	}
+
+	public void startSettings(View view) {
+		Intent intent = new Intent(this, SettingsActivity.class);
 		startActivity(intent);
 	}
 
@@ -40,11 +47,4 @@ public class MainMenuActivity extends Activity {
 
 	}
 
-	public void startRevengeGame(View view) {
-		Intent intent = new Intent(this, ScorecardSubmenu.class);
-		Bundle b = new Bundle();
-		b.putBoolean("revengeGame", true);
-		intent.putExtras(b);
-		startActivity(intent);
-	}
 }
