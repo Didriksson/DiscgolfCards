@@ -27,6 +27,8 @@ public class StatsActivity extends Activity {
 	ArrayAdapter<Player> playerAdapters;
 	ArrayAdapter<Round> listAdapters;
 	ArrayAdapter<Course> courseAdapter;
+	
+
 
 	List<Player> players;
 	List<Round> rounds;
@@ -51,7 +53,7 @@ public class StatsActivity extends Activity {
 		Course course = (Course) courseSpinner.getSelectedItem();
 
 		rounds = database.getAllRoundsSpecificPlayer(player);
-
+		
 		List<Round> courseSpecificRounds = new ArrayList<Round>();
 
 		for (int i = 0; i < rounds.size(); i++) {
@@ -67,6 +69,10 @@ public class StatsActivity extends Activity {
 		listAdapters = new ArrayAdapter<Round>(this,
 				android.R.layout.simple_spinner_dropdown_item,
 				courseSpecificRounds);
+
+		
+	
+		
 
 		listView.setAdapter(listAdapters);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -157,7 +163,7 @@ public class StatsActivity extends Activity {
 
 		@Override
 		public void onNothingSelected(AdapterView<?> arg0) {
-			// TODO Auto-generated method stub
+			
 
 		}
 

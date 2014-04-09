@@ -9,6 +9,7 @@ import se.didriksson.mattias.discgolfcards.program.Round;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -44,10 +45,11 @@ public class RoundStatsActivity extends Activity {
 	}
 
 	private void putResultInString() {
+
 		stringList = new ArrayList<String>();
 		int[] results = round.getResults();
 		for(int i = 0;i<results.length && results[i] != 0;i++){
-			String tmp = "#"+(i+1) + "\t" + results[i];
+			String tmp = "#"+(i+1) + "\t\t\t\t\t\t Throws: " + results[i];
 			stringList.add(tmp);
 		}
 		

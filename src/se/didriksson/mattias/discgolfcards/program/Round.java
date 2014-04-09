@@ -43,10 +43,12 @@ public class Round {
 		this.player = player;
 	}
 	
-	public int getID(){return id;}
+	public int getID(){
+		return id;
+		}
 	
 	public String toString(){
-		return date + "\t" + course.getName() + "\t" + getScore();
+		return course.getName() + "\t" + getScore() + "\n" + date  ;
 	}
 	
 		
