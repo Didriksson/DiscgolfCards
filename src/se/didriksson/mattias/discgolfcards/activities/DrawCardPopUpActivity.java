@@ -10,25 +10,23 @@ import android.view.View;
 import android.widget.TextView;
 
 public class DrawCardPopUpActivity extends Activity {
-	
+
 	String nameOfCard, descOfCard;
 	TextView cardDescTextView;
-	
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_draw_card_pop_up);
-		
-		cardDescTextView = (TextView)findViewById(R.id.cardDescriptionTextView);
-		
+
+		cardDescTextView = (TextView) findViewById(R.id.cardDescriptionTextView);
+
 		Card card = ScorecardFactory.getInstance().getLastDrawnCard();
 		this.descOfCard = card.getDescription();
 		cardDescTextView.setText(this.descOfCard);
-		
+
 		setTitle(this.nameOfCard = card.getName());
-	
+
 	}
 
 	@Override
@@ -38,8 +36,7 @@ public class DrawCardPopUpActivity extends Activity {
 		return true;
 	}
 
-	
-	public void closeWindow(View view){
+	public void closeWindow(View view) {
 		finish();
 	}
 }

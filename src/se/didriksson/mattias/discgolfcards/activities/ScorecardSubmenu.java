@@ -54,28 +54,30 @@ public class ScorecardSubmenu extends Activity {
 		Collections.sort(courses);
 		courses.add(0, new Course("Select course"));
 		courseSpinner = (Spinner) findViewById(R.id.courseSelectSpinner);
-		courseAdapter = new ArrayAdapter<Course>(this,android.R.layout.simple_list_item_1, courses){
-		    @Override
-		    public View getDropDownView(int position, View convertView, ViewGroup parent)
-		    {
-		        View v = null;
+		courseAdapter = new ArrayAdapter<Course>(this,
+				android.R.layout.simple_list_item_1, courses) {
+			@Override
+			public View getDropDownView(int position, View convertView,
+					ViewGroup parent) {
+				View v = null;
 
-		        // If this is the initial dummy entry, make it hidden
-		        if (position == 0) {
-		            TextView tv = new TextView(getContext());
-		            tv.setHeight(0);
-		            tv.setVisibility(View.GONE);
-		            v = tv;
-		        }
-		        else {
-		            // Pass convertView as null to prevent reuse of special case views
-		            v = super.getDropDownView(position, null, parent);
-		        }
+				// If this is the initial dummy entry, make it hidden
+				if (position == 0) {
+					TextView tv = new TextView(getContext());
+					tv.setHeight(0);
+					tv.setVisibility(View.GONE);
+					v = tv;
+				} else {
+					// Pass convertView as null to prevent reuse of special case
+					// views
+					v = super.getDropDownView(position, null, parent);
+				}
 
-		        // Hide scroll bar because it appears sometimes unnecessarily, this does not prevent scrolling 
-		        parent.setVerticalScrollBarEnabled(false);
-		        return v;
-		    }
+				// Hide scroll bar because it appears sometimes unnecessarily,
+				// this does not prevent scrolling
+				parent.setVerticalScrollBarEnabled(false);
+				return v;
+			}
 		};
 
 		courseAdapter.setDropDownViewResource(R.layout.dropdownspinneritem);
@@ -94,16 +96,15 @@ public class ScorecardSubmenu extends Activity {
 		Collections.sort(players);
 
 		cb = new CheckBox[players.size()];
-		
+
 		for (int i = 0; i < players.size(); i++) {
 			cb[i] = new CheckBox(this);
 			cb[i].setText(players.get(i).getName());
 			cb[i].setButtonDrawable(R.drawable.checkbox_background);
 			cb[i].setTextColor(Color.argb(255, 206, 106, 17));
 			cb[i].setTextAppearance(this, R.style.textCheckBox);
-			cb[i].setPadding(cb[i].getPaddingLeft() + 20, 
-					cb[i].getPaddingTop(),
-					cb[i].getPaddingRight(),
+			cb[i].setPadding(cb[i].getPaddingLeft() + 20,
+					cb[i].getPaddingTop(), cb[i].getPaddingRight(),
 					cb[i].getPaddingBottom() + 15);
 			existingPlayers.addView(cb[i]);
 		}
@@ -153,12 +154,10 @@ public class ScorecardSubmenu extends Activity {
 	}
 
 	private void showDialog(String msg) {
-		AlertDialog nameExistsWarning = new AlertDialog.Builder(this)
-				.create();
+		AlertDialog nameExistsWarning = new AlertDialog.Builder(this).create();
 		nameExistsWarning.setTitle("Warning!");
-		nameExistsWarning
-				.setMessage(msg);
-		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"OK",
+		nameExistsWarning.setMessage(msg);
+		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
 				new DialogInterface.OnClickListener() {
 
 					@Override
@@ -184,16 +183,16 @@ public class ScorecardSubmenu extends Activity {
 			intent.putExtras(b);
 			startActivity(intent);
 			finish();
-		} else{
-			
-			if(courseSpinner.getSelectedItemPosition() == 0)
+		} else {
+
+			if (courseSpinner.getSelectedItemPosition() == 0)
 				showDialog("No course selected");
-			else if(selectedPlayers < 1)
+			else if (selectedPlayers < 1)
 				showDialog("No player selected");
-			
+
 			b = new Bundle();
 		}
-			
+
 	}
 
 	private int putNamesInBundle() {

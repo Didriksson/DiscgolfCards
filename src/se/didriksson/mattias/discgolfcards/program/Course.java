@@ -2,7 +2,6 @@ package se.didriksson.mattias.discgolfcards.program;
 
 import android.annotation.SuppressLint;
 
-
 @SuppressLint("DefaultLocale")
 public class Course implements Comparable<Course> {
 

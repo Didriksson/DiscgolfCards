@@ -28,30 +28,29 @@ public class RoundStatsActivity extends Activity {
 
 		Bundle b = getIntent().getExtras();
 		round = database.getRound(b.getInt("round"));
-		
+
 		putResultInString();
 		putResultsInList();
 	}
 
 	private void putResultsInList() {
-			resultList = (ListView)findViewById(R.id.resultList);
-			
-			listAdapter = new ArrayAdapter<String>(this,
-					android.R.layout.simple_spinner_dropdown_item, stringList);
+		resultList = (ListView) findViewById(R.id.resultList);
 
-			resultList.setAdapter(listAdapter);
-			
+		listAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_dropdown_item, stringList);
+
+		resultList.setAdapter(listAdapter);
+
 	}
 
 	private void putResultInString() {
 		stringList = new ArrayList<String>();
 		int[] results = round.getResults();
-		for(int i = 0;i<results.length && results[i] != 0;i++){
-			String tmp = "#"+(i+1) + "\t" + results[i];
+		for (int i = 0; i < results.length && results[i] != 0; i++) {
+			String tmp = "#" + (i + 1) + "\t" + results[i];
 			stringList.add(tmp);
 		}
-		
-		
+
 	}
 
 	@Override

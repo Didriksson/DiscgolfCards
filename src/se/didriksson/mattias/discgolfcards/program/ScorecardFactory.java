@@ -7,8 +7,7 @@ public class ScorecardFactory {
 
 	public static Scorecard createInstance(Player[] players, Course course,
 			int startHole, Context context) {
-		return instance = new Scorecard(players, course, startHole,
-				context);
+		return instance = new Scorecard(players, course, startHole, context);
 	}
 
 	public static Scorecard getInstance() {

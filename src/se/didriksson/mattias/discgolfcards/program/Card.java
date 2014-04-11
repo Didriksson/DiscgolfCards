@@ -1,6 +1,5 @@
 package se.didriksson.mattias.discgolfcards.program;
 
-
 public class Card {
 
 	public final String name;
@@ -9,36 +8,42 @@ public class Card {
 	boolean picked;
 
 	/**
-	 * Konstruktor för kortklassen som ser till att inga kort kan skapas utan en identifierare och beskrivning.
-	 * @param desc Beskrivning av kortet.
+	 * Konstruktor för kortklassen som ser till att inga kort kan skapas utan en
+	 * identifierare och beskrivning.
+	 * 
+	 * @param desc
+	 *            Beskrivning av kortet.
 	 */
-	public Card(String nameOfCard, String desc){
+	public Card(String nameOfCard, String desc) {
 		this.description = desc;
 		this.picked = false;
 		this.name = nameOfCard;
 		this.id = -1;
-	
-	}	
-	
-	public Card(int id, String nameOfCard, String desc){
+
+	}
+
+	public Card(int id, String nameOfCard, String desc) {
 		this.description = desc;
 		this.picked = false;
 		this.name = nameOfCard;
 		this.id = id;
 	}
 
-	public int getID(){
+	public int getID() {
 		return this.id;
 	}
-	
-	public void setID(int id){
+
+	public void setID(int id) {
 		this.id = id;
 	}
+
 	public String getDescription() {
 		return description;
 	}
 
-	public String getName(){return this.name;}
+	public String getName() {
+		return this.name;
+	}
 
 	public boolean isPicked() {
 		return picked;
@@ -47,10 +52,9 @@ public class Card {
 	public void setPicked(boolean picked) {
 		this.picked = picked;
 	}
-	
-	
-	public String toString(){
+
+	public String toString() {
 		return description;
 	}
-	
+
 }

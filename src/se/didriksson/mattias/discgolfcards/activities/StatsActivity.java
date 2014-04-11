@@ -143,15 +143,15 @@ public class StatsActivity extends Activity {
 		@Override
 		public void onItemSelected(AdapterView<?> arg0, View arg1,
 				int position, long arg3) {
-			
-			switch(arg0.getId()){
+
+			switch (arg0.getId()) {
 			case R.id.spinnerPlayer:
 				setListViewElements();
 				break;
 			case R.id.spinnerCourses:
 				setListViewElements();
 				break;
-			
+
 			}
 		}
 

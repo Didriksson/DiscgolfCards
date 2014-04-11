@@ -16,8 +16,8 @@ public class NewPlayerActivity extends AbstractPopUpWindow {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        setTitle("Add player");
-        popupTextView.setText("Enter player name: ");
+		setTitle("Add player");
+		popupTextView.setText("Enter player name: ");
 
 	}
 
@@ -42,20 +42,22 @@ public class NewPlayerActivity extends AbstractPopUpWindow {
 
 		if (saveOK)
 			finish();
-		else
-		{
-		 AlertDialog nameExistsWarning = new AlertDialog.Builder(this).create();
-		 nameExistsWarning.setTitle("Warning!");
-		 nameExistsWarning.setMessage("A player with that name already exists.");
-		 nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"OK", new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-			}
-		});
-		
-		nameExistsWarning.show();
+		else {
+			AlertDialog nameExistsWarning = new AlertDialog.Builder(this)
+					.create();
+			nameExistsWarning.setTitle("Warning!");
+			nameExistsWarning
+					.setMessage("A player with that name already exists.");
+			nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					});
+
+			nameExistsWarning.show();
 		}
 	}
 }

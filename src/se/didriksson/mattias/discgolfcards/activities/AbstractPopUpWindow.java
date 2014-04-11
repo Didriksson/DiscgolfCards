@@ -12,13 +12,13 @@ public abstract class AbstractPopUpWindow extends Activity {
 
 	TextView popupTextView;
 	EditText popupInput;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pop_up_layout);
-		popupTextView = (TextView)findViewById(R.id.popupEditName);
-		popupInput = (EditText)findViewById(R.id.popupInput);
+		popupTextView = (TextView) findViewById(R.id.popupEditName);
+		popupInput = (EditText) findViewById(R.id.popupInput);
 	}
 
 	@Override
@@ -29,6 +29,5 @@ public abstract class AbstractPopUpWindow extends Activity {
 	}
 
 	public abstract void saveAndExit(View view);
-	
 
 }

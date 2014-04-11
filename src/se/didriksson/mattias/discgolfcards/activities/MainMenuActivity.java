@@ -1,7 +1,6 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
-import se.didriksson.mattias.discgolfcards.program.FileHandler;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

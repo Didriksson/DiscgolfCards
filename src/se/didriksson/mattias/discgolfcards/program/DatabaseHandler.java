@@ -14,7 +14,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	// http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
 
 	Context myOwnContext;
-	
+
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
 
 	private static final int DATABASE_VERSION = 31;
@@ -24,14 +24,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private final static String COURSE_TABLE = "Courses"; // name of table
 	private final static String ROUNDS_TABLE = "Rounds"; // name of table
 	private final static String CARD_TABLE = "Cards"; // name of table
-	
+
 	private final static String COURSE_NAME = "CourseName"; // name of course
 	private final static String COURSE_PARS = "CoursePars";
 
 	private final static String CARD_NAME = "CardName"; // name of course
 	private final static String CARD_DESC = "CardDescription";
 	private final static String CARD_ID = "CardID";
-	
+
 	private final static String ROUNDS_ID = "_id";
 	private final static String ROUNDS_SCORE = "Score";
 	private final static String ROUNDS_RESULTS = "Results";
@@ -42,10 +42,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	private final String CREATE_PLAYER_TABLE = "CREATE TABLE " + PLAYER_TABLE
 			+ "(" + PLAYER_NAME + " TEXT PRIMARY KEY" + ")";
-	
-	private final String CREATE_CARD_TABLE = "CREATE TABLE " + CARD_TABLE
-			+ "(" + CARD_ID + " INTEGER PRIMARY KEY," + CARD_NAME + " TEXT," + CARD_DESC+ " TEXT"
-			+ ")";
+
+	private final String CREATE_CARD_TABLE = "CREATE TABLE " + CARD_TABLE + "("
+			+ CARD_ID + " INTEGER PRIMARY KEY," + CARD_NAME + " TEXT,"
+			+ CARD_DESC + " TEXT" + ")";
 
 	private final String CREATE_COURSE_TABLE = "CREATE TABLE " + COURSE_TABLE
 			+ "(" + COURSE_NAME + " TEXT PRIMARY KEY," + COURSE_PARS + " TEXT"
@@ -81,7 +81,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// Create tables again
 		onCreate(db);
 	}
-	
+
 	public long addPlayer(Player player) {
 		SQLiteDatabase database = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
@@ -125,7 +125,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return rounds_id;
 
 	}
-	
+
 	public long addCard(Card card) {
 		SQLiteDatabase database = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
@@ -137,12 +137,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return card_id;
 
 	}
-	
+
 	public Card getCard(int id) {
 		SQLiteDatabase database = this.getReadableDatabase();
 
-		Cursor cursor = database.query(CARD_TABLE, new String[] {
-				CARD_ID, CARD_NAME, CARD_DESC }, CARD_ID + "=?",
+		Cursor cursor = database.query(CARD_TABLE, new String[] { CARD_ID,
+				CARD_NAME, CARD_DESC }, CARD_ID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
@@ -159,7 +159,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		return str;
 	}
-	
+
 	public List<Card> getAllCards() {
 
 		SQLiteDatabase database = this.getReadableDatabase();
@@ -177,7 +177,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 			} while (cursor.moveToNext());
 		}
-		
+
 		cursor.close();
 		database.close();
 		return card;
@@ -204,7 +204,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			cursor.moveToFirst();
 		return new Player(cursor.getString(0));
 	}
-	
 
 	public Course getCourse(String name) {
 		SQLiteDatabase database = this.getReadableDatabase();
@@ -234,7 +233,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			} while (cursor.moveToNext());
 		}
 
-		
 		cursor.close();
 		database.close();
 		return players;
@@ -261,9 +259,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return course;
 
 	}
-	
-
-
 
 	public List<Round> getAllRounds() {
 
@@ -292,7 +287,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return rounds;
 
 	}
-	
 
 	public Round getRound(int id) {
 		SQLiteDatabase database = this.getReadableDatabase();
@@ -392,7 +386,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				new String[] { course.name });
 
 	}
-	
+
 	public int updateCard(Card card) {
 		SQLiteDatabase database = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
@@ -401,7 +395,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(CARD_NAME, card.getName());
 		values.put(CARD_DESC, card.getDescription());
 		return database.update(CARD_TABLE, values, CARD_ID + " = ?",
-				new String[] { String.valueOf(card.getID())});
+				new String[] { String.valueOf(card.getID()) });
 
 	}
 
@@ -420,11 +414,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		database.close();
 
 	}
-	
+
 	public void deleteCard(Card card) {
 		SQLiteDatabase database = this.getWritableDatabase();
 		database.delete(CARD_TABLE, CARD_ID + " = ?",
-				new String[] { String.valueOf(card.getID())});
+				new String[] { String.valueOf(card.getID()) });
 		database.close();
 
 	}

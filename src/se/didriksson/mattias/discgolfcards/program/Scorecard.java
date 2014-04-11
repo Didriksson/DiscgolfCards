@@ -1,7 +1,6 @@
 package se.didriksson.mattias.discgolfcards.program;
 
 import android.content.Context;
-import android.util.Log;
 
 public class Scorecard {
 

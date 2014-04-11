@@ -11,14 +11,14 @@ import android.view.View;
 import android.widget.EditText;
 
 public class NewCourseActivity extends AbstractPopUpWindow {
-	
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState){
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        setTitle("Add Course");
-        popupTextView.setText("Enter course name: ");
+		setTitle("Add Course");
+		popupTextView.setText("Enter course name: ");
 	}
-	
+
 	public void saveAndExit(View view) {
 		boolean saveOK = true;
 
@@ -43,7 +43,7 @@ public class NewCourseActivity extends AbstractPopUpWindow {
 
 		}
 	}
-	
+
 	private boolean checkIfStringIsEmpty(String name) {
 		return name.equalsIgnoreCase("") || name.equalsIgnoreCase(" ");
 	}

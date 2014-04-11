@@ -1,10 +1,8 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
-import se.didriksson.mattias.discgolfcards.program.FileHandler;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -23,7 +21,7 @@ public class RevengeGameActivity extends GameAbstractClass implements
 
 		EditText holePar = (EditText) findViewById(R.id.holeInfoPar);
 		holePar.setOnEditorActionListener(new OnEditTextListenerButtons());
-		
+
 		setupPlayerSkinsArray();
 		setupPlayerTotalSkinsArray();
 		updateAllPlayersInfo();
@@ -132,10 +130,9 @@ public class RevengeGameActivity extends GameAbstractClass implements
 	}
 
 	public void drawCard(View view) {
-			Intent intent = new Intent(this, AssignCardToPlayerActivity.class);
-			startActivity(intent);
-		}
-	
+		Intent intent = new Intent(this, AssignCardToPlayerActivity.class);
+		startActivity(intent);
+	}
 
 	@Override
 	protected void updateHoleInfo() {
@@ -149,6 +146,5 @@ public class RevengeGameActivity extends GameAbstractClass implements
 	protected void setUpDeck() {
 		scorecard.setUpDeck();
 	}
-	
 
 }

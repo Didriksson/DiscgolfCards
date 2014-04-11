@@ -30,31 +30,27 @@ public class FileHandler {
 		return lines;
 
 	}
-	
-	
-	public static void addCardsFromFileToDatabase(Context context){
-		
+
+	public static void addCardsFromFileToDatabase(Context context) {
+
 		Stack<Card> deckOfCards = new Stack<Card>();
 		DatabaseHandler database = new DatabaseHandler(context);
-		
+
 		List<String> cardStrings = null;
 		try {
-			 cardStrings = (ArrayList<String>) readCardStrings(context);
+			cardStrings = (ArrayList<String>) readCardStrings(context);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		while(!(cardStrings == null) && (!cardStrings.isEmpty()))
-		{
+		while (!(cardStrings == null) && (!cardStrings.isEmpty())) {
 			String[] card = cardStrings.remove(0).split(";");
-			deckOfCards.push(new Card(card[0],card[1]));
+			deckOfCards.push(new Card(card[0], card[1]));
 		}
 
-		while(deckOfCards.size()>0){
+		while (deckOfCards.size() > 0) {
 			database = new DatabaseHandler(context);
 			database.addCard(deckOfCards.pop());
 		}
 	}
-	
-	
 
 }

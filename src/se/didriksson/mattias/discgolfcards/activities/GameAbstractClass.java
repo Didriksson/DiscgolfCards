@@ -25,8 +25,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 	DatabaseHandler database = new DatabaseHandler(this);
 	private float downX;
 	private final float minSwipeDistance = 50;
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -42,8 +41,9 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		Player[] players = setUpPlayers(numberOfPlayers);
 
 		Course course = database.getCourse(b.getString("course"));
-		scorecard = ScorecardFactory.createInstance(players, course, 1, getApplicationContext());
-		
+		scorecard = ScorecardFactory.createInstance(players, course, 1,
+				getApplicationContext());
+
 		setPlayerLayoutsVisible();
 		setPlayerNames();
 		updateHoleInfo();
@@ -52,14 +52,21 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 	}
 
 	protected abstract void setUpDeck();
+
 	public abstract void completeRound(View view);
+
 	protected abstract void updatePlayerInfo(int player);
+
 	protected abstract void decreamentScore(int i);
+
 	protected abstract void increamentScore(int i);
+
 	protected abstract void setPlayerNames();
+
 	protected abstract void setPlayerLayoutsVisible();
+
 	protected abstract void updateHoleInfo();
-	
+
 	protected Player[] setUpPlayers(int noPlayers) {
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
@@ -68,7 +75,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 		return player;
 	}
-	
+
 	protected void previousHole() {
 		scorecard.previousHole();
 		updateHoleInfo();
@@ -92,9 +99,6 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 
 	}
-	
-	
-	
 
 	public void nextHoleListener(View view) {
 		nextHole();
@@ -196,7 +200,6 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 			break;
 		}
 	}
-	
 
 	class OnEditTextListenerButtons implements OnEditorActionListener {
 
@@ -230,7 +233,5 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 			return false;
 		}
 	}
-	
+
 }
-
-
