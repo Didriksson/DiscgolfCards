@@ -35,27 +35,27 @@
                 android:text="Settings" />
 
             <Button
-                android:id="@+id/scorecardbutton"
+                android:id="@+id/editplayersbutton"
                 style="@style/button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="25"
-                android:onClick="startScorecard"
+                android:onClick="startEditPlayers"
                 android:text="Edit Players" />
 
             <Button
-                android:id="@+id/skinchallengebutton"
+                android:id="@+id/editcardsbutton"
                 style="@style/button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="25"
-                android:onClick="startRevengeGame"
+                android:onClick="startEditCards"
                 android:text="Edit Cards" />
 
             <Button
-                android:id="@+id/quitbutton"
+                android:id="@+id/backbutton"
                 style="@style/button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

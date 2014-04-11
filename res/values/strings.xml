@@ -19,5 +19,7 @@
     <string name="title_activity_start_game">StartGameActivity</string>
     <string name="title_activity_active_cards">ActiveCardsActivity</string>
     <string name="title_activity_active_cards_pop_up">ActiveCardsPopUp</string>
+    <string name="title_activity_edit_players">EditPlayers</string>
+    <string name="title_activity_edit_course">EditCourse</string>
 
 </resources>

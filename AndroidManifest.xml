@@ -83,6 +83,14 @@
             android:name="se.didriksson.mattias.discgolfcards.activities.ActiveCardsPopUp"
             android:label="@string/title_activity_active_cards_pop_up" >
         </activity>
+        <activity
+            android:name="se.didriksson.mattias.discgolfcards.activities.EditPlayers"
+            android:label="@string/title_activity_edit_players" >
+        </activity>
+        <activity
+            android:name="se.didriksson.mattias.discgolfcards.activities.EditCards"
+            android:label="@string/title_activity_edit_course" >
+        </activity>
     </application>
 
 </manifest>
