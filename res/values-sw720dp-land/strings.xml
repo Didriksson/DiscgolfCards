@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DiscgolfCards</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_activity_scorecard_submenu">ScorecardSubmenu</string>
+    <string name="title_activity_complete_round">CompleteRoundActivity</string>
+    <string name="title_activity_revenge_game">RevengeGameActivity</string>
+    <string name="title_activity_new_player">NewPlayerActivity</string>
+    <string name="title_activity_stats">StatsActivity</string>
+    <string name="title_activity_round_stats">RoundStatsActivity</string>
+    <string name="title_activity_new_course">NewCourseActivity</string>
+    <string name="title_activity_draw_card_popup">A new card!</string>
+    <string name="title_activity_draw_card_pop_up">Drawn Card</string>
+    <string name="title_activity_assign_card_to_player">AssignCardToPlayerActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_start_game">StartGameActivity</string>
+    <string name="title_activity_active_cards">ActiveCardsActivity</string>
+    <string name="title_activity_active_cards_pop_up">ActiveCardsPopUp</string>
+    <string name="title_activity_edit_players">EditPlayers</string>
+    <string name="title_activity_edit_course">EditCourse</string>
+
+</resources>
