@@ -38,7 +38,7 @@ public class RoundStatsActivity extends Activity {
 			resultList = (ListView)findViewById(R.id.resultList);
 			
 			listAdapter = new ArrayAdapter<String>(this,
-					android.R.layout.simple_spinner_dropdown_item, stringList);
+					android.R.layout.simple_list_item_1, stringList);
 
 			resultList.setAdapter(listAdapter);
 			
@@ -49,7 +49,7 @@ public class RoundStatsActivity extends Activity {
 		stringList = new ArrayList<String>();
 		int[] results = round.getResults();
 		for(int i = 0;i<results.length && results[i] != 0;i++){
-			String tmp = "#"+(i+1) + "\t\t\t\t\t\t Throws: " + results[i];
+			String tmp = "#"+(i+1) + "\nThrows: " + results[i];
 			stringList.add(tmp);
 		}
 		

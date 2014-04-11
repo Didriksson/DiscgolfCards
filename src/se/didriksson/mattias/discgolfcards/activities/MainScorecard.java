@@ -10,11 +10,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+public class MainScorecard extends GameAbstractClass {
 
-public class MainScorecard extends GameAbstractClass{
-
-
-	
 	TextView[] playerThrowsTextView;
 	TextView[] playerCoursePar;
 	TextView[] playerCourseTotal;
@@ -69,7 +66,7 @@ public class MainScorecard extends GameAbstractClass{
 		playerThrowsTextView[7] = (TextView) findViewById(R.id.throwsP8);
 
 	}
-	
+
 	protected void setPlayerNames() {
 		TextView[] textView = new TextView[8];
 		textView[0] = (TextView) findViewById(R.id.textViewNameP1);
@@ -105,12 +102,12 @@ public class MainScorecard extends GameAbstractClass{
 		}
 
 	}
-	
+
 	protected void updateHoleInfo() {
-		
+
 		TextView courseName = (TextView) findViewById(R.id.popupEditName);
 		courseName.setText(scorecard.getCourseName());
-		
+
 		TextView holeNo = (TextView) findViewById(R.id.textViewHeader);
 		holeNo.setText("#" + scorecard.getCurrentHole());
 
@@ -135,20 +132,22 @@ public class MainScorecard extends GameAbstractClass{
 				+ scorecard.decreaseAndReturnPlayerScoreForCurrentHole(player));
 	}
 
-
 	protected void updatePlayerInfo(int player) {
-		playerThrowsTextView[player - 1].setText(""+scorecard.getPlayerScoreForCurrentHole(player));
-		playerCoursePar[player - 1].setText(""+scorecard.getPlusMinusComparedToPar(player));
-		playerCourseTotal[player-1].setText(""+scorecard.getTotalThrowsToCurrentHole(player));
+		playerThrowsTextView[player - 1].setText(""
+				+ scorecard.getPlayerScoreForCurrentHole(player));
+		playerCoursePar[player - 1].setText(""
+				+ scorecard.getPlusMinusComparedToPar(player));
+		playerCourseTotal[player - 1].setText(""
+				+ scorecard.getTotalThrowsToCurrentHole(player));
 	}
-
-
 
 	public void completeRound(View view) {
 		Intent intent = new Intent(this, CompleteRoundActivity.class);
 		Bundle b = new Bundle();
 		Time time = new Time();
 		time.setToNow();
+		String timeString = timeFormater(time);
+
 		b.putInt("numberOfPlayers", scorecard.getNumberOfPlayers());
 		for (int i = 0; i < scorecard.getNumberOfPlayers(); i++) {
 			b.putString("player" + (i + 1), scorecard.getPlayer(i).getName());
@@ -160,8 +159,7 @@ public class MainScorecard extends GameAbstractClass{
 					scorecard.getPlayer(i),
 					scorecard.getCourse(),
 					scorecard.getPlayer(i).getFinalResult(
-							scorecard.getNumberOfHoles()),
-					time.format3339(false));
+							scorecard.getNumberOfHoles()), timeString);
 
 			database.updateCourse(scorecard.getCourse());
 
@@ -172,7 +170,11 @@ public class MainScorecard extends GameAbstractClass{
 		finish();
 	}
 
-	//Not used by the plain scorecard.
+	private String timeFormater(Time time) {
+		return String.format("%04d-%02d-%02d %02d:%02d", time.year, time.month,time.monthDay,time.hour, time.minute);
+				}
+
+	// Not used by the plain scorecard.
 	@Override
 	protected void setUpDeck() {
 	}

@@ -78,12 +78,9 @@
 
             <ListView
                 android:id="@+id/listViewRoundsOnCourse"
-                style="@style/textviewmedium"
+                style="@style/listViewStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-               
-                 >
+                android:layout_height="wrap_content" >
 
             </ListView>
         </LinearLayout>

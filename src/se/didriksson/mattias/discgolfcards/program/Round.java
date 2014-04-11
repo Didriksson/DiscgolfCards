@@ -48,7 +48,7 @@ public class Round {
 		}
 	
 	public String toString(){
-		return course.getName() + "\t" + getScore() + "\n" + date  ;
+		return "Course: "+ course.getName() + "  Score: " + getScore() + "\n" + date  ;
 	}
 	
 		

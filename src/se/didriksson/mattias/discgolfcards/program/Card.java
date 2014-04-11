@@ -7,6 +7,7 @@ public class Card {
 	public final String description;
 	private int id;
 	boolean picked;
+	
 
 	/**
 	 * Konstruktor för kortklassen som ser till att inga kort kan skapas utan en identifierare och beskrivning.

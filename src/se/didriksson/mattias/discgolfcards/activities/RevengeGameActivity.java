@@ -136,6 +136,11 @@ public class RevengeGameActivity extends GameAbstractClass implements
 			startActivity(intent);
 		}
 	
+	public void activeCards(View view) {
+		Intent intent = new Intent(this, ActiveCardsActivity.class);
+		startActivity(intent);
+	}
+	
 
 	@Override
 	protected void updateHoleInfo() {

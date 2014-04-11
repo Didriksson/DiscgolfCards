@@ -1,5 +1,7 @@
 package se.didriksson.mattias.discgolfcards.program;
 
+import java.util.List;
+
 import android.content.Context;
 import android.util.Log;
 
@@ -210,4 +212,33 @@ public class Scorecard {
 	public Card getLastDrawnCard() {
 		return usedDeck.peek();
 	}
+
+	public Card getCardByID(int id) {
+
+		Card cardToReturn = null;
+		for (Player p : players) {
+			List<Card> cards = p.getCards();
+			for (int i = 0; i < cards.size(); i++) {
+				if (cards.get(i).getID() == id) {
+					cardToReturn = cards.get(i);
+					break;
+				}
+			}
+		}
+		return cardToReturn;
+	}
+
+	public void removeCardByID(int id) {
+		for (Player p : players) {
+			List<Card> cards = p.getCards();
+			for (int i = 0; i < cards.size(); i++) {
+				if (cards.get(i).getID() == id) {
+					cards.remove(i);
+					p.setCards(cards);
+					break;
+				}
+			}
+		}
+	}
+
 }

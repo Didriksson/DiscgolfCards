@@ -1,6 +1,7 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import se.didriksson.mattias.discgolfcards.R;
@@ -53,7 +54,7 @@ public class StatsActivity extends Activity {
 		Course course = (Course) courseSpinner.getSelectedItem();
 
 		rounds = database.getAllRoundsSpecificPlayer(player);
-		
+		Collections.reverse(rounds);
 		List<Round> courseSpecificRounds = new ArrayList<Round>();
 
 		for (int i = 0; i < rounds.size(); i++) {
@@ -66,13 +67,10 @@ public class StatsActivity extends Activity {
 
 		listView = (ListView) findViewById(R.id.listViewRoundsOnCourse);
 
+		
 		listAdapters = new ArrayAdapter<Round>(this,
-				android.R.layout.simple_spinner_dropdown_item,
+				android.R.layout.simple_list_item_1,
 				courseSpecificRounds);
-
-		
-	
-		
 
 		listView.setAdapter(listAdapters);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

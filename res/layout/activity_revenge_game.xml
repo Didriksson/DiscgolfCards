@@ -254,7 +254,7 @@
                         style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/TextView03"
+                        android:layout_alignBottom="@+id/player1activename"
                         android:layout_alignLeft="@+id/skinsR2"
                         android:layout_alignRight="@+id/skinsR2"
                         android:layout_below="@+id/buttonIncrease2"
@@ -274,7 +274,7 @@
                         android:text="-" />
 
                     <TextView
-                        android:id="@+id/TextView03"
+                        android:id="@+id/player1activename"
                         style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -695,7 +695,7 @@
                         android:text="-" />
 
                     <TextView
-                        android:id="@+id/TextView07"
+                        android:id="@+id/player1nameactive"
                         style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -811,9 +811,18 @@
             style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="90"
+            android:layout_weight="45"
             android:onClick="drawCard"
             android:text="Draw Card" />
+
+        <Button
+            android:id="@+id/buttonActiveCards"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="45"
+            android:onClick="activeCards"
+            android:text="Cards" />
 
         <Button
             android:id="@+id/nextButton"

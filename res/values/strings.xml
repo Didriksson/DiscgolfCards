@@ -17,5 +17,7 @@
     <string name="title_activity_assign_card_to_player">AssignCardToPlayerActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_start_game">StartGameActivity</string>
+    <string name="title_activity_active_cards">ActiveCardsActivity</string>
+    <string name="title_activity_active_cards_pop_up">ActiveCardsPopUp</string>
 
 </resources>
