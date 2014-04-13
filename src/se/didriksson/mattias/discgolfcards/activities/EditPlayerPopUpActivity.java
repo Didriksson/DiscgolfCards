@@ -3,6 +3,7 @@ package se.didriksson.mattias.discgolfcards.activities;
 import se.didriksson.mattias.discgolfcards.R;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteConstraintException;
@@ -10,15 +11,30 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
-public class NewPlayerActivity extends AbstractPopUpWindow {
+public class EditPlayerPopUpActivity extends Activity {
 
+	TextView popupTextView;
+	EditText popupInput;
+	Player player;
+	DatabaseHandler database;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTitle("Add player");
+		setContentView(R.layout.activity_edit_player_pop_up);
+		popupTextView = (TextView) findViewById(R.id.popupEditName);
+		popupInput = (EditText) findViewById(R.id.popupInput);
+		database = new DatabaseHandler(getApplicationContext());
+		setTitle("Edit player");
 		popupTextView.setText("Enter player name: ");
-
+		Bundle b = getIntent().getExtras();
+		String playerName = b.getString("player");
+		player = database.getPlayer(playerName);
+		popupInput = (EditText) findViewById(R.id.editPlayerPopUp);
+		popupInput.setText(player.getName());
+		popupInput.selectAll();
 	}
 
 	@Override
@@ -28,14 +44,16 @@ public class NewPlayerActivity extends AbstractPopUpWindow {
 		return true;
 
 	}
-
+	
 	public void saveAndExit(View view) {
 		boolean saveOK = true;
-		DatabaseHandler database = new DatabaseHandler(this);
-		EditText editTextPlayer = (EditText) findViewById(R.id.popupInput);
-		String name = editTextPlayer.getText().toString();
-
-		saveOK = database.addPlayer(new Player(name)) != -1;
+		String name = popupInput.getText().toString();
+		player.setName(name);
+		try {
+			database.updatePlayer(player);
+		} catch (SQLiteConstraintException c) {
+			saveOK = false;
+		}
 
 		if (saveOK)
 			finish();

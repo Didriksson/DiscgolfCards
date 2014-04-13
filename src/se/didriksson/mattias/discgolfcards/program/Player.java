@@ -9,17 +9,32 @@ public class Player implements Comparable<Player> {
 	int[] results;
 	int[] skins;
 	List<Card> cards;
+	int id;
 
-	public Player(String name) {
+	public Player(int id, String name) {
 		this.name = name;
 		this.results = new int[36];
 		this.skins= new int[36];
+		this.id = id;
 		cards = new ArrayList<Card>();
 	}
 	
+	public Player(String name) {
+		this(-1, name);
+	}
+	
+	public int getId(){
+		return id;
+	}
+	
 
+	
 	public String getName() {
 		return name;
+	}
+	
+	public void setName(String name){
+		this.name = name;
 	}
 
 	public int getResult(int hole) {
