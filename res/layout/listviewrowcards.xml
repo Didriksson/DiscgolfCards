@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/button"
     android:ellipsize="marquee"
-    android:singleLine="true"
-    android:textAlignment="inherit" 
-    
-    
+    android:singleLine="false"
+    android:textAlignment="inherit"
     
     />

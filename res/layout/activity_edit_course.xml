@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/defaultbackground"
     android:padding="20dp"
-    tools:context=".EditPlayers" >
+    tools:context=".EditCourse" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,12 +24,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Edit Players" />
+                android:text="Edit Course" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/editViewlayout"
+            android:id="@+id/editViewlayoutCourse"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="80"
@@ -38,7 +38,7 @@
             android:visibility="gone" >
 
             <ListView
-                android:id="@+id/listViewEditPlayers"
+                android:id="@+id/listViewEditCourse"
                 style="@style/listViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -47,7 +47,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/removeViewLayout"
+            android:id="@+id/removeViewLayoutCourse"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="80"
@@ -95,7 +95,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="newCourse"
+                android:onClick="newPlayer"
                 android:text="New" />
 
         </LinearLayout>

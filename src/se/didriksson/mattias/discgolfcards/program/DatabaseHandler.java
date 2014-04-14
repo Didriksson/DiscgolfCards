@@ -20,7 +20,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
 
-	private static final int DATABASE_VERSION = 39;
+	private static final int DATABASE_VERSION = 40;
 
 	// Table names
 	private final static String PLAYER_TABLE = "Players"; // name of table
@@ -315,7 +315,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase database = this.getReadableDatabase();
 
 		Cursor cursor = database.query(ROUNDS_TABLE, new String[] { ROUNDS_ID,
-				PLAYER_NAME, COURSE_NAME, ROUNDS_SCORE, ROUNDS_RESULTS,
+				PLAYER_ID, COURSE_NAME, ROUNDS_SCORE, ROUNDS_RESULTS,
 				ROUNDS_TIME }, ROUNDS_ID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)

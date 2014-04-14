@@ -95,6 +95,10 @@
             android:name="se.didriksson.mattias.discgolfcards.activities.EditPlayerPopUpActivity"
             android:label="@string/title_activity_new_player_pop_up" >
         </activity>
+        <activity
+            android:name="se.didriksson.mattias.discgolfcards.EditCourse"
+            android:label="@string/title_activity_edit_course" >
+        </activity>
     </application>
 
 </manifest>

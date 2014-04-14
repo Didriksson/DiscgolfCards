@@ -21,195 +21,190 @@
             android:layout_weight="90"
             android:orientation="vertical" >
 
-            <ScrollView
-                android:id="@+id/scrollView1"
+            <LinearLayout
+                android:id="@+id/player1ActiveCards"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="100" >
 
                 <LinearLayout
-                    android:id="@+id/player1ActiveCards"
+                    android:id="@+id/linearlayout1active"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/player1nameactive"
+                        style="@style/textviewlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player1" />
+
+                    <ListView
+                        android:id="@+id/player1cardlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </ListView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout2active"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/player2nameactive"
+                        style="@style/textviewlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player1" />
+
+                    <ListView
+                        android:id="@+id/player2cardlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </ListView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout3active"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:visibility="gone"
                     android:weightSum="100" >
 
-                    <LinearLayout
-                        android:id="@+id/linearlayout1active"
+                    <TextView
+                        android:id="@+id/player3nameactive"
+                        style="@style/textviewlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player1" />
+
+                    <ListView
+                        android:id="@+id/player3cardlist"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="visible"
-                        android:weightSum="100" >
-
-                        <TextView
-                            android:id="@+id/player1nameactive"
-                            style="@style/textviewlarge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Player1" />
-
-                        <ListView
-                            android:id="@+id/player1cardlist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-                        </ListView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearlayout2active"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        android:weightSum="100" >
-
-                        <TextView
-                            android:id="@+id/player2nameactive"
-                            style="@style/textviewlarge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Player1" />
-
-                        <ListView
-                            android:id="@+id/player2cardlist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-                        </ListView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearlayout3active"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        android:weightSum="100" >
-
-                        <TextView
-                            android:id="@+id/player3nameactive"
-                            style="@style/textviewlarge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Player1" />
-
-                        <ListView
-                            android:id="@+id/player3cardlist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-                        </ListView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearlayout4active"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        android:weightSum="100" >
-
-                        <TextView
-                            android:id="@+id/player4nameactive"
-                            style="@style/textviewlarge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Player1" />
-
-                        <ListView
-                            android:id="@+id/player4cardlist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-                        </ListView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearlayout5active"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        android:weightSum="100" >
-
-                        <TextView
-                            android:id="@+id/player5nameactive"
-                            style="@style/textviewlarge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Player1" />
-
-                        <ListView
-                            android:id="@+id/player5cardlist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-                        </ListView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearlayout6active"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        android:weightSum="100" >
-
-                        <TextView
-                            android:id="@+id/player6nameactive"
-                            style="@style/textviewlarge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Player1" />
-
-                        <ListView
-                            android:id="@+id/player6cardlist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-                        </ListView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearlayout7active"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        android:weightSum="100" >
-
-                        <TextView
-                            android:id="@+id/player7nameactive"
-                            style="@style/textviewlarge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Player1" />
-
-                        <ListView
-                            android:id="@+id/player7cardlist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-                        </ListView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearlayout8active"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        android:weightSum="100" >
-
-                        <TextView
-                            android:id="@+id/player8nameactive"
-                            style="@style/textviewlarge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Player1" />
-
-                        <ListView
-                            android:id="@+id/player8cardlist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
-                        </ListView>
-                    </LinearLayout>
+                        android:layout_height="wrap_content" >
+                    </ListView>
                 </LinearLayout>
-            </ScrollView>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout4active"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/player4nameactive"
+                        style="@style/textviewlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player1" />
+
+                    <ListView
+                        android:id="@+id/player4cardlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </ListView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout5active"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/player5nameactive"
+                        style="@style/textviewlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player1" />
+
+                    <ListView
+                        android:id="@+id/player5cardlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </ListView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout6active"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/player6nameactive"
+                        style="@style/textviewlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player1" />
+
+                    <ListView
+                        android:id="@+id/player6cardlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </ListView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout7active"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/player7nameactive"
+                        style="@style/textviewlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player1" />
+
+                    <ListView
+                        android:id="@+id/player7cardlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </ListView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout8active"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/player8nameactive"
+                        style="@style/textviewlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player1" />
+
+                    <ListView
+                        android:id="@+id/player8cardlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </ListView>
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout

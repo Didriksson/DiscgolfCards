@@ -39,7 +39,9 @@ public class Card {
 		return description;
 	}
 
-	public String getName(){return this.name;}
+	public String getName(){
+		return this.name;
+		}
 
 	public boolean isPicked() {
 		return picked;
