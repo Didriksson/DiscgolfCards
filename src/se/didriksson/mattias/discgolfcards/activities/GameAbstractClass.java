@@ -6,7 +6,9 @@ import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
 import se.didriksson.mattias.discgolfcards.program.Scorecard;
 import se.didriksson.mattias.discgolfcards.program.ScorecardFactory;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -197,7 +199,6 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 	}
 	
-
 	class OnEditTextListenerButtons implements OnEditorActionListener {
 
 		@Override
@@ -218,6 +219,11 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 				if (parseOK && newPar >= 1)
 					scorecard.setParForHole(scorecard.getCurrentHole(), newPar);
 
+				else {
+					v.setText(scorecard.getParForCurrentHole());
+					showDialog("Incorrect format.");
+				}
+
 				LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayer);
 				mainLayout.requestFocus();
 				getApplicationContext();
@@ -229,7 +235,26 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 			}
 			return false;
 		}
+
+		private void showDialog(String msg) {
+			AlertDialog nameExistsWarning = new AlertDialog.Builder(getApplicationContext())
+					.create();
+			nameExistsWarning.setTitle("Warning!");
+			nameExistsWarning.setMessage(msg);
+			nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					});
+
+			nameExistsWarning.show();
+		}
+
 	}
+
 	
 }
 
