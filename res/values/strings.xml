@@ -22,5 +22,6 @@
     <string name="title_activity_edit_players">EditPlayers</string>
     <string name="title_activity_edit_course">EditCourse</string>
     <string name="title_activity_new_player_pop_up">NewPlayerPopUpActivity</string>
+    <string name="title_activity_edit_course_pop_up">EditCoursePopUpActivity</string>
 
 </resources>

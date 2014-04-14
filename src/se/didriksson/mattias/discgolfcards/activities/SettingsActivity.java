@@ -28,6 +28,11 @@ public class SettingsActivity extends Activity {
 		Intent intent = new Intent(this, EditPlayers.class);
 		startActivity(intent);
 	}
+
+	public void startEditCourse(View view){ 
+		Intent intent = new Intent(this, EditCourse.class);
+		startActivity(intent);
+	}
 	
 	public void startEditCards(View view){
 		Intent intent = new Intent(this, EditCards.class);

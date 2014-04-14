@@ -77,7 +77,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="deletePlayers"
+                android:onClick="deleteCourse"
                 android:text="Delete" />
 
             <Button
@@ -86,7 +86,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="editPlayer"
+                android:onClick="editCourse"
                 android:text="Edit" />
 
             <Button
@@ -95,7 +95,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="newPlayer"
+                android:onClick="newCourse"
                 android:text="New" />
 
         </LinearLayout>

@@ -87,7 +87,7 @@ public class EditPlayers extends Activity {
 		finish();
 	}
 
-	public void deletePlayers(View view) {
+	public void deletePlayer(View view) {
 		for (int i = 0; i < players.size(); i++) {
 			if (cb[i].isChecked()) {
 				database.deletePlayer(players.get(i));
