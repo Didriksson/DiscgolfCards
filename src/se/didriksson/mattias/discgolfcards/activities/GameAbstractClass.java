@@ -6,7 +6,9 @@ import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import se.didriksson.mattias.discgolfcards.program.Player;
 import se.didriksson.mattias.discgolfcards.program.Scorecard;
 import se.didriksson.mattias.discgolfcards.program.ScorecardFactory;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -25,8 +27,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 	DatabaseHandler database = new DatabaseHandler(this);
 	private float downX;
 	private final float minSwipeDistance = 50;
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -42,8 +43,9 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		Player[] players = setUpPlayers(numberOfPlayers);
 
 		Course course = database.getCourse(b.getString("course"));
-		scorecard = ScorecardFactory.createInstance(players, course, 1, getApplicationContext());
-		
+		scorecard = ScorecardFactory.createInstance(players, course, 1,
+				getApplicationContext());
+
 		setPlayerLayoutsVisible();
 		setPlayerNames();
 		updateHoleInfo();
@@ -52,14 +54,21 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 	}
 
 	protected abstract void setUpDeck();
+
 	public abstract void completeRound(View view);
+
 	protected abstract void updatePlayerInfo(int player);
+
 	protected abstract void decreamentScore(int i);
+
 	protected abstract void increamentScore(int i);
+
 	protected abstract void setPlayerNames();
+
 	protected abstract void setPlayerLayoutsVisible();
+
 	protected abstract void updateHoleInfo();
-	
+
 	protected Player[] setUpPlayers(int noPlayers) {
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
@@ -68,7 +77,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 		return player;
 	}
-	
+
 	protected void previousHole() {
 		scorecard.previousHole();
 		updateHoleInfo();
@@ -92,9 +101,6 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 
 	}
-	
-	
-	
 
 	public void nextHoleListener(View view) {
 		nextHole();
@@ -196,7 +202,6 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 			break;
 		}
 	}
-	
 
 	class OnEditTextListenerButtons implements OnEditorActionListener {
 
@@ -218,6 +223,11 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 				if (parseOK && newPar >= 1)
 					scorecard.setParForHole(scorecard.getCurrentHole(), newPar);
 
+				else {
+					v.setText(scorecard.getParForCurrentHole());
+					showDialog("Incorrect format.");
+				}
+
 				LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayer);
 				mainLayout.requestFocus();
 				getApplicationContext();
@@ -229,8 +239,24 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 			}
 			return false;
 		}
+
+		private void showDialog(String msg) {
+			AlertDialog nameExistsWarning = new AlertDialog.Builder(getApplicationContext())
+					.create();
+			nameExistsWarning.setTitle("Warning!");
+			nameExistsWarning.setMessage(msg);
+			nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					});
+
+			nameExistsWarning.show();
+		}
+
 	}
-	
+
 }
-
-
