@@ -8,16 +8,25 @@ public class Course implements Comparable<Course> {
 
 	int[] pars;
 	String name;
+	int id;
 
 	public Course(String name) {
 		this(name, 18);
+		this.id = -1;
 	}
 
 	public Course(String name, int[] results) {
 		this.name = name;
 		pars = results;
+		this.id = -1;
 	}
 
+	public Course(int id, String name, int[] results) {
+		this.name = name;
+		pars = results;
+		this.id = id;
+	}
+	
 	public Course(String name, int numberOfHoles) {
 		this.name = name;
 		pars = new int[numberOfHoles];
@@ -30,8 +39,16 @@ public class Course implements Comparable<Course> {
 		}
 	}
 
+	public void setId(int id){
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getParForHole(int hole) {

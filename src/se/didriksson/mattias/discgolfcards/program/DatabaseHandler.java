@@ -20,7 +20,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
 
-	private static final int DATABASE_VERSION = 40;
+	private static final int DATABASE_VERSION = 47;
 
 	// Table names
 	private final static String PLAYER_TABLE = "Players"; // name of table
@@ -28,6 +28,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private final static String ROUNDS_TABLE = "Rounds"; // name of table
 	private final static String CARD_TABLE = "Cards"; // name of table
 
+
+	private final static String COURSE_ID = "CourseId"; // name of course
 	private final static String COURSE_NAME = "CourseName"; // name of course
 	private final static String COURSE_PARS = "CoursePars";
 
@@ -53,7 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			+ CARD_DESC + " TEXT" + ")";
 
 	private final String CREATE_COURSE_TABLE = "CREATE TABLE " + COURSE_TABLE
-			+ "(" + COURSE_NAME + " TEXT PRIMARY KEY," + COURSE_PARS + " TEXT"
+			+ "(" + COURSE_ID + " INTEGER PRIMARY KEY,"+ COURSE_NAME + " TEXT," + COURSE_PARS + " TEXT"
 			+ ")";
 
 	private static final String CREATE_ROUNDS_TABLE = "CREATE TABLE "
@@ -231,12 +233,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase database = this.getReadableDatabase();
 
 		Cursor cursor = database.query(COURSE_TABLE, new String[] {
-				COURSE_NAME, COURSE_PARS }, COURSE_NAME + "=?",
+				COURSE_ID, COURSE_NAME, COURSE_PARS }, COURSE_NAME + "=?",
 				new String[] { name }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
-		return new Course(cursor.getString(0),
-				getResultsFromString(cursor.getString(1)));
+		return new Course(Integer.parseInt(cursor.getString(0)), cursor.getString(1),
+				getResultsFromString(cursor.getString(2)));
 	}
 
 	public List<Player> getAllPlayers() {
@@ -272,9 +274,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		if (cursor.moveToFirst()) {
 			do {
-				String name = cursor.getString(0);
-				course.add(new Course(name, getResultsFromString(cursor
-						.getString(1))));
+				int id = Integer.parseInt(cursor.getString(0));
+				String name = cursor.getString(1);
+				course.add(new Course(id, name, getResultsFromString(cursor
+						.getString(2))));
 
 			} while (cursor.moveToNext());
 		}
