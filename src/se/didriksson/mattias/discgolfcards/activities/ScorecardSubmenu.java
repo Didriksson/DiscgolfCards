@@ -14,9 +14,11 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -54,12 +56,13 @@ public class ScorecardSubmenu extends Activity {
 		Collections.sort(courses);
 		courses.add(0, new Course("Select course"));
 		courseSpinner = (Spinner) findViewById(R.id.courseSelectSpinner);
-		courseAdapter = new ArrayAdapter<Course>(this,android.R.layout.simple_list_item_1, courses){
+		courseAdapter = new ArrayAdapter<Course>(this,android.R.layout.simple_selectable_list_item, courses){
 		    @Override
 		    public View getDropDownView(int position, View convertView, ViewGroup parent)
 		    {
 		        View v = null;
-
+		        
+		        
 		        // If this is the initial dummy entry, make it hidden
 		        if (position == 0) {
 		            TextView tv = new TextView(getContext());
@@ -78,7 +81,6 @@ public class ScorecardSubmenu extends Activity {
 		    }
 		};
 
-		courseAdapter.setDropDownViewResource(R.layout.dropdownspinneritem);
 		courseSpinner.setAdapter(courseAdapter);
 
 		courseSpinner.setOnItemSelectedListener(new SpinnerListener());

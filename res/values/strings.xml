@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">DiscgolfCards</string>
+    <string name="app_name">Discgolf Cards</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_activity_main_menu">Discgolf Cards</string>
     <string name="title_activity_scorecard_submenu">ScorecardSubmenu</string>
     <string name="title_activity_complete_round">CompleteRoundActivity</string>
     <string name="title_activity_revenge_game">RevengeGameActivity</string>

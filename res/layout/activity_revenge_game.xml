@@ -695,7 +695,7 @@
                         android:text="-" />
 
                     <TextView
-                        android:id="@+id/player1nameactive"
+                        android:id="@+id/playernameactive"
                         style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

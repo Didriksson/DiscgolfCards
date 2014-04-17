@@ -137,7 +137,7 @@ public class RevengeGameActivity extends GameAbstractClass implements
 		}
 	
 	public void activeCards(View view) {
-		Intent intent = new Intent(this, ActiveCardsActivity.class);
+		Intent intent = new Intent(this, ChoosePlayerForActiveCards.class);
 		startActivity(intent);
 	}
 	
