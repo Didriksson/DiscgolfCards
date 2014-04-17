@@ -20,7 +20,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "DGChallengeDB.db";
 
-	private static final int DATABASE_VERSION = 47;
+	private static final int DATABASE_VERSION = 50;
 
 	// Table names
 	private final static String PLAYER_TABLE = "Players"; // name of table
@@ -229,17 +229,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				cursor.getString(1));
 	}
 	
-	public Course getCourse(String name) {
-		SQLiteDatabase database = this.getReadableDatabase();
-
-		Cursor cursor = database.query(COURSE_TABLE, new String[] {
-				COURSE_ID, COURSE_NAME, COURSE_PARS }, COURSE_NAME + "=?",
-				new String[] { name }, null, null, null, null);
-		if (cursor != null)
-			cursor.moveToFirst();
-		return new Course(Integer.parseInt(cursor.getString(0)), cursor.getString(1),
-				getResultsFromString(cursor.getString(2)));
-	}
+//	public Course getCourse(String name) {
+//		SQLiteDatabase database = this.getReadableDatabase();
+//
+//		Cursor cursor = database.query(COURSE_TABLE, new String[] {
+//				COURSE_ID, COURSE_NAME, COURSE_PARS }, COURSE_NAME + "=?",
+//				new String[] { name }, null, null, null, null);
+//		if (cursor != null)
+//			cursor.moveToFirst();
+//		return new Course(Integer.parseInt(cursor.getString(0)), cursor.getString(1),
+//				getResultsFromString(cursor.getString(2)));
+//	}
 	
 	public Course getCourse(int id) {
 		SQLiteDatabase database = this.getReadableDatabase();
@@ -330,7 +330,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase database = this.getReadableDatabase();
 
 		Cursor cursor = database.query(ROUNDS_TABLE, new String[] { ROUNDS_ID,
-				PLAYER_ID, COURSE_NAME, ROUNDS_SCORE, ROUNDS_RESULTS,
+				PLAYER_ID, COURSE_ID, ROUNDS_SCORE, ROUNDS_RESULTS,
 				ROUNDS_TIME }, ROUNDS_ID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
 		if (cursor != null)
@@ -338,11 +338,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		int rounds_id = Integer.parseInt(cursor.getString(0));
 		int player_id = Integer.parseInt(cursor.getString(1));
-
-		String course_name = cursor.getString(2);
+		int course_id = Integer.parseInt(cursor.getString(2));
 		int round_score = Integer.parseInt(cursor.getString(3));
+
 		Player player = getPlayer(player_id);
-		Course course = getCourse(course_name);
+		Course course = getCourse(course_id);
 		int[] results = getResultsFromString(cursor.getString(4));
 		String time = cursor.getString(5);
 		return new Round(rounds_id, course, player, round_score, results, time);
@@ -365,9 +365,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 				
 				if (player.getName().equals(playerSent.getName())) {
-					String course_name = cursor.getString(2);
+					int course_id = Integer.parseInt(cursor.getString(2));
 					int round_score = Integer.parseInt(cursor.getString(3));
-					Course course = getCourse(course_name);
+					Course course = getCourse(course_id);
 					int[] results = getResultsFromString(cursor.getString(4));
 					String time = cursor.getString(5);
 					rounds.add(new Round(rounds_id, course, player,
@@ -443,10 +443,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		int[] results = course.getPars();
 
+		values.put(COURSE_ID, course.getID());
 		values.put(COURSE_NAME, course.getName());
 		values.put(COURSE_PARS, getStringFromResults(results));
-		return database.update(COURSE_TABLE, values, COURSE_NAME + " = ?",
-				new String[] { course.name });
+		return database.update(COURSE_TABLE, values, COURSE_ID + " = ?",
+				new String[] { String.valueOf(course.id) });
 
 	}
 
@@ -472,8 +473,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	public void deleteCourse(Course course) {
 		SQLiteDatabase database = this.getWritableDatabase();
-		database.delete(COURSE_TABLE, COURSE_NAME + " = ?",
-				new String[] { course.name });
+		database.delete(COURSE_TABLE, COURSE_ID + " = ?",
+				new String[] { String.valueOf(course.id )});
 		database.close();
 
 	}

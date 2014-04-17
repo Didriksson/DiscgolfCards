@@ -41,7 +41,7 @@ public class EditCourse extends Activity {
 		removeCourseViewLayout = (LinearLayout) findViewById(R.id.removeViewLayoutCourse);
 		editCourseViewLayout = (LinearLayout) findViewById(R.id.editViewlayoutCourse);
 		editCoursesListView = (ListView) findViewById(R.id.listViewEditCourse);
-		
+		editExcistingcourseRadioButtons();
 	}
 
 	@Override
@@ -49,6 +49,12 @@ public class EditCourse extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.edit_course, menu);
 		return true;
+	}
+	
+
+	public void onResume() {
+		super.onResume();
+		editExcistingcourseRadioButtons();
 	}
 
 	private void editExcistingcourseRadioButtons() {
@@ -102,16 +108,16 @@ public class EditCourse extends Activity {
 		}
 
 		else {
-			String courseName = "Course";
+			int courseID = -1;
 			for (int i = 0; i < course.size(); i++) {
 				if (cb[i].isChecked()) {
-					courseName = course.get(i).getName();
+					courseID = course.get(i).getID();
 					break;
 				}
 			}
 			Intent intent = new Intent(this, EditCoursePopUpActivity.class);
 			Bundle b = new Bundle();
-			b.putString("Course", courseName);
+			b.putInt("Course", courseID);
 			intent.putExtras(b);
 			startActivity(intent);
 

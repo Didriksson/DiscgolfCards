@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -26,15 +27,14 @@ public class EditCoursePopUpActivity extends Activity {
 		setContentView(R.layout.activity_edit_course_pop_up);
 		
 		
-		popupCourseTextView = (TextView) findViewById(R.id.popupEditCourseDoneButton);
-		popupCourseInput = (EditText) findViewById(R.id.popupInput);
+		popupCourseTextView = (TextView) findViewById(R.id.popupEditCourseName);
+		popupCourseInput = (EditText) findViewById(R.id.editTextCoursePopUp);
 		database = new DatabaseHandler(getApplicationContext());
-		setTitle("Edit player");
+		setTitle("Edit course");
 		popupCourseTextView.setText("Enter course name: ");
 		Bundle b = getIntent().getExtras();
-		String courseName = b.getString("Course");
-		course = database.getCourse(courseName);
-		popupCourseInput = (EditText) findViewById(R.id.editCoursePopUp);
+		int courseID = b.getInt("Course");
+		course = database.getCourse(courseID);
 		popupCourseInput.setText(course.getName());
 		popupCourseInput.selectAll();
 		
@@ -52,6 +52,7 @@ public class EditCoursePopUpActivity extends Activity {
 		String name = popupCourseInput.getText().toString();
 		course.setName(name);
 		try {
+			Log.d("In the try", course.getName());
 			database.updateCourse(course);
 		} catch (SQLiteConstraintException c) {
 			saveOK = false;

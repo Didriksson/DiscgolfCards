@@ -97,9 +97,9 @@ public final class R {
         public static final int courseSelectSpinner=0x7f0800d4;
         public static final int deleteButton=0x7f08001c;
         public static final int editButton=0x7f080055;
-        public static final int editCoursePopUp=0x7f080057;
         public static final int editPlayerPopUp=0x7f08005a;
         public static final int editText1=0x7f080061;
+        public static final int editTextCoursePopUp=0x7f080058;
         public static final int editViewlayout=0x7f08005d;
         public static final int editViewlayoutCourse=0x7f080051;
         public static final int editcardsbutton=0x7f080064;
@@ -177,7 +177,7 @@ public final class R {
         public static final int playerlayoutR7=0x7f0800c5;
         public static final int playerlayoutR8=0x7f0800ca;
         public static final int popupDoneButton=0x7f08004d;
-        public static final int popupEditCourseDoneButton=0x7f080058;
+        public static final int popupEditCourseDoneButton=0x7f080057;
         public static final int popupEditCourseName=0x7f080059;
         public static final int popupEditDoneButton=0x7f08005b;
         public static final int popupEditName=0x7f08005c;

@@ -180,7 +180,7 @@ public class ScorecardSubmenu extends Activity {
 				intent = new Intent(this, MainScorecard.class);
 
 			Course course = (Course) courseSpinner.getSelectedItem();
-			b.putString("course", course.getName());
+			b.putInt("course", course.getID());
 			intent.putExtras(b);
 			startActivity(intent);
 			finish();

@@ -43,7 +43,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		int numberOfPlayers = b.getInt("numberOfPlayers");
 		Player[] players = setUpPlayers(numberOfPlayers);
 
-		Course course = database.getCourse(b.getString("course"));
+		Course course = database.getCourse(b.getInt("course"));
 		scorecard = ScorecardFactory.createInstance(players, course, 1, getApplicationContext());
 		
 		setPlayerLayoutsVisible();
