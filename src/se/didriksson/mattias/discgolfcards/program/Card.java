@@ -5,8 +5,8 @@ import android.annotation.SuppressLint;
 
 public class Card implements Comparable<Card>{
 
-	public final String name;
-	public final String description;
+	private String name;
+	private String description;
 	private int id;
 	boolean picked;
 	
@@ -41,10 +41,17 @@ public class Card implements Comparable<Card>{
 		return description;
 	}
 
+	public void setDescription(String desc) {
+		this.description = desc;
+	}
 	public String getName(){
 		return this.name;
 		}
 
+	public void setName(String name){
+		this.name = name;
+		}
+	
 	public boolean isPicked() {
 		return picked;
 	}

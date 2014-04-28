@@ -24,5 +24,6 @@
     <string name="title_activity_new_player_pop_up">NewPlayerPopUpActivity</string>
     <string name="title_activity_edit_course_pop_up">EditCoursePopUpActivity</string>
     <string name="title_activity_choose_player_for_active_cards">ChoosePlayerForActiveCards</string>
+    <string name="title_activity_edit_cards_pop_up">EditCardsPopUpActivity</string>
 
 </resources>

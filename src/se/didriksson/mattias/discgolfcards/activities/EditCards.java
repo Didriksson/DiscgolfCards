@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
@@ -78,10 +79,10 @@ public class EditCards extends Activity {
 
 	public void deleteCard(View view) {
 
-		showDialog("Do you really want to delete the selected cards?", true);
-		if(yesSelected)
+		showDeleteCardDialog("Do you really want to delete the selected cards?");
+		Log.d("I'm already here though", "Hello!");
+		if (yesSelected)
 			deleteTheSelectedCards();
-		updateDisplayedInformation();
 	}
 
 	private void deleteTheSelectedCards() {
@@ -93,13 +94,10 @@ public class EditCards extends Activity {
 	}
 
 	public void copyCard(View view) {
-		showDialog("Do you really want to copy the selected cards?", true);
+		showCopyCardDialog("Do you really want to copy the selected cards?");
 		if (yesSelected) {
 			copyTheSelectedCards();
 		}
-
-		updateDisplayedInformation();
-
 	}
 
 	private void copyTheSelectedCards() {
@@ -113,28 +111,31 @@ public class EditCards extends Activity {
 	public void newCard(View view) {
 
 		Intent intent = new Intent(this, NewCourseActivity.class);
+		Bundle b = new Bundle();
+		b.putInt("cardID", -1);
+		intent.putExtras(b);
 		startActivity(intent);
 	}
 
 	public void editCard(View view) {
 
 		if (getNumberOfSelectedCards() > 1) {
-			showDialog("Please select only one card to edit.", false);
+			showEditCardMultipleSelectedCardsDialog("Please select only one card to edit.");
 		}
 
 		else {
 			int cardID = -1;
 			cardID = getCheckedCardID(cardID);
-			Intent intent = new Intent(this, EditCoursePopUpActivity.class);
+			Intent intent = new Intent(this, EditCardsPopUpActivity.class);
 			Bundle b = new Bundle();
-			b.putInt("Card", cardID);
+			b.putInt("cardID", cardID);
 			intent.putExtras(b);
 			startActivity(intent);
 
 		}
 
 	}
-
+	
 	private int getCheckedCardID(int cardID) {
 		for (int i = 0; i < cards.size(); i++) {
 			if (cb[i].isChecked()) {
@@ -144,46 +145,82 @@ public class EditCards extends Activity {
 		}
 		return cardID;
 	}
+	
+	private void showDeleteCardDialog(String msg) {
+		AlertDialog confirmDeleteAlert = new AlertDialog.Builder(this).create();
+		confirmDeleteAlert.setTitle("Warning!");
+		confirmDeleteAlert.setMessage(msg);
+		confirmDeleteAlert.setButton(AlertDialog.BUTTON_POSITIVE, "YES",
 
-	private void showDialog(String msg, boolean yesAndNoButton) {
-		AlertDialog nameExistsWarning = new AlertDialog.Builder(this).create();
-		yesSelected = false;
-		nameExistsWarning.setTitle("Warning!");
-		nameExistsWarning.setMessage(msg);
-		if(yesAndNoButton){
-			nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "YES",
-		
+		new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				deleteTheSelectedCards();
+				updateDisplayedInformation();
+				dialog.dismiss();
+
+			}
+		});
+
+		confirmDeleteAlert.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
 				new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						yesSelected = true;
 						dialog.dismiss();
 					}
 				});
+		confirmDeleteAlert.show();
 
-			nameExistsWarning.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
-					new DialogInterface.OnClickListener() {
+	}
 
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							dialog.dismiss();
-						}
-					});
-		}
-		
-		else
-		{
-			nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-					new DialogInterface.OnClickListener() {
+	private void showCopyCardDialog(String msg) {
+		AlertDialog confirmCopyAlert = new AlertDialog.Builder(this).create();
+		confirmCopyAlert.setTitle("Warning!");
+		confirmCopyAlert.setMessage(msg);
+		confirmCopyAlert.setButton(AlertDialog.BUTTON_POSITIVE, "YES",
 
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							dialog.dismiss();
-						}
-					});
-		}
-		nameExistsWarning.show();
+		new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				copyTheSelectedCards();
+				updateDisplayedInformation();
+				dialog.dismiss();
+
+			}
+		});
+
+		confirmCopyAlert.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+		confirmCopyAlert.show();
+
+	}
+	
+	
+	private void showEditCardMultipleSelectedCardsDialog(String msg) {
+		AlertDialog confirmDeleteAlert = new AlertDialog.Builder(this).create();
+		confirmDeleteAlert.setTitle("Warning!");
+		confirmDeleteAlert.setMessage(msg);
+		confirmDeleteAlert.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+
+		new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+
+			}
+		});
+		confirmDeleteAlert.show();
+
 	}
 
 	private int getNumberOfSelectedCards() {
@@ -197,5 +234,6 @@ public class EditCards extends Activity {
 		return numberOfcourse;
 
 	}
+
 
 }

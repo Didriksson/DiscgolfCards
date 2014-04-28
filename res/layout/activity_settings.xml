@@ -26,7 +26,7 @@
             android:weightSum="100" >
 
             <TextView
-                android:id="@+id/editText1"
+                android:id="@+id/nameOfCardButton"
                 style="@style/menuText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
