@@ -2,6 +2,8 @@ package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
 import se.didriksson.mattias.discgolfcards.program.FileHandler;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,6 +59,10 @@ public class RevengeGameActivity extends GameAbstractClass implements
 
 	@Override
 	public void completeRound(View view) {
+		showAlertDialogAndActAccordingly("Do you really want to finish this round?");
+	}
+
+	private void completeRoundAndFinishActivity() {
 		Intent intent = new Intent(this, CompleteRoundActivity.class);
 		Bundle b = new Bundle();
 
@@ -72,6 +78,42 @@ public class RevengeGameActivity extends GameAbstractClass implements
 		startActivity(intent);
 		finish();
 	}
+	
+	private void showAlertDialogAndActAccordingly(String msg) {
+		AlertDialog nameExistsWarning = new AlertDialog.Builder(this)
+				.create();
+		nameExistsWarning.setTitle("Round complete?");
+		nameExistsWarning
+				.setMessage(msg);
+
+		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"YES",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						completeRoundAndFinishActivity();
+						dialog.dismiss();
+					}
+				});
+
+
+		nameExistsWarning.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+		
+		nameExistsWarning.show();
+	}
+	
+	@Override
+	public void onBackPressed(){
+		showAlertDialogAndActAccordingly("Do you really want to finish this round?");
+	}
+
 
 	@Override
 	protected void updatePlayerInfo(int player) {

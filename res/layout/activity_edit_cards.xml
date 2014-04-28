@@ -28,21 +28,22 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scrollView1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="80"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="vertical" >
+            android:layout_weight="80" >
 
-            <ListView
-                android:id="@+id/listViewEditPlayers"
+            <LinearLayout
+                android:id="@+id/editCardsLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="0dp"
+                android:layout_weight="80"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical" >
+            </LinearLayout>
 
-            </ListView>
-
-        </LinearLayout>
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,24 +56,45 @@
                 style="@style/button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="30"
+                android:layout_weight="20"
                 android:onClick="closeWindow"
                 android:text="Back" />
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="40" />
 
             <Button
                 android:id="@+id/deleteButton"
                 style="@style/button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="30"
-                android:onClick="useCard"
-                android:text="Delete" />
+                android:layout_weight="20"
+                android:onClick="deleteCard"
+                android:text="Del" />
+
+            <Button
+                android:id="@+id/copyButton"
+                style="@style/button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:onClick="copyCard"
+                android:text="Copy" />
+
+            <Button
+                android:id="@+id/editButton"
+                style="@style/button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:onClick="editCard"
+                android:text="Edit" />
+
+            <Button
+                android:id="@+id/newCardButton"
+                style="@style/button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:onClick="newCard"
+                android:text="New" />
 
         </LinearLayout>
 

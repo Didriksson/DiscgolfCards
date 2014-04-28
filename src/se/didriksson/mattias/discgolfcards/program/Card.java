@@ -1,7 +1,9 @@
 package se.didriksson.mattias.discgolfcards.program;
 
+import android.annotation.SuppressLint;
 
-public class Card {
+
+public class Card implements Comparable<Card>{
 
 	public final String name;
 	public final String description;
@@ -55,5 +57,10 @@ public class Card {
 	public String toString(){
 		return description;
 	}
-	
+
+	@SuppressLint("DefaultLocale") @Override
+	public int compareTo(Card another) {
+		return this.name.toUpperCase().compareTo(
+				another.getName().toUpperCase());
+	}	
 }

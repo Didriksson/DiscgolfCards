@@ -149,16 +149,7 @@ public class MainScorecard extends GameAbstractClass {
 		nameExistsWarning.setTitle("Round complete?");
 		nameExistsWarning
 				.setMessage(msg);
-		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"YES",
-				new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						completeTheRoundAndFinnishActivity();
-						dialog.dismiss();
-					}
-				});
-
+		
 		nameExistsWarning.setButton(AlertDialog.BUTTON_NEGATIVE,"NO",
 				new DialogInterface.OnClickListener() {
 
@@ -169,6 +160,16 @@ public class MainScorecard extends GameAbstractClass {
 				});
 
 		
+		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"YES",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						completeTheRoundAndFinnishActivity();
+						dialog.dismiss();
+					}
+				});
+
 		nameExistsWarning.show();
 	}
 
@@ -204,6 +205,11 @@ public class MainScorecard extends GameAbstractClass {
 		intent.putExtras(b);
 		startActivity(intent);
 		finish();
+	}
+
+	@Override
+	public void onBackPressed(){
+		showAlertDialogAndActAccordingly("Do you really want to finish this round?");
 	}
 
 	private String timeFormater(Time time) {

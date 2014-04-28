@@ -4,11 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 import se.didriksson.mattias.discgolfcards.R;
-import se.didriksson.mattias.discgolfcards.R.drawable;
-import se.didriksson.mattias.discgolfcards.R.id;
-import se.didriksson.mattias.discgolfcards.R.layout;
-import se.didriksson.mattias.discgolfcards.R.menu;
-import se.didriksson.mattias.discgolfcards.R.style;
 import se.didriksson.mattias.discgolfcards.program.Course;
 import se.didriksson.mattias.discgolfcards.program.DatabaseHandler;
 import android.app.Activity;
@@ -39,8 +34,6 @@ public class EditCourse extends Activity {
 		
 		database = new DatabaseHandler(this);
 		removeCourseViewLayout = (LinearLayout) findViewById(R.id.removeViewLayoutCourse);
-		editCourseViewLayout = (LinearLayout) findViewById(R.id.editViewlayoutCourse);
-		editCoursesListView = (ListView) findViewById(R.id.listViewEditCourse);
 		editExcistingcourseRadioButtons();
 	}
 
