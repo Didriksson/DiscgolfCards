@@ -25,16 +25,16 @@ public class EditCards extends Activity {
 	LinearLayout editCardsLayout;
 	DatabaseHandler database;
 	CheckBox[] cb;
-	
+	boolean yesSelected = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit_cards);
-		
-		
+
 		editCardsLayout = (LinearLayout) findViewById(R.id.editCardsLayout);
 		database = new DatabaseHandler(this);
-		editExcistingCardRadioButtons();
+		updateDisplayedInformation();
 	}
 
 	@Override
@@ -43,18 +43,20 @@ public class EditCards extends Activity {
 		getMenuInflater().inflate(R.menu.edit_course, menu);
 		return true;
 	}
-	
 
 	public void onResume() {
 		super.onResume();
-		editExcistingCardRadioButtons();
+		updateDisplayedInformation();
 	}
 
-	private void editExcistingCardRadioButtons() {
+	private void updateDisplayedInformation() {
 		editCardsLayout.removeAllViews();
 		cards = database.getAllCards();
 		Collections.sort(cards);
+		createAndDisplayCheckBoxes();
+	}
 
+	private void createAndDisplayCheckBoxes() {
 		cb = new CheckBox[cards.size()];
 
 		for (int i = 0; i < cards.size(); i++) {
@@ -75,19 +77,37 @@ public class EditCards extends Activity {
 	}
 
 	public void deleteCard(View view) {
+
+		showDialog("Do you really want to delete the selected cards?", true);
+		if(yesSelected)
+			deleteTheSelectedCards();
+		updateDisplayedInformation();
+	}
+
+	private void deleteTheSelectedCards() {
 		for (int i = 0; i < cards.size(); i++) {
 			if (cb[i].isChecked()) {
 				database.deleteCard(cards.get(i));
 			}
 		}
-
-		editExcistingCardRadioButtons();
 	}
-	
-	public void copyCard(View view){
-		Intent intent = new Intent(this, NewCourseActivity.class);
-		startActivity(intent);
-		
+
+	public void copyCard(View view) {
+		showDialog("Do you really want to copy the selected cards?", true);
+		if (yesSelected) {
+			copyTheSelectedCards();
+		}
+
+		updateDisplayedInformation();
+
+	}
+
+	private void copyTheSelectedCards() {
+		for (int i = 0; i < cards.size(); i++) {
+			if (cb[i].isChecked()) {
+				database.addCard(cards.get(i));
+			}
+		}
 	}
 
 	public void newCard(View view) {
@@ -99,17 +119,12 @@ public class EditCards extends Activity {
 	public void editCard(View view) {
 
 		if (getNumberOfSelectedCards() > 1) {
-				showDialog("Please select only one card to edit.");
+			showDialog("Please select only one card to edit.", false);
 		}
 
 		else {
 			int cardID = -1;
-			for (int i = 0; i < cards.size(); i++) {
-				if (cb[i].isChecked()) {
-					cardID = cards.get(i).getID();
-					break;
-				}
-			}
+			cardID = getCheckedCardID(cardID);
 			Intent intent = new Intent(this, EditCoursePopUpActivity.class);
 			Bundle b = new Bundle();
 			b.putInt("Card", cardID);
@@ -119,22 +134,55 @@ public class EditCards extends Activity {
 		}
 
 	}
-	
-	private void showDialog(String msg) {
-		AlertDialog nameExistsWarning = new AlertDialog.Builder(this)
-				.create();
+
+	private int getCheckedCardID(int cardID) {
+		for (int i = 0; i < cards.size(); i++) {
+			if (cb[i].isChecked()) {
+				cardID = cards.get(i).getID();
+				break;
+			}
+		}
+		return cardID;
+	}
+
+	private void showDialog(String msg, boolean yesAndNoButton) {
+		AlertDialog nameExistsWarning = new AlertDialog.Builder(this).create();
+		yesSelected = false;
 		nameExistsWarning.setTitle("Warning!");
-		nameExistsWarning
-				.setMessage(msg);
-		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"OK",
+		nameExistsWarning.setMessage(msg);
+		if(yesAndNoButton){
+			nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "YES",
+		
 				new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						yesSelected = true;
 						dialog.dismiss();
 					}
 				});
 
+			nameExistsWarning.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					});
+		}
+		
+		else
+		{
+			nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					});
+		}
 		nameExistsWarning.show();
 	}
 
