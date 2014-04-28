@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -73,8 +74,28 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 	
 	protected void previousHole() {
 		scorecard.previousHole();
+		reloadInformation();
+		vibrate(50);
+	}
+	
+	protected void nextHole() {
+		if (scorecard.isLastHole()) {
+		} else {
+			scorecard.nextHole();
+			reloadInformation();
+			vibrate(50);
+
+		}
+	}
+
+	private void reloadInformation() {
 		updateHoleInfo();
 		updateAllPlayersInfo();
+	}
+
+	private void vibrate(long time) {
+		Vibrator v = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+		v.vibrate(time);
 	}
 
 	protected void updateAllPlayersInfo() {
@@ -84,18 +105,6 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 			}
 		}
 	}
-
-	protected void nextHole() {
-		if (scorecard.isLastHole()) {
-		} else {
-			scorecard.nextHole();
-			updateHoleInfo();
-			updateAllPlayersInfo();
-		}
-
-	}
-	
-	
 	
 
 	public void nextHoleListener(View view) {
@@ -230,7 +239,8 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 				InputMethodManager inputManager = (InputMethodManager) getApplicationContext()
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
 				inputManager.toggleSoftInput(0, 0);
-
+				
+				reloadInformation();
 				return true;
 			}
 			return false;

@@ -1,6 +1,8 @@
 package se.didriksson.mattias.discgolfcards.activities;
 
 import se.didriksson.mattias.discgolfcards.R;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.Time;
@@ -140,8 +142,42 @@ public class MainScorecard extends GameAbstractClass {
 		playerCourseTotal[player - 1].setText(""
 				+ scorecard.getTotalThrowsToCurrentHole(player));
 	}
+	
+	private void showAlertDialogAndActAccordingly(String msg) {
+		AlertDialog nameExistsWarning = new AlertDialog.Builder(this)
+				.create();
+		nameExistsWarning.setTitle("Round complete?");
+		nameExistsWarning
+				.setMessage(msg);
+		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"YES",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						completeTheRoundAndFinnishActivity();
+						dialog.dismiss();
+					}
+				});
+
+		nameExistsWarning.setButton(AlertDialog.BUTTON_NEGATIVE,"NO",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+
+		
+		nameExistsWarning.show();
+	}
 
 	public void completeRound(View view) {
+		
+		showAlertDialogAndActAccordingly("Do you really want to finish this round?");
+	}
+
+	private void completeTheRoundAndFinnishActivity() {
 		Intent intent = new Intent(this, CompleteRoundActivity.class);
 		Bundle b = new Bundle();
 		Time time = new Time();
