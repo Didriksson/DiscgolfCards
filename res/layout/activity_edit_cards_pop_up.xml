@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/textView1"
-            style="@style/textviewmedium"
+            style="@style/textviewlarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
@@ -28,13 +28,12 @@
 
         <EditText
             android:id="@+id/nameOfCardEditText"
-            style="@style/editTextStyle"
+            style="@style/editTextStyleCards"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="30dp"
-            android:ems="10"
-            android:textColor="#FFFFFF" >
+            android:ems="10" >
 
             <requestFocus />
         </EditText>
@@ -48,7 +47,7 @@
 
         <TextView
             android:id="@+id/textView2"
-            style="@style/textviewmedium"
+            style="@style/textviewlarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
@@ -56,13 +55,12 @@
 
         <EditText
             android:id="@+id/cardDescEditText"
-            style="@style/editTextStyle"
+            style="@style/editTextStyleCards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/textView2"
-            android:ems="10"
-            android:textColor="#FFFFFF" />
+            android:ems="10" />
 
     </RelativeLayout>
 

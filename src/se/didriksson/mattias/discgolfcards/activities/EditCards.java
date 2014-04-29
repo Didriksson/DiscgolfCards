@@ -110,7 +110,7 @@ public class EditCards extends Activity {
 
 	public void newCard(View view) {
 
-		Intent intent = new Intent(this, NewCourseActivity.class);
+		Intent intent = new Intent(this, EditCardsPopUpActivity.class);
 		Bundle b = new Bundle();
 		b.putInt("cardID", -1);
 		intent.putExtras(b);

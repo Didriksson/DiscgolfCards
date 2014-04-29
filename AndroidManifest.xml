@@ -102,7 +102,7 @@
             android:label="@string/title_activity_edit_course" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.EditCoursePopUpActivity"
+            android:name="se.didriksson.mattias.discgolfcards.EditCoursePopUpActivity"
             android:label="@string/title_activity_edit_course_pop_up" >
         </activity>
         <activity
