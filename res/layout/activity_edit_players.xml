@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Edit Players" />
+                android:text="@string/edit_players" />
 
         </LinearLayout>
 
@@ -69,8 +69,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:onClick="closeWindow"
-                android:text="Back" />
-
+                android:text="@string/back" />
             <Button
                 android:id="@+id/useButton"
                 style="@style/button"
@@ -78,7 +77,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:onClick="deletePlayer"
-                android:text="Delete" />
+                android:text="@string/delete"/>
 
             <Button
                 android:id="@+id/editButton"
@@ -87,7 +86,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:onClick="editPlayer"
-                android:text="Edit" />
+                android:text="@string/edit" />
 
             <Button
                 android:id="@+id/newButton"
@@ -96,7 +95,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:onClick="newPlayer"
-                android:text="New" />
+                android:text="@string/new_string" />
 
         </LinearLayout>
 

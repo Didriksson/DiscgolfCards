@@ -3,7 +3,6 @@
 
     <string name="app_name">Discgolf Cards</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_main_menu">Discgolf Cards</string>
     <string name="title_activity_scorecard_submenu">ScorecardSubmenu</string>
     <string name="title_activity_complete_round">CompleteRoundActivity</string>
@@ -12,7 +11,6 @@
     <string name="title_activity_stats">StatsActivity</string>
     <string name="title_activity_round_stats">RoundStatsActivity</string>
     <string name="title_activity_new_course">NewCourseActivity</string>
-    <string name="title_activity_draw_card_popup">A new card!</string>
     <string name="title_activity_draw_card_pop_up">Drawn Card</string>
     <string name="title_activity_assign_card_to_player">AssignCardToPlayerActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
@@ -25,5 +23,47 @@
     <string name="title_activity_edit_course_pop_up">EditCoursePopUpActivity</string>
     <string name="title_activity_choose_player_for_active_cards">ChoosePlayerForActiveCards</string>
     <string name="title_activity_edit_cards_pop_up">EditCardsPopUpActivity</string>
-
+    <string name="back">Back</string>
+    <string name="use">Use</string>
+    <string name="select_player_draw_card">Select player to draw a card:</string>
+    <string name="active_cards"> - Active cards</string>
+    <string name="select_player">Select player:</string>
+    <string name="menu">Menu:</string>
+    <string name="round_complete">Round Complete</string>
+    <string name="done">Done</string>
+    <string name="edit_cards">Edit Cards</string>
+    <string name="new_string">New</string>
+    <string name="name_of_card">Name of card:</string>
+    <string name="settings">Settings</string>
+    <string name="statistics">Statistics</string>
+    <string name="par">Par: </string>
+    <string name="del">Del</string>
+    <string name="copy">Copy</string>
+    <string name="edit">Edit</string>
+    <string name="newText">New</string>
+    <string name="newround">New Round</string>
+    <string name="card_desc">Card description</string>
+    <string name="player">Player</string>
+    <string name="edit_course">Edit Course</string>
+    <string name="edit_players">Edit Players</string>
+    <string name="delete">Delete</string>
+    <string name="quit_string">Quit</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="prev">Prev</string>
+    <string name="next">Next</string>
+    <string name="drawcard">Draw Card</string>
+    <string name="cards">Cards</string>
+    <string name="totalSkins">Total skins:</string>
+    <string name="scorecard">Scorecard</string>
+    <string name="add">Add</string>
+    <string name="coursecomma">Course: </string>
+    <string name="newplayer">New player</string>
+    <string name="start">Start</string>
+    <string name="editPlayers">Edit Players</string>
+    <string name="editcards">Edit Cards</string>
+    <string name="game">Game</string>
+    <string name="skinchallenge">Skin Challenge</string>
+	<string name="allroundforcourseandplayer">All rounds for course and player selected:</string>
+	<string name="finishround">Finish round.</string>
 </resources>

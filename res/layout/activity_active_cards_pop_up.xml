@@ -44,7 +44,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:onClick="closeWindow"
-                android:text="Back" />
+                android:text="@string/back"/>
 
             <TextView
                 android:id="@+id/textView1"
@@ -59,7 +59,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:onClick="useCard"
-                android:text="Use" />
+                android:text="@string/use" />
 
         </LinearLayout>
     </LinearLayout>

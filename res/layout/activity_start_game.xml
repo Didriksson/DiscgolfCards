@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Game" />
+                android:text="@string/game"/>
 
             <Button
                 android:id="@+id/editplayersbutton"
@@ -42,7 +42,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="25"
                 android:onClick="startScorecard"
-                android:text="Scorecard" />
+                android:text="@string/scorecard" />
 
             <Button
                 android:id="@+id/editcardsbutton"
@@ -52,7 +52,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="25"
                 android:onClick="startRevengeGame"
-                android:text="Skin Challenge" />
+                android:text="@string/skinchallenge" />
 
             <Button
                 android:id="@+id/backbutton"
@@ -62,7 +62,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="25"
                 android:onClick="back"
-                android:text="Back" />
+                                android:text="@string/back" />
 
         </LinearLayout>
 

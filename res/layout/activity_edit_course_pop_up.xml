@@ -17,7 +17,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:onClick="saveAndExit"
-        android:text="Done" />
+        android:text="@string/done" />
 
     <EditText
         android:id="@+id/editTextCoursePopUp"

@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Settings" />
+                android:text="@string/settings" />
 
             <Button
                 android:id="@+id/editplayersbutton"
@@ -42,7 +42,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="20"
                 android:onClick="startEditPlayers"
-                android:text="Edit Players" />
+                android:text="@string/edit_players" />
 
             <Button
                 android:id="@+id/editcoursebutton"
@@ -52,7 +52,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="20"
                 android:onClick="startEditCourse"
-                android:text="Edit Course" />
+                android:text="@string/edit_course" />
             
             <Button
                 android:id="@+id/editcardsbutton"
@@ -62,7 +62,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="20"
                 android:onClick="startEditCards"
-                android:text="Edit Cards" />
+                android:text="@string/edit_cards" />
 
             <Button
                 android:id="@+id/backbutton"
@@ -72,7 +72,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="20"
                 android:onClick="back"
-                android:text="Back" />
+                                android:text="@string/back" />
 
         </LinearLayout>
 

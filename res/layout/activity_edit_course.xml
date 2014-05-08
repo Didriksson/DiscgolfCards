@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Edit Course" />
+                android:text="@string/edit_course" />
 
         </LinearLayout>
 
@@ -58,7 +58,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:onClick="closeWindow"
-                android:text="Back" />
+                android:text="@string/back" />
 
             <Button
                 android:id="@+id/useButton"
@@ -67,7 +67,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:onClick="deleteCourse"
-                android:text="Delete" />
+                android:text="@string/delete" />
 
             <Button
                 android:id="@+id/editButton"
@@ -76,7 +76,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:onClick="editCourse"
-                android:text="Edit" />
+                android:text="@string/edit" />
 
             <Button
                 android:id="@+id/newButton"
@@ -85,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:onClick="newCourse"
-                android:text="New" />
+                android:text="@string/new_string" />
 
         </LinearLayout>
 

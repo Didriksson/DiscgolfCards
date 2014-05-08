@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Name of card:" />
+                android:text="@string/name_of_card" />
 
             <EditText
                 android:id="@+id/nameOfCardEditText"
@@ -49,14 +49,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Card description" />
+                android:text="@string/card_desc"/>
 
             <EditText
                 android:id="@+id/cardDescEditText"
                 style="@style/editTextStyleCards"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView2"
                 android:ems="10" />
         </LinearLayout>
 
@@ -79,7 +78,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="10"
                 android:onClick="saveAndExit"
-                android:text="Done" />
+                android:text="@string/done"  />
         </LinearLayout>
     </LinearLayout>
 

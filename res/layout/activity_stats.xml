@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:gravity="center_vertical"
-                android:text="Player:" />
+                android:text="@string/player" />
 
             <Spinner
                 android:id="@+id/spinnerPlayer"
@@ -51,7 +51,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:gravity="center_vertical"
-                android:text="Course:" />
+                android:text="@string/coursecomma" />
 
             <Spinner
                 android:id="@+id/spinnerCourses"
@@ -74,7 +74,7 @@
                 style="@style/textviewmedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All rounds for course and player selected:" />
+                android:text="@string/allroundforcourseandplayer" />
 
             <ListView
                 android:id="@+id/listViewRoundsOnCourse"

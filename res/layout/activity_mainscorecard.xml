@@ -33,7 +33,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="50"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Stora Vall"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
@@ -43,7 +42,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:gravity="left|center_vertical"
-                android:text="#1"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <LinearLayout
@@ -57,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="left|center_vertical"
-                    android:text="Par: "
+                    android:text="@string/par"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <EditText
@@ -65,18 +63,15 @@
                     style="@style/textviewlarge"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_toRightOf="@id/TextView01"
+                    
                     android:background="#00000000"
                     android:gravity="left|center_vertical"
                     android:inputType="phone"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:selectAllOnFocus="true"
-                    android:text="3"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
             </LinearLayout>
-
         </LinearLayout>
 
         <Button
@@ -86,8 +81,7 @@
             android:layout_height="match_parent"
             android:layout_weight="20"
             android:onClick="completeRound"
-            android:text="Done" />
-
+            android:text="@string/done" />
     </LinearLayout>
 
     <LinearLayout
@@ -126,7 +120,6 @@
                         android:layout_alignParentLeft="true"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <Button
@@ -138,7 +131,7 @@
                         android:layout_toRightOf="@+id/textViewNameP1"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/textviewCoursePar1"
@@ -148,8 +141,7 @@
                         android:layout_alignLeft="@+id/buttonDecrease1"
                         android:layout_alignRight="@+id/buttonDecrease1"
                         android:layout_below="@+id/buttonDecrease1"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <TextView
                         android:id="@+id/textviewCourseTotal1"
@@ -159,8 +151,7 @@
                         android:layout_alignLeft="@+id/buttonIncrease1"
                         android:layout_alignRight="@+id/buttonIncrease1"
                         android:layout_below="@+id/buttonDecrease1"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <Button
                         android:id="@+id/buttonIncrease1"
@@ -171,7 +162,7 @@
                         android:layout_toRightOf="@+id/throwsP1"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/throwsP1"
@@ -183,10 +174,8 @@
                         android:gravity="center_vertical|center_horizontal"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
-
+                        android:textSize="35sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -206,7 +195,6 @@
                         android:layout_alignParentLeft="true"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 2"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <Button
@@ -218,7 +206,7 @@
                         android:layout_toRightOf="@+id/throwsP2"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/throwsP2"
@@ -230,9 +218,8 @@
                         android:gravity="center_vertical|center_horizontal"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <Button
                         android:id="@+id/buttonDecrease2"
@@ -243,7 +230,7 @@
                         android:layout_toRightOf="@+id/textViewNameP2"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/textviewCoursePar2"
@@ -253,8 +240,7 @@
                         android:layout_alignLeft="@+id/buttonDecrease2"
                         android:layout_alignRight="@+id/buttonDecrease2"
                         android:layout_below="@+id/buttonDecrease2"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <TextView
                         android:id="@+id/textviewCourseTotal2"
@@ -264,9 +250,7 @@
                         android:layout_alignLeft="@+id/buttonIncrease2"
                         android:layout_alignRight="@+id/buttonIncrease2"
                         android:layout_below="@+id/buttonDecrease2"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
-
+                        android:gravity="center_horizontal" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -286,7 +270,6 @@
                         android:layout_alignParentLeft="true"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 3"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <Button
@@ -298,7 +281,7 @@
                         android:layout_toRightOf="@+id/throwsP3"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/throwsP3"
@@ -310,9 +293,8 @@
                         android:gravity="center_horizontal|center_vertical"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <Button
                         android:id="@+id/buttonDecrease3"
@@ -323,7 +305,7 @@
                         android:layout_toRightOf="@+id/textViewNameP3"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/textviewCoursePar3"
@@ -333,8 +315,7 @@
                         android:layout_alignLeft="@+id/buttonDecrease3"
                         android:layout_alignRight="@+id/buttonDecrease3"
                         android:layout_below="@+id/buttonDecrease3"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <TextView
                         android:id="@+id/textviewCourseTotal3"
@@ -344,9 +325,7 @@
                         android:layout_alignLeft="@+id/buttonIncrease3"
                         android:layout_alignRight="@+id/buttonIncrease3"
                         android:layout_below="@+id/buttonDecrease3"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
-
+                        android:gravity="center_horizontal" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -366,7 +345,6 @@
                         android:layout_alignParentLeft="true"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 4"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <Button
@@ -378,7 +356,7 @@
                         android:layout_toRightOf="@+id/throwsP4"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/throwsP4"
@@ -390,9 +368,8 @@
                         android:gravity="center_horizontal|center_vertical"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <Button
                         android:id="@+id/buttonDecrease4"
@@ -403,7 +380,7 @@
                         android:layout_toRightOf="@+id/textViewNameP4"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/textviewCoursePar4"
@@ -413,8 +390,7 @@
                         android:layout_alignLeft="@+id/buttonDecrease4"
                         android:layout_alignRight="@+id/buttonDecrease4"
                         android:layout_below="@+id/buttonDecrease4"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <TextView
                         android:id="@+id/textviewCourseTotal4"
@@ -424,9 +400,7 @@
                         android:layout_alignLeft="@+id/buttonIncrease4"
                         android:layout_alignRight="@+id/buttonIncrease4"
                         android:layout_below="@+id/buttonDecrease4"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
-
+                        android:gravity="center_horizontal" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -446,7 +420,6 @@
                         android:layout_alignParentLeft="true"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 5"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <Button
@@ -458,7 +431,7 @@
                         android:layout_toRightOf="@+id/throwsP5"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/throwsP5"
@@ -470,9 +443,8 @@
                         android:gravity="center_horizontal|center_vertical"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <Button
                         android:id="@+id/buttonDecrease5"
@@ -483,7 +455,7 @@
                         android:layout_toRightOf="@+id/textViewNameP5"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/textviewCoursePar5"
@@ -493,8 +465,7 @@
                         android:layout_alignLeft="@+id/buttonDecrease5"
                         android:layout_alignRight="@+id/buttonDecrease5"
                         android:layout_below="@+id/buttonDecrease5"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <TextView
                         android:id="@+id/textviewCourseTotal5"
@@ -504,9 +475,7 @@
                         android:layout_alignLeft="@+id/buttonIncrease5"
                         android:layout_alignRight="@+id/buttonIncrease5"
                         android:layout_below="@+id/buttonDecrease5"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
-
+                        android:gravity="center_horizontal" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -526,7 +495,6 @@
                         android:layout_alignParentLeft="true"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 6"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <Button
@@ -538,7 +506,7 @@
                         android:layout_toRightOf="@+id/throwsP6"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/throwsP6"
@@ -550,9 +518,8 @@
                         android:gravity="center_horizontal|center_vertical"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <Button
                         android:id="@+id/buttonDecrease6"
@@ -563,7 +530,7 @@
                         android:layout_toRightOf="@+id/textViewNameP6"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/textviewCoursePar6"
@@ -573,8 +540,7 @@
                         android:layout_alignLeft="@+id/buttonDecrease6"
                         android:layout_alignRight="@+id/buttonDecrease6"
                         android:layout_below="@+id/buttonDecrease6"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <TextView
                         android:id="@+id/textviewCourseTotal6"
@@ -584,9 +550,7 @@
                         android:layout_alignLeft="@+id/buttonIncrease6"
                         android:layout_alignRight="@+id/buttonIncrease6"
                         android:layout_below="@+id/buttonDecrease6"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
-
+                        android:gravity="center_horizontal" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -606,7 +570,6 @@
                         android:layout_alignParentLeft="true"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 7"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <Button
@@ -618,7 +581,7 @@
                         android:layout_toRightOf="@+id/throwsP7"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/throwsP7"
@@ -630,9 +593,8 @@
                         android:gravity="center_horizontal|center_vertical"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <Button
                         android:id="@+id/buttonDecrease7"
@@ -643,7 +605,7 @@
                         android:layout_toRightOf="@+id/textViewNameP7"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/textviewCoursePar7"
@@ -653,8 +615,7 @@
                         android:layout_alignLeft="@+id/buttonDecrease7"
                         android:layout_alignRight="@+id/buttonDecrease7"
                         android:layout_below="@+id/buttonDecrease7"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <TextView
                         android:id="@+id/textviewCourseTotal7"
@@ -664,9 +625,7 @@
                         android:layout_alignLeft="@+id/buttonIncrease7"
                         android:layout_alignRight="@+id/buttonIncrease7"
                         android:layout_below="@+id/buttonDecrease7"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
-
+                        android:gravity="center_horizontal" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -686,7 +645,6 @@
                         android:layout_alignParentLeft="true"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 8"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <Button
@@ -698,7 +656,7 @@
                         android:layout_toRightOf="@+id/throwsP8"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/throwsP8"
@@ -710,9 +668,8 @@
                         android:gravity="center_horizontal|center_vertical"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <Button
                         android:id="@+id/buttonDecrease8"
@@ -723,7 +680,7 @@
                         android:layout_toRightOf="@+id/textViewNameP8"
                         android:minWidth="48dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/textviewCoursePar8"
@@ -733,8 +690,7 @@
                         android:layout_alignLeft="@+id/buttonDecrease8"
                         android:layout_alignRight="@+id/buttonDecrease8"
                         android:layout_below="@+id/buttonDecrease8"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
+                        android:gravity="center_horizontal" />
 
                     <TextView
                         android:id="@+id/textviewCourseTotal8"
@@ -744,9 +700,7 @@
                         android:layout_alignLeft="@+id/buttonIncrease8"
                         android:layout_alignRight="@+id/buttonIncrease8"
                         android:layout_below="@+id/buttonDecrease8"
-                        android:gravity="center_horizontal"
-                        android:text="0" />
-
+                        android:gravity="center_horizontal" />
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>
@@ -765,7 +719,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:onClick="prevHoleListener"
-            android:text="Prev" />
+            android:text="@string/prev" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -780,8 +734,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:onClick="nextHoleListener"
-            android:text="Next" />
-
+            android:text="@string/next" />
     </LinearLayout>
 
 </LinearLayout>

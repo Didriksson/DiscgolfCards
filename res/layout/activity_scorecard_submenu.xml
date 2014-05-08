@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal|fill_vertical"
-                android:text="Scorecard"
+                android:text="@string/scorecard"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </LinearLayout>
@@ -47,7 +47,7 @@
                 android:layout_gravity="center_vertical|left"
                 android:layout_weight="25"
                 android:gravity="center_vertical"
-                android:text="Course: " />
+                android:text="@string/coursecomma" />
 
             <Spinner
                 android:id="@+id/courseSelectSpinner"
@@ -67,7 +67,7 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_weight="20"
                 android:onClick="newCourse"
-                android:text="Add" />
+                android:text="@string/add" />
 
         </LinearLayout>
 
@@ -108,7 +108,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="50"
                 android:onClick="newPlayer"
-                android:text="New player" />
+                android:text="@string/newplayer" />
 
             <TextView
                 android:id="@+id/player1ActiveCardsName"
@@ -123,7 +123,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:onClick="startScorecard"
-                android:text="Start" />
+                android:text="@string/start" />
 
         </LinearLayout>
 

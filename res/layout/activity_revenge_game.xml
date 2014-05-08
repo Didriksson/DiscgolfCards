@@ -30,7 +30,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="50"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Stora Vall"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
@@ -40,7 +39,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:gravity="left|center_vertical"
-                android:text="#1"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <LinearLayout
@@ -56,7 +54,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="50"
                     android:gravity="left|center_vertical"
-                    android:text="Par: "
+                    android:text="@string/par"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <EditText
@@ -64,7 +62,6 @@
                     style="@style/textviewlarge"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_toRightOf="@id/TextView01"
                     android:layout_weight="50"
                     android:background="#00000000"
                     android:gravity="left|center_vertical"
@@ -72,7 +69,7 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:selectAllOnFocus="true"
-                    android:text="3"
+                    
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
             </LinearLayout>
@@ -85,7 +82,7 @@
             android:layout_height="match_parent"
             android:layout_weight="20"
             android:onClick="completeRound"
-            android:text="Done" />
+            android:text="@string/done" />
     </LinearLayout>
 
     <LinearLayout
@@ -133,7 +130,6 @@
                             android:duplicateParentState="true"
                             android:gravity="center_vertical"
                             android:minWidth="150dp"
-                            android:text="Player 1"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
@@ -147,7 +143,7 @@
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/skinsR1"
@@ -159,21 +155,20 @@
                         android:gravity="center_vertical|center_horizontal"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="2"
+                        
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <Button
                         android:id="@+id/buttonDecrease1"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textviewCourseTotal1"
                         android:layout_toRightOf="@+id/linearLayout1"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         style="@style/textviewmedium"
@@ -181,19 +176,18 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/buttonDecrease1"
-                        android:text="Total skins:" />
+                        android:text="@string/totalSkins" />
 
                     <TextView
                         android:id="@+id/textviewTotalSkinsR1"
                         style="@style/textviewmedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/selectplayerEditText"
                         android:layout_alignRight="@+id/skinsR1"
                         android:layout_below="@+id/skinsR1"
                         android:layout_toRightOf="@+id/buttonDecrease1"
                         android:gravity="center_horizontal"
-                        android:text="0" />
+                         />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -217,7 +211,6 @@
                             android:duplicateParentState="true"
                             android:gravity="center_vertical"
                             android:minWidth="150dp"
-                            android:text="Player 1"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
@@ -231,7 +224,7 @@
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/skinsR2"
@@ -245,9 +238,9 @@
                         android:minWidth="50dp"
                         android:paddingLeft="12dp"
                         android:paddingRight="12dp"
-                        android:text="3"
+                        
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <TextView
                         android:id="@+id/textviewTotalSkinsR2"
@@ -259,19 +252,18 @@
                         android:layout_alignRight="@+id/skinsR2"
                         android:layout_below="@+id/buttonIncrease2"
                         android:gravity="center_horizontal"
-                        android:text="0" />
+                         />
 
                     <Button
                         android:id="@+id/buttonDecrease2"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textviewCourseTotal1"
                         android:layout_toRightOf="@+id/LinearLayout01"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/player1activename"
@@ -280,7 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/buttonDecrease2"
-                        android:text="Total skins:" />
+                        android:text="@string/totalSkins" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -304,7 +296,6 @@
                             android:duplicateParentState="true"
                             android:gravity="center_vertical"
                             android:minWidth="150dp"
-                            android:text="Player 1"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
@@ -318,7 +309,7 @@
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/skinsR3"
@@ -332,9 +323,9 @@
                         android:minWidth="50dp"
                         android:paddingLeft="12dp"
                         android:paddingRight="12dp"
-                        android:text="3"
+                        
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <TextView
                         android:id="@+id/textviewTotalSkinsR3"
@@ -345,19 +336,18 @@
                         android:layout_alignRight="@+id/skinsR3"
                         android:layout_below="@+id/buttonIncrease3"
                         android:gravity="center_horizontal"
-                        android:text="0" />
+                         />
 
                     <Button
                         android:id="@+id/buttonDecrease3"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textviewCourseTotal1"
                         android:layout_toRightOf="@+id/LinearLayout02"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/TextView05"
@@ -366,7 +356,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/buttonDecrease3"
-                        android:text="Total skins:" />
+                        android:text="@string/totalSkins" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -390,7 +380,6 @@
                             android:duplicateParentState="true"
                             android:gravity="center_vertical"
                             android:minWidth="150dp"
-                            android:text="Player 1"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
@@ -402,7 +391,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_toRightOf="@+id/skinsR4"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/skinsR4"
@@ -414,9 +403,9 @@
                         android:gravity="center_vertical|center_horizontal"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
+                        
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <TextView
                         android:id="@+id/textviewTotalSkinsR4"
@@ -427,19 +416,18 @@
                         android:layout_alignRight="@+id/skinsR4"
                         android:layout_below="@+id/buttonDecrease4"
                         android:gravity="center_horizontal"
-                        android:text="0" />
+                         />
 
                     <Button
                         android:id="@+id/buttonDecrease4"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textviewCourseTotal1"
                         android:layout_toRightOf="@+id/LinearLayout03"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/TextView06"
@@ -448,7 +436,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/buttonDecrease4"
-                        android:text="Total skins:" />
+                        android:text="@string/totalSkins" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -472,7 +460,6 @@
                             android:duplicateParentState="true"
                             android:gravity="center_vertical"
                             android:minWidth="150dp"
-                            android:text="Player 1"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
@@ -486,7 +473,7 @@
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/skinsR5"
@@ -498,9 +485,9 @@
                         android:gravity="center_vertical|center_horizontal"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
+                        
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <TextView
                         android:id="@+id/textviewTotalSkinsR5"
@@ -511,19 +498,18 @@
                         android:layout_alignRight="@+id/skinsR5"
                         android:layout_below="@+id/buttonDecrease5"
                         android:gravity="center_horizontal"
-                        android:text="0" />
+                         />
 
                     <Button
                         android:id="@+id/buttonDecrease5"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textviewCourseTotal1"
                         android:layout_toRightOf="@+id/LinearLayout04"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/TextView08"
@@ -532,7 +518,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/buttonDecrease5"
-                        android:text="Total skins:" />
+                        android:text="@string/totalSkins" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -556,7 +542,6 @@
                             android:duplicateParentState="true"
                             android:gravity="center_vertical"
                             android:minWidth="150dp"
-                            android:text="Player 1"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
@@ -570,7 +555,7 @@
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/skinsR6"
@@ -582,9 +567,9 @@
                         android:gravity="center_horizontal|center_vertical"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
+                        
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <TextView
                         android:id="@+id/textviewTotalSkinsR6"
@@ -595,19 +580,18 @@
                         android:layout_alignRight="@+id/skinsR6"
                         android:layout_below="@+id/buttonDecrease6"
                         android:gravity="center_horizontal"
-                        android:text="0" />
+                         />
 
                     <Button
                         android:id="@+id/buttonDecrease6"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textviewCourseTotal1"
                         android:layout_toRightOf="@+id/LinearLayout05"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/TextView04"
@@ -616,7 +600,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/buttonDecrease6"
-                        android:text="Total skins:" />
+                        android:text="@string/totalSkins" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -640,7 +624,6 @@
                             android:duplicateParentState="true"
                             android:gravity="center_vertical"
                             android:minWidth="150dp"
-                            android:text="Player 1"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
@@ -655,7 +638,7 @@
                         android:minHeight="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/skinsR7"
@@ -667,9 +650,9 @@
                         android:gravity="center_vertical|center_horizontal"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
+                        
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <TextView
                         android:id="@+id/textviewTotalSkinsR7"
@@ -680,19 +663,18 @@
                         android:layout_alignRight="@+id/skinsR7"
                         android:layout_below="@+id/buttonDecrease7"
                         android:gravity="center_horizontal"
-                        android:text="0" />
+                         />
 
                     <Button
                         android:id="@+id/buttonDecrease7"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textviewCourseTotal1"
                         android:layout_toRightOf="@+id/LinearLayout06"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/playernameactive"
@@ -701,7 +683,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/buttonDecrease7"
-                        android:text="Total skins:" />
+                        android:text="@string/totalSkins" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -725,7 +707,6 @@
                             android:duplicateParentState="true"
                             android:gravity="center_vertical"
                             android:minWidth="150dp"
-                            android:text="Player 1"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
                     </LinearLayout>
 
@@ -739,7 +720,7 @@
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <TextView
                         android:id="@+id/skinsR8"
@@ -751,9 +732,9 @@
                         android:gravity="center_vertical|center_horizontal"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
-                        android:text="3"
+                        
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35dp" />
+                        android:textSize="35sp" />
 
                     <TextView
                         android:id="@+id/textviewTotalSkinsR8"
@@ -764,19 +745,18 @@
                         android:layout_alignRight="@+id/skinsR8"
                         android:layout_below="@+id/buttonDecrease8"
                         android:gravity="center_horizontal"
-                        android:text="0" />
+                         />
 
                     <Button
                         android:id="@+id/buttonDecrease8"
                         style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textviewCourseTotal1"
                         android:layout_toRightOf="@+id/LinearLayout07"
                         android:maxWidth="50dp"
                         android:minWidth="50dp"
                         android:onClick="incrementAndDecrementThrow"
-                        android:text="-" />
+                        android:text="@string/minus" />
 
                     <TextView
                         android:id="@+id/TextView09"
@@ -785,7 +765,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@+id/buttonDecrease8"
-                        android:text="Total skins:" />
+                        android:text="@string/totalSkins" />
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>
@@ -804,7 +784,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:onClick="prevHoleListener"
-            android:text="Prev" />
+            android:text="@string/prev"/>
 
         <Button
             android:id="@+id/buttonDrawCard"
@@ -813,7 +793,7 @@
             android:layout_height="match_parent"
             android:layout_weight="45"
             android:onClick="drawCard"
-            android:text="Draw Card" />
+            android:text="@string/drawcard" />
 
         <Button
             android:id="@+id/buttonActiveCards"
@@ -822,7 +802,7 @@
             android:layout_height="match_parent"
             android:layout_weight="45"
             android:onClick="activeCards"
-            android:text="Cards" />
+            android:text="@string/cards"/>
 
         <Button
             android:id="@+id/nextButton"
@@ -831,7 +811,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:onClick="nextHoleListener"
-            android:text="Next" />
+            android:text="@string/next" />
     </LinearLayout>
 
 </LinearLayout>

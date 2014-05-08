@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal|fill_horizontal"
             android:onClick="menuButtonClick"
-            android:text="Menu" />
+            android:text="@string/menu" />
     </LinearLayout>
 
     <LinearLayout
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Round Complete"
+                android:text="@string/round_complete"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </LinearLayout>
@@ -73,11 +73,9 @@
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_gravity="center_vertical|left"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
@@ -92,7 +90,6 @@
                             style="@style/textviewlarge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Large Text"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
 
                         <TextView
@@ -100,7 +97,6 @@
                             style="@style/textviewmedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Medium Text"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>
@@ -118,11 +114,9 @@
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_gravity="center_vertical|left"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
@@ -137,7 +131,6 @@
                             style="@style/textviewlarge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Large Text"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
 
                         <TextView
@@ -145,7 +138,6 @@
                             style="@style/textviewmedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Medium Text"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>
@@ -163,11 +155,9 @@
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_gravity="center_vertical"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
@@ -182,7 +172,6 @@
                             style="@style/textviewlarge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Large Text"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
 
                         <TextView
@@ -190,7 +179,6 @@
                             style="@style/textviewmedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Medium Text"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>
@@ -208,11 +196,9 @@
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_gravity="center_vertical"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
@@ -227,7 +213,6 @@
                             style="@style/textviewlarge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Large Text"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
 
                         <TextView
@@ -235,7 +220,6 @@
                             style="@style/textviewmedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Medium Text"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>
@@ -253,11 +237,9 @@
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_gravity="center_vertical"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
@@ -272,7 +254,6 @@
                             style="@style/textviewlarge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Large Text"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
 
                         <TextView
@@ -280,7 +261,6 @@
                             style="@style/textviewmedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Medium Text"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>
@@ -298,11 +278,9 @@
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_gravity="center_vertical"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
@@ -317,7 +295,6 @@
                             style="@style/textviewlarge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Large Text"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
 
                         <TextView
@@ -325,7 +302,6 @@
                             style="@style/textviewmedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Medium Text"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>
@@ -343,11 +319,9 @@
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_gravity="center_vertical"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
@@ -362,7 +336,6 @@
                             style="@style/textviewlarge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Large Text"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
 
                         <TextView
@@ -370,7 +343,6 @@
                             style="@style/textviewmedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Medium Text"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>
@@ -388,11 +360,9 @@
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_gravity="center_vertical"
                         android:duplicateParentState="true"
                         android:minWidth="150dp"
-                        android:text="Player 1"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
@@ -407,7 +377,6 @@
                             style="@style/textviewlarge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Large Text"
                             android:textAppearance="?android:attr/textAppearanceLarge" />
 
                         <TextView
@@ -415,7 +384,6 @@
                             style="@style/textviewmedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Medium Text"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>

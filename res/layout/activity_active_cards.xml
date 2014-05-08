@@ -47,15 +47,14 @@
                         android:id="@+id/playernameactive"
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hejsan" />
+                        android:layout_height="wrap_content"/>
 
                     <TextView
                         android:id="@+id/activeText"
                         style="@style/textviewlarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" - Active cards" />
+                        android:text="@string/active_cards" />
 
                 </LinearLayout>
 
@@ -83,7 +82,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="30"
                 android:onClick="closeWindow"
-                android:text="Back" />
+                android:text="@string/back"/>
         </LinearLayout>
     </LinearLayout>
 

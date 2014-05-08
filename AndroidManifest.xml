@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="se.didriksson.mattias.discgolfcards"
+    package="se.bloomed.discgolfcards"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +16,11 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.MainScorecard"
+            android:name="se.bloomed.discgolfcards.activities.MainScorecard"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.MainMenuActivity"
+            android:name="se.bloomed.discgolfcards.activities.MainMenuActivity"
             android:label="@string/title_activity_main_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,88 +29,89 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.ScorecardSubmenu"
+            android:name="se.bloomed.discgolfcards.activities.ScorecardSubmenu"
             android:label="@string/title_activity_scorecard_submenu" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.CompleteRoundActivity"
+            android:name="se.bloomed.discgolfcards.activities.CompleteRoundActivity"
             android:label="@string/title_activity_complete_round" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.RevengeGameActivity"
+            android:name="se.bloomed.discgolfcards.activities.RevengeGameActivity"
             android:label="@string/title_activity_revenge_game" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.NewPlayerActivity"
+            android:name="se.bloomed.discgolfcards.activities.NewPlayerActivity"
             android:label="@string/title_activity_new_player"
             android:theme="@android:style/Theme.Dialog"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.StatsActivity"
+            android:name="se.bloomed.discgolfcards.activities.StatsActivity"
             android:label="@string/title_activity_stats" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.RoundStatsActivity"
+            android:name="se.bloomed.discgolfcards.activities.RoundStatsActivity"
             android:label="@string/title_activity_round_stats" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.NewCourseActivity"
+            android:name="se.bloomed.discgolfcards.activities.NewCourseActivity"
             android:label="@string/title_activity_new_course"
             android:theme="@android:style/Theme.Dialog"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.DrawCardPopUpActivity"
+            android:name="se.bloomed.discgolfcards.activities.DrawCardPopUpActivity"
             android:label="@string/title_activity_draw_card_pop_up"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.AssignCardToPlayerActivity"
+            android:name="se.bloomed.discgolfcards.activities.AssignCardToPlayerActivity"
             android:label="@string/title_activity_assign_card_to_player" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.SettingsActivity"
+            android:name="se.bloomed.discgolfcards.activities.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.StartGameActivity"
+            android:name="se.bloomed.discgolfcards.activities.StartGameActivity"
             android:label="@string/title_activity_start_game" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.ActiveCardsActivity"
+            android:name="se.bloomed.discgolfcards.activities.ActiveCardsActivity"
             android:label="@string/title_activity_active_cards" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.ActiveCardsPopUp"
+            android:name="se.bloomed.discgolfcards.activities.ActiveCardsPopUp"
             android:label="@string/title_activity_active_cards_pop_up" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.EditPlayers"
+            android:name="se.bloomed.discgolfcards.activities.EditPlayers"
             android:label="@string/title_activity_edit_players" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.EditCards"
+            android:name="se.bloomed.discgolfcards.activities.EditCards"
             android:label="@string/title_activity_edit_course" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.EditPlayerPopUpActivity"
+            android:name="se.bloomed.discgolfcards.activities.EditPlayerPopUpActivity"
             android:label="@string/title_activity_new_player_pop_up" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.EditCourse"
+            android:name="se.bloomed.discgolfcards.activities.EditCourse"
             android:label="@string/title_activity_edit_course" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.EditCoursePopUpActivity"
-            android:label="@string/title_activity_edit_course_pop_up" >
-        </activity>
-        <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.ChoosePlayerForActiveCards"
+            android:name="se.bloomed.discgolfcards.activities.ChoosePlayerForActiveCards"
             android:label="@string/title_activity_choose_player_for_active_cards" >
         </activity>
         <activity
-            android:name="se.didriksson.mattias.discgolfcards.activities.EditCardsPopUpActivity"
+            android:name="se.bloomed.discgolfcards.activities.EditCoursePopUpActivity"
+            android:label="@string/title_activity_edit_course_pop_up" >
+        </activity>
+        
+        <activity
+            android:name="se.bloomed.discgolfcards.activities.EditCardsPopUpActivity"
             android:label="@string/title_activity_edit_cards_pop_up" >
         </activity>
     </application>

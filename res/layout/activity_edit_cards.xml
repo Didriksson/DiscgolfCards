@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Edit Cards" />
+                android:text="@string/edit_cards" />
 
         </LinearLayout>
 
@@ -58,7 +58,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:onClick="closeWindow"
-                android:text="Back" />
+                android:text="@string/back" />
 
             <Button
                 android:id="@+id/deleteButton"
@@ -67,7 +67,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:onClick="deleteCard"
-                android:text="Del" />
+                android:text="@string/del" />
 
             <Button
                 android:id="@+id/copyButton"
@@ -76,7 +76,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:onClick="copyCard"
-                android:text="Copy" />
+                android:text="@string/copy" />
 
             <Button
                 android:id="@+id/editButton"
@@ -85,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:onClick="editCard"
-                android:text="Edit" />
+                android:text="@string/edit" />
 
             <Button
                 android:id="@+id/newCardButton"
@@ -94,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:onClick="newCard"
-                android:text="New" />
+                android:text="@string/newText" />
 
         </LinearLayout>
 
