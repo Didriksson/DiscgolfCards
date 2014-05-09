@@ -268,8 +268,7 @@ public final class R {
         public static final int activity_settings=0x7f030012;
         public static final int activity_start_game=0x7f030013;
         public static final int activity_stats=0x7f030014;
-        public static final int dropdownspinneritem=0x7f030015;
-        public static final int listviewrowcards=0x7f030016;
+        public static final int listviewrowcards=0x7f030015;
     }
     public static final class menu {
         public static final int active_cards=0x7f070000;
