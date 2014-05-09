@@ -51,7 +51,6 @@ public class EditCourse extends Activity {
 	}
 
 	private void editExcistingcourseRadioButtons() {
-		editCourseViewLayout.setVisibility(View.GONE);
 		removeCourseViewLayout.setVisibility(View.VISIBLE);
 
 		removeCourseViewLayout.removeAllViews();
