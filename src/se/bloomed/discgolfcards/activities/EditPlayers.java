@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import se.bloomed.discgolfcards.program.Course;
 import se.bloomed.discgolfcards.program.DatabaseHandler;
 import se.bloomed.discgolfcards.program.Player;
@@ -47,6 +49,19 @@ public class EditPlayers extends Activity {
 		editExcistingPlayersRadioButtons();
 	}
 
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
+
+	}
+	
 	public void onResume() {
 		super.onResume();
 		editExcistingPlayersRadioButtons();

@@ -1,5 +1,7 @@
 package se.bloomed.discgolfcards.activities;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import se.bloomed.discgolfcards.program.Course;
 import se.bloomed.discgolfcards.program.DatabaseHandler;
 import se.bloomed.discgolfcards.R;
@@ -17,6 +19,19 @@ public class NewCourseActivity extends AbstractPopUpWindow {
 		super.onCreate(savedInstanceState);
         setTitle("Add Course");
         popupTextView.setText("Enter course name: ");
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
+
 	}
 	
 	public void saveAndExit(View view) {

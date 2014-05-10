@@ -1,5 +1,7 @@
 package se.bloomed.discgolfcards.activities;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import se.bloomed.discgolfcards.R;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -29,6 +31,19 @@ public class MainScorecard extends GameAbstractClass {
 		setUpPlayerThrowsArray();
 		setUpPlayerParArray();
 		setUpPlayerTotalArray();
+
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
 
 	}
 

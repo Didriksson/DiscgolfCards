@@ -1,5 +1,7 @@
 package se.bloomed.discgolfcards.activities;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import se.bloomed.discgolfcards.R;
 import se.bloomed.discgolfcards.R.layout;
 import se.bloomed.discgolfcards.R.menu;
@@ -17,6 +19,19 @@ public class SettingsActivity extends Activity {
 		setContentView(R.layout.activity_settings);
 	}
 
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
+
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

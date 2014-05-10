@@ -1,5 +1,7 @@
 package se.bloomed.discgolfcards.activities;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import se.bloomed.discgolfcards.program.DatabaseHandler;
 import se.bloomed.discgolfcards.program.Player;
 import se.bloomed.discgolfcards.R;
@@ -37,6 +39,19 @@ public class EditPlayerPopUpActivity extends Activity {
 		popupInput.selectAll();
 	}
 
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
+
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

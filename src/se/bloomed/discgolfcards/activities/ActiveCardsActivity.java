@@ -3,11 +3,11 @@ package se.bloomed.discgolfcards.activities;
 import java.util.ArrayList;
 import java.util.List;
 
+import se.bloomed.discgolfcards.R;
 import se.bloomed.discgolfcards.program.Card;
 import se.bloomed.discgolfcards.program.Player;
 import se.bloomed.discgolfcards.program.Scorecard;
 import se.bloomed.discgolfcards.program.ScorecardFactory;
-import se.bloomed.discgolfcards.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.analytics.tracking.android.EasyTracker;
 
 public class ActiveCardsActivity extends Activity {
 
@@ -35,12 +37,25 @@ public class ActiveCardsActivity extends Activity {
 		setContentView(R.layout.activity_active_cards);
 		int playerID = getIntent().getExtras().getInt("playerID");
 		scorecard = ScorecardFactory.getInstance();
-		player = scorecard.getPlayer(playerID-1);
+		player = scorecard.getPlayer(playerID - 1);
 
 		cards = new ArrayList<Card>();
 		initializeListView();
 		setNamesOnPlayer();
 		updateList();
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
+
 	}
 
 	private void initializeListView() {

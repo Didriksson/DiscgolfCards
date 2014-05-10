@@ -1,5 +1,7 @@
 package se.bloomed.discgolfcards.activities;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import se.bloomed.discgolfcards.R;
 import android.app.Activity;
 import android.os.Bundle;
@@ -34,6 +36,19 @@ public class CompleteRoundActivity extends Activity {
 		setPlayerNames();
 		setPlayerScore();
 		setPlayerLayoutVisible();
+
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
 
 	}
 

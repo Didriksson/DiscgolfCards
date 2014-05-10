@@ -1,5 +1,7 @@
 package se.bloomed.discgolfcards.activities;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import se.bloomed.discgolfcards.program.Card;
 import se.bloomed.discgolfcards.program.Scorecard;
 import se.bloomed.discgolfcards.program.ScorecardFactory;
@@ -24,6 +26,19 @@ public class AssignCardToPlayerActivity extends Activity {
 
 		scorecard = ScorecardFactory.getInstance();
 		assignPlayerButtonsToArrayAndSetName();
+	}
+	
+	@Override
+	public void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
+
 	}
 
 	private void assignPlayerButtonsToArrayAndSetName() {
