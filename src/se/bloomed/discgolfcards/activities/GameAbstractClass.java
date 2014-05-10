@@ -56,19 +56,6 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 
 	}
 	
-	@Override
-	public void onStart() {
-		super.onStart();
-		EasyTracker.getInstance(this).activityStart(this);
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-		EasyTracker.getInstance(this).activityStop(this);
-
-	}
-
 	protected abstract void setUpDeck();
 	public abstract void completeRound(View view);
 	protected abstract void updatePlayerInfo(int player);
