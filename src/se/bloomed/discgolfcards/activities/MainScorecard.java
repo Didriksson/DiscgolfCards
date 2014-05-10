@@ -47,6 +47,12 @@ public class MainScorecard extends GameAbstractClass {
 
 	}
 
+	@Override
+	public void onResume(){
+		super.onResume();
+		reloadInformation();
+	}
+	
 	private void setUpPlayerTotalArray() {
 		playerCourseTotal = new TextView[MAX_NUMBER_OF_PLAYERS];
 		playerCourseTotal[0] = (TextView) findViewById(R.id.textviewCourseTotal1);

@@ -90,7 +90,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 	}
 
-	private void reloadInformation() {
+	protected void reloadInformation() {
 		updateHoleInfo();
 		updateAllPlayersInfo();
 	}
