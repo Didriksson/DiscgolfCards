@@ -28,7 +28,7 @@
     <string name="select_player_draw_card">Select player to draw a card:</string>
     <string name="active_cards"> - Active cards</string>
     <string name="select_player">Select player:</string>
-    <string name="menu">Menu:</string>
+    <string name="menu">Menu</string>
     <string name="round_complete">Round Complete</string>
     <string name="done">Done</string>
     <string name="edit_cards">Edit Cards</string>
