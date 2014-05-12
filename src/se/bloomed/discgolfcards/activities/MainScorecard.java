@@ -3,6 +3,7 @@ package se.bloomed.discgolfcards.activities;
 import com.google.analytics.tracking.android.EasyTracker;
 
 import se.bloomed.discgolfcards.R;
+import se.bloomed.discgolfcards.program.Scorecard;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,14 +21,17 @@ public class MainScorecard extends GameAbstractClass {
 	TextView[] playerCoursePar;
 	TextView[] playerCourseTotal;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_mainscorecard);
 		super.onCreate(savedInstanceState);
-
+		
 		EditText holePar = (EditText) findViewById(R.id.holeInfoPar);
 		holePar.setOnEditorActionListener(new OnEditTextListenerButtons());
 
+
+		
 		setUpPlayerThrowsArray();
 		setUpPlayerParArray();
 		setUpPlayerTotalArray();
@@ -52,6 +56,7 @@ public class MainScorecard extends GameAbstractClass {
 		super.onResume();
 		reloadInformation();
 	}
+	
 	
 	private void setUpPlayerTotalArray() {
 		playerCourseTotal = new TextView[MAX_NUMBER_OF_PLAYERS];

@@ -108,7 +108,7 @@
             android:label="@string/title_activity_choose_player_for_active_cards" >
         </activity>
         <activity
-            android:name="se.bloomed.discgolfcards.EditCoursePopUpActivity"
+            android:name="se.bloomed.discgolfcards.activities.EditCoursePopUpActivity"
             android:label="@string/title_activity_edit_course_pop_up" >
         </activity>
         <activity

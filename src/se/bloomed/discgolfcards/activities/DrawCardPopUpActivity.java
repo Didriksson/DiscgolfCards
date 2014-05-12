@@ -3,6 +3,7 @@ package se.bloomed.discgolfcards.activities;
 import com.google.analytics.tracking.android.EasyTracker;
 
 import se.bloomed.discgolfcards.program.Card;
+import se.bloomed.discgolfcards.program.DatabaseHandler;
 import se.bloomed.discgolfcards.program.ScorecardFactory;
 import se.bloomed.discgolfcards.R;
 import android.app.Activity;
@@ -15,9 +16,10 @@ public class DrawCardPopUpActivity extends Activity {
 	
 	String nameOfCard, descOfCard;
 	TextView cardDescTextView;
+	Card card;
 	
 	
-	
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,10 +27,15 @@ public class DrawCardPopUpActivity extends Activity {
 		
 		cardDescTextView = (TextView)findViewById(R.id.cardDescriptionTextView);
 		
-		Card card = ScorecardFactory.getInstance().getLastDrawnCard();
+		Card oldCard = (Card)getLastNonConfigurationInstance();
+		
+		if(oldCard == null)
+			card = ScorecardFactory.getInstance().getLastDrawnCard();
+		else
+			card = oldCard;
+
 		this.descOfCard = card.getDescription();
 		cardDescTextView.setText(this.descOfCard);
-		
 		setTitle(this.nameOfCard = card.getName());
 	
 	}
@@ -51,6 +58,11 @@ public class DrawCardPopUpActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.draw_card_pop_up, menu);
 		return true;
+	}
+	
+	@Override
+	public Object onRetainNonConfigurationInstance(){
+		return card;
 	}
 
 	

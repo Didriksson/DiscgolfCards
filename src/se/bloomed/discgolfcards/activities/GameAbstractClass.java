@@ -30,8 +30,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 	DatabaseHandler database = new DatabaseHandler(this);
 	private float downX;
 	private final float minSwipeDistance = 50;
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -42,29 +41,42 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		LinearLayout layout = (LinearLayout) findViewById(R.id.mainLayer);
 		layout.setOnTouchListener(this);
 
-		Bundle b = getIntent().getExtras();
-		int numberOfPlayers = b.getInt("numberOfPlayers");
-		Player[] players = setUpPlayers(numberOfPlayers);
+		Scorecard oldScorecard = (Scorecard) getLastNonConfigurationInstance();
+		if (oldScorecard != null)
+			scorecard = oldScorecard;
+		else {
+			Bundle b = getIntent().getExtras();
+			int numberOfPlayers = b.getInt("numberOfPlayers");
+			Player[] players = setUpPlayers(numberOfPlayers);
 
-		Course course = database.getCourse(b.getInt("course"));
-		scorecard = ScorecardFactory.createInstance(players, course, 1, getApplicationContext());
-		
+			Course course = database.getCourse(b.getInt("course"));
+			scorecard = ScorecardFactory.createInstance(players, course, 1,
+					getApplicationContext());
+		}
+
 		setPlayerLayoutsVisible();
 		setPlayerNames();
 		updateHoleInfo();
 		setUpDeck();
 
 	}
-	
+
 	protected abstract void setUpDeck();
+
 	public abstract void completeRound(View view);
+
 	protected abstract void updatePlayerInfo(int player);
+
 	protected abstract void decreamentScore(int i);
+
 	protected abstract void increamentScore(int i);
+
 	protected abstract void setPlayerNames();
+
 	protected abstract void setPlayerLayoutsVisible();
+
 	protected abstract void updateHoleInfo();
-	
+
 	protected Player[] setUpPlayers(int noPlayers) {
 		Player[] player = new Player[noPlayers];
 		Bundle b = getIntent().getExtras();
@@ -73,13 +85,13 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 		return player;
 	}
-	
+
 	protected void previousHole() {
 		scorecard.previousHole();
 		reloadInformation();
 		vibrate(50);
 	}
-	
+
 	protected void nextHole() {
 		if (scorecard.isLastHole()) {
 		} else {
@@ -96,7 +108,8 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 	}
 
 	private void vibrate(long time) {
-		Vibrator v = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+		Vibrator v = (Vibrator) this.getApplicationContext().getSystemService(
+				Context.VIBRATOR_SERVICE);
 		v.vibrate(time);
 	}
 
@@ -107,7 +120,6 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 			}
 		}
 	}
-	
 
 	public void nextHoleListener(View view) {
 		nextHole();
@@ -137,6 +149,11 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 			}
 		}
 		return false;
+	}
+	
+	@Override
+	public Object onRetainNonConfigurationInstance(){
+		return scorecard;
 	}
 
 	public void incrementAndDecrementThrow(View view) {
@@ -208,8 +225,10 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		default:
 			break;
 		}
+		
+
 	}
-	
+
 	class OnEditTextListenerButtons implements OnEditorActionListener {
 
 		@Override
@@ -241,7 +260,7 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 				InputMethodManager inputManager = (InputMethodManager) getApplicationContext()
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
 				inputManager.toggleSoftInput(0, 0);
-				
+
 				reloadInformation();
 				return true;
 			}
@@ -249,8 +268,8 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 		}
 
 		private void showDialog(String msg) {
-			AlertDialog nameExistsWarning = new AlertDialog.Builder(getApplicationContext())
-					.create();
+			AlertDialog nameExistsWarning = new AlertDialog.Builder(
+					getApplicationContext()).create();
 			nameExistsWarning.setTitle("Warning!");
 			nameExistsWarning.setMessage(msg);
 			nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
@@ -267,7 +286,4 @@ public abstract class GameAbstractClass extends SwipeActivity implements
 
 	}
 
-	
 }
-
-
