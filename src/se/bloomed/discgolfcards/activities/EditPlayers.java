@@ -1,30 +1,24 @@
 package se.bloomed.discgolfcards.activities;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.google.analytics.tracking.android.EasyTracker;
-
-import se.bloomed.discgolfcards.program.Course;
+import se.bloomed.discgolfcards.R;
 import se.bloomed.discgolfcards.program.DatabaseHandler;
 import se.bloomed.discgolfcards.program.Player;
-import se.bloomed.discgolfcards.program.Round;
-import se.bloomed.discgolfcards.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+
+import com.google.analytics.tracking.android.EasyTracker;
 
 public class EditPlayers extends Activity {
 
@@ -33,7 +27,6 @@ public class EditPlayers extends Activity {
 	ListView editPlayersListView;
 	LinearLayout removeViewLayout;
 	LinearLayout editViewLayout;
-	ArrayAdapter<Player> playerAdapter;
 	DatabaseHandler database;
 
 	@Override
@@ -61,7 +54,7 @@ public class EditPlayers extends Activity {
 		EasyTracker.getInstance(this).activityStop(this);
 
 	}
-	
+
 	public void onResume() {
 		super.onResume();
 		editExcistingPlayersRadioButtons();
@@ -121,7 +114,7 @@ public class EditPlayers extends Activity {
 	public void editPlayer(View view) {
 
 		if (getNumberOfSelectedPlayers() > 1) {
-				showDialog("Please select only one player to edit.");
+			showDialog("Please select only one player to edit.");
 		}
 
 		else {
@@ -141,14 +134,12 @@ public class EditPlayers extends Activity {
 		}
 
 	}
-	
+
 	private void showDialog(String msg) {
-		AlertDialog nameExistsWarning = new AlertDialog.Builder(this)
-				.create();
+		AlertDialog nameExistsWarning = new AlertDialog.Builder(this).create();
 		nameExistsWarning.setTitle("Warning!");
-		nameExistsWarning
-				.setMessage(msg);
-		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE,"OK",
+		nameExistsWarning.setMessage(msg);
+		nameExistsWarning.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
 				new DialogInterface.OnClickListener() {
 
 					@Override

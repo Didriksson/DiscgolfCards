@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="se.bloomed.discgolfcards"
-    android:versionCode="2"
-    android:versionName="1.1" >
+    android:versionCode="3"
+    android:versionName="1.2" >
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -19,11 +19,15 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="se.bloomed.discgolfcards.activities.MainScorecard"
-            android:label="@string/app_name" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.MainMenuActivity"
-            android:label="@string/title_activity_main_menu" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_main_menu"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,88 +36,128 @@
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.ScorecardSubmenu"
-            android:label="@string/title_activity_scorecard_submenu" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_scorecard_submenu"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.CompleteRoundActivity"
-            android:label="@string/title_activity_complete_round" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_complete_round"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.RevengeGameActivity"
-            android:label="@string/title_activity_revenge_game" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_revenge_game"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.NewPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_new_player"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.StatsActivity"
-            android:label="@string/title_activity_stats" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_stats"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.RoundStatsActivity"
-            android:label="@string/title_activity_round_stats" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_round_stats"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.NewCourseActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_new_course"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.DrawCardPopUpActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_draw_card_pop_up"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.AssignCardToPlayerActivity"
-            android:label="@string/title_activity_assign_card_to_player" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_assign_card_to_player"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.StartGameActivity"
-            android:label="@string/title_activity_start_game" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_start_game"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.ActiveCardsActivity"
-            android:label="@string/title_activity_active_cards" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_active_cards"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.ActiveCardsPopUp"
-            android:label="@string/title_activity_active_cards_pop_up" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_active_cards_pop_up"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.EditPlayers"
-            android:label="@string/title_activity_edit_players" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_edit_players"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.EditCards"
-            android:label="@string/title_activity_edit_course" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_edit_course"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.EditPlayerPopUpActivity"
-            android:label="@string/title_activity_new_player_pop_up" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_new_player_pop_up"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.EditCourse"
-            android:label="@string/title_activity_edit_course" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_edit_course"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.ChoosePlayerForActiveCards"
-            android:label="@string/title_activity_choose_player_for_active_cards" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_choose_player_for_active_cards"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.EditCoursePopUpActivity"
-            android:label="@string/title_activity_edit_course_pop_up" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_edit_course_pop_up"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="se.bloomed.discgolfcards.activities.EditCardsPopUpActivity"
-            android:label="@string/title_activity_edit_cards_pop_up" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_edit_cards_pop_up"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 
